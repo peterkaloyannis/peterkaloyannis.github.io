@@ -38,22 +38,18 @@ export default function BlogPage(): JSX.Element {
               <SearchBar 
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search recipes (e.g., 'vegan', 'steak')..."
+                placeholder="Search the blog..."
               />
             </div>
             {/* Divider */}
             <hr className="my-6 border-gray-200" />
             <h3 className="text-lg font-bold text-gray-900 mb-4">About this page</h3>
-            <p className="text-base text-gray-700 leading-relaxed mb-6">
-              I think most people who know me (or any of my relatives) 
-              know that I (we) have no shortage of things to say. I grew up
-              in a household of loud and proud voices, always fighting for 
-              our airtime amongst one another. It is always quite the 
-              experience bringing a friend in to a family dinner. They
-              often admit that after seeing the environment I grew up in,
-              my candid but opinonated character seems a natural outcome.
+            <div className="text-base text-gray-700 leading-relaxed mb-6">
+              I think most people who know me know that I have no shortage of 
+              things to say. I grew up in a household of loud and proud voices, 
+              always fighting for our airtime amongst one another. 
               <br/><br/>
-              This is the page where I wanna express my voice. I wanna post
+              This is the page where I wanna express my voice. I will try to post
               <ul className="list-disc pl-5 space-y-2">
                 <li>Companions to articles to projects
                   (inspired by the hilarious <a href="https://eieio.games/blog/" className="text-blue-700">EIEIO</a>)</li>
@@ -63,7 +59,7 @@ export default function BlogPage(): JSX.Element {
                   (inspired by the live saving TODO) </li>
                 <li>Maybe, just maybe, an opinion or two.</li>
               </ul>
-            </p>
+            </div>
           </div>
         </div>
 

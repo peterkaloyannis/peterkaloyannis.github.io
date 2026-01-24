@@ -26,7 +26,6 @@ export function MarkdownRenderer({ content }: MarkdownRendererProps) {
   //    and set up basic options.
   marked.setOptions({
     gfm: true,
-    breaks: true, // Render line breaks as <br>
   });
 
   // 2. Parse the markdown content to raw HTML string
@@ -40,14 +39,26 @@ export function MarkdownRenderer({ content }: MarkdownRendererProps) {
     // 'prose' is a Tailwind utility that automatically formats
     // all HTML elements (h1, p, ul, pre, etc.) within the container.
     <div className="
-      prose 
-      max-w-none 
+      prose
+      max-w-5xl
       text-gray-700
       
       /* TARGETING LINKS */
       prose-a:text-blue-700 
-      prose-a:no-underline 
-    ">
+      prose-a:no-underline
+
+      prose-pre:bg-slate-200 
+      prose-pre:shadow-lg 
+      prose-pre:rounded-xl
+      prose-pre:text-gray-700
+      
+      prose-code:bg-slate-200
+      prose-code:px-1.5 
+      prose-code:py-1.5
+      prose-code:rounded-md
+      prose-code:before:content-none 
+      prose-code:after:content-none"
+    >
       <div 
         dangerouslySetInnerHTML={{ __html: safeHtml }} 
       />
@@ -118,7 +129,7 @@ export function ProjectCard({ icon: Icon, title, description, href, imageUrl }: 
         <img 
           src={imageUrl} 
           alt={`Image for ${title}`} 
-          className="w-full h-48 object-cover" 
+          className="mx-auto h-48 object-cover rounded-lg" 
         />
       ) : (
         <div className="w-full h-48 bg-gray-100 flex items-center justify-center">
@@ -246,9 +257,9 @@ export function CVEntry({ title, startYear, endYear, location, description }: CV
         </div>
         <span className="text-sm font-medium text-gray-500 bg-gray-100 px-3 py-1 rounded-full whitespace-nowrap">{date}</span>
       </div>
-      <p className="text-gray-700 leading-relaxed">
+      <div className="text-gray-700 leading-relaxed">
         <MarkdownRenderer content={description} />
-      </p>
+      </div>
     </div>
   );
 }
@@ -320,7 +331,7 @@ export function TextInput({ id, label, value, onChange, placeholder }: TextInput
         value={value}
         onChange={onChange}
         placeholder={placeholder}
-        className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+        className="w-full h-6 px-1 rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
       />
     </div>
   );

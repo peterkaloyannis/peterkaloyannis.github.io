@@ -97,7 +97,7 @@ const curatedRecipes: Recipe[] = [
     sourceUrl: 'https://www.seriouseats.com/reverse-seared-steak-recipe',
     imageUrl: "https://www.seriouseats.com/thmb/9xlGr_x7-SXqYSWWnov68rr1kVM=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__images__2017__02__20170217-reverse-sear-steak-02-d86b7f4676d240c196acf6903523c99f.jpg",
     content: 'This is my go-to technique for thick-cut steaks. The *Serious Eats* method is foolproof...', // We can keep a short content block here if we want
-    tags: ['steak', 'curated'],
+    tags: ['steak'],
   }
 ];
 

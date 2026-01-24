@@ -16,44 +16,6 @@ function formatDate(dateString: string): string {
   });
 }
 
-/**
- * A simple parser to handle newlines and code blocks.
- * For a real blog, you'd use a Markdown library like 'react-markdown'.
- */
-function PostContent({ content }: { content: string }) {
-  // Split the content by code blocks
-  const parts = content.split(/(\`\`\`typescript[\s\S]*?\`\`\`)/g);
-
-  return (
-    <div className="bg-white p-8 rounded-lg shadow-xl text-lg text-gray-800 leading-relaxed">
-      {parts.map((part, index) => {
-        // Check if the part is a code block
-        if (part.startsWith('```typescript')) {
-          // Extract the code, removing the ``` markers
-          const code = part.replace(/^```typescript\n|```$/g, '');
-          return (
-            <pre 
-              key={index}
-              className="bg-gray-800 text-white p-4 rounded-lg overflow-x-auto my-6 font-mono text-sm"
-            >
-              <code>{code.trim()}</code>
-            </pre>
-          );
-        }
-        
-        // It's a regular text part.
-        // We use 'whitespace-pre-wrap' to respect newlines.
-        return (
-          <p key={index} className="whitespace-pre-wrap mb-4">
-            {part}
-          </p>
-        );
-      })}
-    </div>
-  );
-}
-
-
 export default function BlogPostPage({ slug }: BlogPostPageProps): JSX.Element {
   // Find the correct post from the mock data using the slug
   const post = blogPosts.find((p) => p.slug === slug);
@@ -78,7 +40,7 @@ export default function BlogPostPage({ slug }: BlogPostPageProps): JSX.Element {
 
   // Render the post
   return (
-    <section id="blog-post">
+    <section id="blog-post" className="max-w-5xl mx-auto">
       {/* Back Link */}
       <a 
         href="#/blog" 

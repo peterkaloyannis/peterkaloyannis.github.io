@@ -152,18 +152,13 @@ export default function CVPage(): JSX.Element {
               download
               className="inline-block w-full text-center bg-indigo-600 text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:bg-indigo-700 transition-colors duration-200"
             >
-              Download CV (PDF)
+              Download PDF
             </a>
             <hr className="my-6 border-gray-200" />
             <h3 className="text-lg font-bold text-gray-900 mb-4">About this page</h3>
             <p className="text-base text-gray-700 leading-relaxed mb-6">
-              I have never particularly liked the feeling of time passing,
-              especially after moving far away from home. I watch as the 
-              people I grew up with change and experience life without my 
-              participation. <br/> <br/> 
-
-              I made this CV page because it always made me sad to pick and 
-              choose what was on my CV. While not that important, I was no 
+              I made this page because it always made me sad to pick and 
+              choose what was on my CV. While some entries lost relevance, I was no 
               less proud of myself then as I am now. I decided that I really 
               wanted a complete list of everything I have done, going all the
               way back to elementary school. <br/> <br/> 
@@ -176,7 +171,6 @@ export default function CVPage(): JSX.Element {
 
         {/* --- Column 2: Content (Scrollable) --- */}
         <div className="flex-1 space-y-8">
-          
           {/* Collapsible Experience Section */}
           <CollapsibleSection 
             title="Experience"

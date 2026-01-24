@@ -47,9 +47,9 @@ export default function RecipesPage(): JSX.Element {
       return typeFiltered; // If no tags are selected, return all
     }
     
-    return typeFiltered.filter(recipe => 
-      recipe.tags?.some(tag => selectedTags.includes(tag))
-    );
+  return typeFiltered.filter(recipe =>
+    selectedTags.every(tag => recipe.tags?.includes(tag))
+  );
 
   }, [searchQuery, showOriginal, showCurated, selectedTags]); // Dependency array
 
@@ -146,18 +146,12 @@ export default function RecipesPage(): JSX.Element {
               <hr className="my-6 border-gray-200" />
               <h3 className="text-lg font-bold text-gray-900 mb-4">About this page</h3>
               <p className="text-base text-gray-700 leading-relaxed mb-6">
-                Growing up, my mother made sure that I always ate well.
-                As she cooked meals, she expressed how much she cared for
-                her family. She made sure me and my siblings participated
-                in that expression; passing on a tradition of love and care
-                through taste, aroma and texture. I am sure she learned those
-                very traditions from her own mother, and I hope to pass them along 
-                someday too.<br/><br/>
-
-                Cooking is a primary way I express myself. In this list, I
-                provide some of my own recipes and the stories behind them.
-                I also link some of my favorite external recipes! Making this
-                page was probably my number one must have for this website!
+                Cooking is the primary way I express love for myself and others. 
+                <br/><br/>
+                In this list, I provide some of my own recipes and the stories 
+                behind them. I also link some of my favorite external recipes! 
+                Making this page was probably my number one motivation for building
+                this website!
               </p>
             </div>
           </div>

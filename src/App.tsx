@@ -82,17 +82,8 @@ function App(): JSX.Element {
       <Sidebar currentPage={route.page} />
 
       {/* --- 2. Main Content Area --- */}
-      {/* Mobile: 'pl-0'. Desktop: 'md:pl-72' */}
       <main className="flex-1 bg-amber-50 lg:pl-72">
-        
-        {/* --- THIS IS THE LINE I CHANGED ---
-          Removed 'max-w-7xl' and 'mx-auto' to make the content fluid.
-          Padding is still applied.
-        */}
-        <div className="px-6 pt-8 pb-16 md:px-12">
-          
-          {/* --- CONDITIONAL PAGE RENDERING --- */}
-          
+        <div className="px-6 pt-8 pb-16 md:px-12">          
           {route.page === 'home' && <HomePage />}
           {route.page === 'projects' && <ProjectsPage />}
           {route.page === 'blog' && <BlogPage />}
