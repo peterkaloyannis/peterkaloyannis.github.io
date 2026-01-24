@@ -1,7 +1,8 @@
 import { SectionTitle, ProjectCard } from '../components/Reusable';
 import { Presentation, Code, CheckSquare, Joystick, Globe } from '../components/Icons';
+import { type ReactElement } from 'react';
 
-export default function ProjectsPage(): JSX.Element {
+export default function ProjectsPage(): ReactElement {
   return (
     <section id="projects">
       <SectionTitle icon={Presentation} title="Projects" />

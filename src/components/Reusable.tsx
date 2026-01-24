@@ -1,6 +1,6 @@
 // src/components/Reusable.tsx
 
-import React from 'react';
+import React, {type ReactElement} from 'react';
 import { ChevronDown, BookOpen, ExternalLink, Search, Code} from './Icons'; // Icon for collapsible sections
 import { marked } from 'marked';
 import DOMPurify from 'dompurify';
@@ -100,7 +100,7 @@ interface SectionTitleProps {
   title: string;
 }
 
-export function SectionTitle({ icon: Icon, title }: SectionTitleProps): JSX.Element {
+export function SectionTitle({ icon: Icon, title }: SectionTitleProps): ReactElement {
   return (
     <div className="flex items-center space-x-3 mb-8">
       <Icon className="w-8 h-8 text-gray-900" />
@@ -121,7 +121,7 @@ interface ProjectCardProps {
   imageUrl?: string;
 }
 
-export function ProjectCard({ icon: Icon, title, description, href, imageUrl }: ProjectCardProps): JSX.Element {
+export function ProjectCard({ icon: Icon, title, description, href, imageUrl }: ProjectCardProps): ReactElement {
   const content = (
     <>
       {/* Image Block */}
@@ -241,7 +241,7 @@ function formatYearRange(startYear: number | string , endYear: number | string):
   return `${startYear}-${endYear}`;
 }
 
-export function CVEntry({ title, startYear, endYear, location, description }: CVEntryProps): JSX.Element {
+export function CVEntry({ title, startYear, endYear, location, description }: CVEntryProps): ReactElement {
 
   var date = formatYearRange(startYear, endYear)
 

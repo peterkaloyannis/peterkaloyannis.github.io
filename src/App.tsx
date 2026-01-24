@@ -1,6 +1,5 @@
 // src/App.tsx
-
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect, type ReactElement } from 'react'
 import type { AppRoute, AppRoutePage } from './types'; 
 
 // Import Components
@@ -57,7 +56,7 @@ function getRouteFromHash(): AppRoute {
  * Main Application Component
  * This is the root of your personal website.
  */
-function App(): JSX.Element {
+function App(): ReactElement {
   // State now holds the entire AppRoute object
   const [route, setRoute] = useState<AppRoute>(getRouteFromHash());
 

@@ -1,6 +1,6 @@
 // src/pages/CVPage.tsx
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, type ReactElement } from 'react';
 import {
   SectionTitle,
   CVEntry,
@@ -48,7 +48,7 @@ function filterCVEntry(
   });
 }
 
-export default function CVPage(): JSX.Element {
+export default function CVPage(): ReactElement {
   // --- State ---
   const [showFullCV, setShowFullCV] = useState(false);
   const [startYear, setStartYear] = useState(''); // e.g. "2019"

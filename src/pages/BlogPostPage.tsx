@@ -1,4 +1,4 @@
-import React from 'react';
+import {type ReactElement} from 'react';
 import { blogPosts } from '../content/blogData'; // Import mock data
 import { MarkdownRenderer } from '../components/Reusable';
 
@@ -16,7 +16,7 @@ function formatDate(dateString: string): string {
   });
 }
 
-export default function BlogPostPage({ slug }: BlogPostPageProps): JSX.Element {
+export default function BlogPostPage({ slug }: BlogPostPageProps): ReactElement {
   // Find the correct post from the mock data using the slug
   const post = blogPosts.find((p) => p.slug === slug);
 

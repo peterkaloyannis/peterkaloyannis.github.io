@@ -56,8 +56,6 @@ const parseRecipeMarkdown = (rawMarkdown: string) => {
 
 
 // --- 2. IMPORT MARKDOWN FILES ---
-// This Vite-specific function synchronously imports all .md files 
-// in the /src/recipes/ directory as raw text strings.
 const recipeModules = import.meta.glob('./recipes/*.md', { eager: true, query: 'raw' });
 
 
@@ -67,7 +65,7 @@ const originalRecipes: Recipe[] = Object.entries(recipeModules).map(([path, modu
   const slug = path.split('/').pop()?.replace('.md', '') || 'unknown-slug';
   
   // The raw string is inside the 'default' property of the imported module
-  const rawMarkdown = module.default; 
+  const rawMarkdown = (module as { default: string }).default;
   
   const { metadata, content } = parseRecipeMarkdown(rawMarkdown);
 

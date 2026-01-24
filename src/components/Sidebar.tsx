@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { type ReactElement, useState } from 'react';
 import type { AppRoutePage } from '../types'; 
 import {
   Home,
@@ -23,7 +23,7 @@ interface SidebarProps {
   currentPage: AppRoutePage;
 }
 
-export default function Sidebar({ currentPage }: SidebarProps): JSX.Element {
+export default function Sidebar({ currentPage }: SidebarProps): ReactElement {
   // Handler for mobile view.
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   
@@ -225,7 +225,7 @@ interface SidebarLinkProps {
   onClick: () => void; // Added for mobile menu closing
 }
 
-function SidebarLink({ icon: Icon, label, isActive, href, onClick }: SidebarLinkProps): JSX.Element {
+function SidebarLink({ icon: Icon, label, isActive, href, onClick }: SidebarLinkProps): ReactElement {
   
   const baseClasses = "flex items-center space-x-3 text-lg font-medium rounded-lg p-2 -ml-2 transition-colors duration-200 w-full text-left";
   const activeClasses = "bg-gray-800 text-white";

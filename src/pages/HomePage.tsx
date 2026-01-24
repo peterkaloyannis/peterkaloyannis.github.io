@@ -1,8 +1,6 @@
-import React from 'react';
-import { SectionTitle } from '../components/Reusable';
-import { User } from '../components/Icons';
+import { type ReactElement } from 'react';
 
-export default function HomePage(): JSX.Element {
+export default function HomePage(): ReactElement {
   return (
     <>
       <section id="hero" className="pt-24 pb-12 text-center">

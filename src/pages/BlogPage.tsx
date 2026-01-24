@@ -1,5 +1,4 @@
-import {useState, useMemo} from 'react';
-// Import the new card component
+import {useState, useMemo, type ReactElement} from 'react';
 import { SectionTitle, BlogPostCard, SearchBar } from '../components/Reusable'; 
 import { Newspaper } from '../components/Icons';
 import { blogPosts } from '../content/blogData'; // Import your mock data
@@ -13,7 +12,7 @@ const fuseOptions = {
 };
 const fuse = new Fuse(blogPosts, fuseOptions);
 
-export default function BlogPage(): JSX.Element {
+export default function BlogPage(): ReactElement {
   const [searchQuery, setSearchQuery] = useState('');
 
   const filteredBlogs: BlogPost[] = useMemo(() => {

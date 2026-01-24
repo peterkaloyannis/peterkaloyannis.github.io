@@ -1,12 +1,13 @@
 import { MarkdownRenderer, RecipeMetadataPanel } from '../components/Reusable'; 
 import { BookOpen } from '../components/Icons';
 import { allRecipes } from '../content/recipeData'; 
+import { type ReactElement } from 'react';
 
 interface RecipeDetailsPageProps {
   slug: string;
 }
 
-export default function RecipeDetailsPage({ slug }: RecipeDetailsPageProps): JSX.Element {
+export default function RecipeDetailsPage({ slug }: RecipeDetailsPageProps): ReactElement {
   // Find the specific recipe based on the URL slug
   const recipe = allRecipes.find(r => r.slug === slug);
   

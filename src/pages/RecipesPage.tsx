@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react'; 
+import { useState, useMemo, type ReactElement } from 'react';
 import Fuse from 'fuse.js'; 
 import { SectionTitle, RecipeCard, SearchBar, ToggleSwitch } from '../components/Reusable'; 
 import { BookOpen } from '../components/Icons';
@@ -18,7 +18,7 @@ const allTags = [
   ...new Set(allRecipes.flatMap(recipe => recipe.tags || []))
 ].sort();
 
-export default function RecipesPage(): JSX.Element {
+export default function RecipesPage(): ReactElement {
   
   // --- 2. STATE MANAGEMENT ---
   const [searchQuery, setSearchQuery] = useState('');

@@ -39,7 +39,7 @@ export const blogPosts: BlogPost[] = Object.entries(rawBlogPosts).map(([path, mo
   const slug = path.split('/').pop()?.replace('.md', '') || 'unknown-slug';
   
   // The raw string is inside the 'default' property of the imported module
-  const rawMarkdown = module.default; 
+  const rawMarkdown = (module as { default: string }).default;
   
   const { metadata, content } = parseRecipeMarkdown(rawMarkdown);
 
