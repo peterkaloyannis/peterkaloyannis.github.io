@@ -123,7 +123,7 @@ long dark tunnel. Your goal is to get out of the tunnel. Easy right? Just walk a
 the tunnel and eventually it will lead out!
 
 <div style="text-align: center;">
-<img src="./public/images/projects/feed_me.jpg" alt="FeedMe CLI" class="code-screenshot">
+<img src="/images/projects/feed_me.jpg" alt="FeedMe CLI" class="code-screenshot">
 Spider in a Tunnel Illustration goes here!
 </div>
 
@@ -132,7 +132,7 @@ You jump to catch one only to realize it has thrown you in a random direction. A
 another jump, another random direction.
 
 <div style="text-align: center;">
-<img src="./public/images/projects/feed_me.jpg" alt="FeedMe CLI" class="code-screenshot">
+<img src="/images/projects/feed_me.jpg" alt="FeedMe CLI" class="code-screenshot">
 Jumping all over the place spider
 </div>
 
@@ -140,7 +140,7 @@ This won't do! There are just too many flies pulling you in random ways! You dec
 off building a web behind you to block off one direction! Congratulations. That is your first coping mechanism.
 
 <div style="text-align: center;">
-<img src="./public/images/projects/feed_me.jpg" alt="FeedMe CLI" class="code-screenshot">
+<img src="/images/projects/feed_me.jpg" alt="FeedMe CLI" class="code-screenshot">
 Spider Jumping forward only.
 </div>
 
@@ -149,7 +149,7 @@ direction of a single exit. No matter which direction you jump, you will never t
 wrong way!
 
 <div style="text-align: center;">
-<img src="./public/images/projects/feed_me.jpg" alt="FeedMe CLI" class="code-screenshot">
+<img src="/images/projects/feed_me.jpg" alt="FeedMe CLI" class="code-screenshot">
 SPIDER WALLS!
 </div>
 
@@ -168,7 +168,7 @@ trying to get to the hole in a golf course. The structure provided by the walls 
 lifted and your old coping mechanism does not even make sense anymore.
 
 <div style="text-align: center;">
-<img src="./public/images/projects/feed_me.jpg" alt="FeedMe CLI" class="code-screenshot">
+<img src="/images/projects/feed_me.jpg" alt="FeedMe CLI" class="code-screenshot">
 SPIDER ON A GOLF COURSE
 </div>
 
@@ -184,7 +184,7 @@ weaving a thread each time it jumps further away from the hole of the golf cours
 and eventually it becomes clogged up in any direction other than the hole and the task becomes solvable again.
 
 <div style="text-align: center;">
-<img src="./public/images/projects/feed_me.jpg" alt="FeedMe CLI" class="code-screenshot">
+<img src="/images/projects/feed_me.jpg" alt="FeedMe CLI" class="code-screenshot">
 SPIDER IN A RAVINE
 </div>
 
@@ -238,7 +238,7 @@ the looming unstructured problems remained.
 ## Conquering the Unstructured
 
 <div style="text-align: center;">
-<img src="./public/images/projects/feed_me.jpg" alt="FeedMe CLI" class="code-screenshot">
+<img src="/images/projects/feed_me.jpg" alt="FeedMe CLI" class="code-screenshot">
 SPIDER BUILDING A WALL
 </div>
 
@@ -248,7 +248,7 @@ way tunnel and the golf course into a funnel. The solution to the unstructured p
 structure where it does not exists. If there is no wall to cast strings to, then build the wall!
 
 <div style="text-align: center;">
-<img src="./public/images/projects/feed_me.jpg" alt="FeedMe CLI" class="code-screenshot">
+<img src="/images/projects/feed_me.jpg" alt="FeedMe CLI" class="code-screenshot">
 3 TODO LIST RENDITIONS WITH INCREASING STRUCTURE
 </div>
 
@@ -265,7 +265,7 @@ that unstructured problems were as likely to be served as structured ones, I cou
 coping mechanisms for accomplishing a TODO list to brute force them!
 
 <div style="text-align: center;">
-<img src="./public/images/projects/feed_me.jpg" alt="FeedMe CLI" class="code-screenshot">
+<img src="images/projects/feed_me.jpg" alt="FeedMe CLI" class="code-screenshot">
 A screenshot of the CLI. Notice there is no edit command! Once you set a task you live with it!
 </div>
 
@@ -277,7 +277,7 @@ the scores of non-overdue tasks. A user chooses how many tasks they are fed at a
 is just a single task! It is built by someone with ADHD as as an effective trap for unstructured problems.
 
 <div style="text-align: center;">
-<img src="./public/images/projects/feed_me.jpg" alt="FeedMe CLI" class="code-screenshot">
+<img src="/images/projects/feed_me.jpg" alt="FeedMe CLI" class="code-screenshot">
 The <code>feed_me</code> task score functions over time.
 </div>
 
@@ -288,7 +288,7 @@ Before I wrote the core of it, I had a task list that was dozens of items long. 
 always about 3 entries long. I hope to keep it that way!
 
 <div style="text-align: center">
-<img src="./public/images/blogposts/feed_me/single_task.png" alt="FeedMe CLI" class="code-screenshot">
+<img src="/images/blogposts/feed_me/single_task.png" alt="FeedMe CLI" class="code-screenshot">
 My actual next task. I guess its tooth time 👨‍⚕️.
 </div>
 
