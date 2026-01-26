@@ -16,7 +16,7 @@ In January of 2024, I watched two youtube videos by [Tris of No Boilerplate](htt
 on being highly productive with ADHD that kickstarted a period of intense self reflection. Without
 spoiling much, the videos recount his experience of growing up and learning to be productive 
 in a software centered role. Notably, Tris describes the creation of self-imposed rules that he calls
-***coping mechanisms***. These videos laid out something about myself that I had never seen put into words; 
+***coping mechanisms***. These videos laid out something about myself I had never put into words; 
 an omnipresent struggle to fight my own attention span just to be functional. 
 
 While that statement may feel familiar to many of my disposition, I think its worth 
@@ -25,8 +25,8 @@ long dark tunnel. Your goal is to get out of the tunnel. Easy right? Just walk a
 the tunnel and eventually it will lead out!
 
 <div style="text-align: center;">
-<img src="./public/images/projects/feed_me.jpg" alt="FeedMe CLI" class="code-screenshot">
-Spider in a Tunnel Illustration goes here!
+<img src="/images/blogposts/feed_me/straight_path.gif" alt="Spider on a straight path!" class="code-screenshot">
+Simple as can be!
 </div>
 
 Well... not so fast. You see, there sure are a lot of flies in this tunnel and you sure are hungry. 
@@ -34,32 +34,31 @@ You jump to catch one only to realize it has thrown you in a random direction. A
 another jump, another random direction.
 
 <div style="text-align: center;">
-<img src="./public/images/projects/feed_me.jpg" alt="FeedMe CLI" class="code-screenshot">
-Jumping all over the place spider
+<img src="/images/blogposts/feed_me/jumping_around.gif" alt="FeedMe CLI" class="code-screenshot">
+Oh no! So hard to get out of the tunnel!
 </div>
 
 This won't do! There are just too many flies pulling you in random ways! You decide that you are better 
 off building a web behind you to block off one direction! Congratulations. That is your first coping mechanism.
-
-<div style="text-align: center;">
-<img src="./public/images/projects/feed_me.jpg" alt="FeedMe CLI" class="code-screenshot">
-Spider Jumping forward only.
-</div>
-
 As you move through the tunnel you work to build webs behind you, all of which leads you in the 
 direction of a single exit. No matter which direction you jump, you will never travel too far in the
 wrong way!
 
 <div style="text-align: center;">
-<img src="./public/images/projects/feed_me.jpg" alt="FeedMe CLI" class="code-screenshot">
-SPIDER WALLS!
+<img src="/images/blogposts/feed_me/coping_with_webs.gif" alt="FeedMe CLI" class="code-screenshot">
+So much easier to get out now!
 </div>
 
 I am trying to illustrate that ADHD is a somewhat uncontrollable random force. Building and enacting 
-resistance in the form of coping mechanisms is hard work. Even realizing when a coping mechanism
-is needed often involves trial and error. Creating one then requires a sort of implicit retrospection.
-Like moving a spider web, every enaction of a coping mechanism is also taxing. Picture it like an extra 
-calculation in your mind, adding overhead to all thoughts you make. 
+resistance in the form of coping mechanisms is hard work. Here is how I typically experience it:
+1. I attempt to do a task and realize by trial and error that I am defficient at it.
+1. I do a retrospection to find some way to make it easier. Usually a simple set of rules.
+1. When I find something that works, I try bake it in to myself as a context triggered habit.
+
+Like moving a spider web, there is a small cost every time a coping mechanism is triggered. Picture it 
+like an extra calculations in your mind, adding overhead to all the thoughts you make. These costs tend
+to build up and can lead to exhaustion over long days or in stimulating environments. I find shopping in 
+particular can be quite tiring.
 
 ## The Web of Mechanisms
 
@@ -70,8 +69,8 @@ trying to get to the hole in a golf course. The structure provided by the walls 
 lifted and your old coping mechanism does not even make sense anymore.
 
 <div style="text-align: center;">
-<img src="./public/images/projects/feed_me.jpg" alt="FeedMe CLI" class="code-screenshot">
-SPIDER ON A GOLF COURSE
+<img src="/images/blogposts/feed_me/golf.jpg" alt="FeedMe CLI" class="code-screenshot" style="transform: rotate(-90deg)">
+SPIDER ON A GOLF COURSE LOOKING LONGINGLY AT THE HOLE!
 </div>
 
 This is the reality of coping mechanisms in the real world. No mechanism is an effective catch all
@@ -86,8 +85,8 @@ weaving a thread each time it jumps further away from the hole of the golf cours
 and eventually it becomes clogged up in any direction other than the hole and the task becomes solvable again.
 
 <div style="text-align: center;">
-<img src="./public/images/projects/feed_me.jpg" alt="FeedMe CLI" class="code-screenshot">
-SPIDER IN A RAVINE
+<img src="/images/blogposts/feed_me/ravine.jpg" alt="FeedMe CLI" class="code-screenshot" style="transform: rotate(-90deg)">
+SPIDER IN A RAVINE OF WEBS LEADING TO THE HOLE OF THE GOLF COURSE!
 </div>
 
 That is my favorite depiction of the ***web of mechanisms*** I have built myself. As time has gone on, I 
@@ -109,14 +108,14 @@ person, when I just hadn't built the right coping mechanism yet.
 Next came a feeling of untapped potential and the desire to look for medication. I felt angry
 that I had to work harder things others got for free. I sought professional help but struggled 
 with the process, needing friends to help me navigate it. Finally, I managed to get some medication
-to try from of a sketchy street in Chinatown. I got my first taste of focus.
+in a sketchy alley in Chinatown. I got my first taste of focus.
 
 > Is this really me?
 
 For the first time in my life, it felt like the act of moving my focus was more energy intensive
 than keeping it in place. I realized what I had been missing, but noticed something was lost
 along the way. That intricate web of coping mechanisms that constantly bounced me around my mind had become 
-so rooted into my sense of self that I could not cleanly separate myself from it. My identity was 
+so rooted into my ego that I could not cleanly separate myself from it. My identity was 
 drawn into question as I wondered if all these silly rules were a tool or a part of me.
 
 > I can't book my own doctors appointments.
@@ -125,24 +124,18 @@ My internal conflict was drawn to a crescendo when I booked my own doctors appoi
 This may seem mundane, but I would sort booking a doctors appointment as an ***unstructured problem***. 
 The tasks to complete it are obscure, the rules are intricate, the process is unenjoyable, the deadline is nebulous 
 and the priority is lower than more immediate tasks. This makes it incredibly difficult to build 
-coping mechanisms around it. It is like casting the spider casting threads only to find there is no wall for 
-them to cling to. It was difficult to see myself solve such a problem on the first try while being so 
-far away from my identity.
+coping mechanisms around it. It's like the spider casting threads only to find there is no wall for 
+them to cling to. It was difficult to be so far from myself and yet be more capable.
 
 > Which version of myself do I choose?
 
 I can only describe the next feelings as despair. On one side, I was not myself, and on the other I was
 unable to solve a crucially important subset of tasks. I was at an impass, and I reached out to many for
 help. Over time they convinced me choose to stay off medications. Many of them saw my context switching
-to be charming or even a rare skill that helped me exceed. I had newfound resolve in my identity, but 
+to be charming or even a rare skill that helped me succeed. I had newfound resolve in my identity, but 
 the looming unstructured problems remained.
 
 ## Conquering the Unstructured
-
-<div style="text-align: center;">
-<img src="./public/images/projects/feed_me.jpg" alt="FeedMe CLI" class="code-screenshot">
-SPIDER BUILDING A WALL
-</div>
 
 You may have noticed a pattern in the spider analogies so far. All the coping mechanisms amount to
 adding structure to a problem that isn't inherrently there. The spider turned the two way tunnel into a one 
@@ -150,8 +143,8 @@ way tunnel and the golf course into a funnel. The solution to the unstructured p
 structure where it does not exists. If there is no wall to cast strings to, then build the wall!
 
 <div style="text-align: center;">
-<img src="./public/images/projects/feed_me.jpg" alt="FeedMe CLI" class="code-screenshot">
-3 TODO LIST RENDITIONS WITH INCREASING STRUCTURE
+<img src="/images/blogposts/feed_me/wall.jpg" alt="Spider building a wall!" class="code-screenshot"  style="transform: rotate(-90deg)">
+SPIDER BUILDING A WALL FOR HIS WEBS
 </div>
 
 The go to tool for this is the TODO list. A simple list of tasks that takes a nebulous pile of activities
@@ -166,9 +159,25 @@ presented a list I was given a single task, I could impose even more structure. 
 that unstructured problems were as likely to be served as structured ones, I could rely on all my other
 coping mechanisms for accomplishing a TODO list to brute force them!
 
+```
+> feed_me
+Usage: feed_me [OPTIONS] COMMAND [ARGS]...
+
+  feed_me is a program that provides a simple CLI interface for task
+  management. It's goal is to provide the user with a small subset of tasks to
+  focus on from their list. This is to protect users from the perils of task
+  selection.
+
+Options:
+  --help  Show this message and exit.
+
+Commands:
+  add       Adds a task to the task_master.
+  complete  Marks a task at the given task index as complete.
+  serve     Serves tasks based on the current time.
+```
 <div style="text-align: center;">
-<img src="./public/images/projects/feed_me.jpg" alt="FeedMe CLI" class="code-screenshot">
-A screenshot of the CLI. Notice there is no edit command! Once you set a task you live with it!
+A sample of the <code>feed_me</code> CLI. Notice there is no edit command! Once you set a task you live with it!
 </div>
 
 `feed_me` is the simple TODO list application I built with my partner Maria to test that hypothesis.
@@ -179,8 +188,10 @@ the scores of non-overdue tasks. A user chooses how many tasks they are fed at a
 is just a single task! It is built by someone with ADHD as as an effective trap for unstructured problems.
 
 <div style="text-align: center;">
-<img src="./public/images/projects/feed_me.jpg" alt="FeedMe CLI" class="code-screenshot">
-The <code>feed_me</code> task score functions over time.
+<img src="/images/blogposts/feed_me/equations.svg" alt="FeedMe Score Equations" class="mx-auto">
+The <code>feed_me</code> task score functions. Note that the start and deadline 
+is task specific so these are scaled and translated relative to one another. Not
+depicted here score clamping.
 </div>
 
 It is intentionally difficult to edit tasks, meaning that the order of execution of is determined when tasks
@@ -189,9 +200,20 @@ easily. As silly as this tool is, it has legitimately helped me accomplish tasks
 Before I wrote the core of it, I had a task list that was dozens of items long. These days, that list is 
 always about 3 entries long. I hope to keep it that way!
 
+```
+> feed_me serve
+Task:
+    Name: Go to dentist
+    Description: Need to book a dentist appointment
+    Creation Time: 2025-12-31 15:41:21.900569
+    Start Time: 2025-12-31 15:41:21.900569
+    Deadline: 2026-01-31 00:00:00
+    Priority: MEDIUM
+    Status: TODO
+    Score: 1.6688055598210905
+```
 <div style="text-align: center">
-<img src="./public/images/blogposts/feed_me/single_task.png" alt="FeedMe CLI" class="code-screenshot">
-My actual next task. I guess its tooth time 👨‍⚕️.
+My actual next task. I guess its tooth time. 👨‍⚕️
 </div>
 
 <div style="text-align: center; font-size:25px; padding-top:20px; font-weight:bold">
@@ -206,10 +228,9 @@ Notes & Special Thanks!</br>
 
 
 1. Thanks to Maria, Kevin, and Julieanna for proofreading this post for me.
-1. Thanks to Ariana for providing the artwork for the spider analogy. Find her here. TODO
+1. Thanks to Ariana for providing the artwork for the spider analogy. Find her [here](https://www.instagram.com/ariablart/?hl=en).
 1. Thanks to Kevin, Andrew, Leina, Franco, Maria, Jimmy, Carli and Panayota for helping me understand this better.
 1. Thanks to Chris for inspiring the name of this tool. Find him [here](https://cwoodall.com/).
 1. Thanks to my grandma for waiting patiently for me to call.
-1. Thanks for reading to the bottom!
-1. Animations (??) for the Spider random walk were done in the Godot enginge! (??)
+1. Animations for the Spider random walk were done in Godot! Find that code [here](https://github.com/peterkaloyannis/spiderwalk).
 1. Honorable mention to [this](https://www.youtube.com/watch?v=oavSiNIUJO0) video on being medicated.

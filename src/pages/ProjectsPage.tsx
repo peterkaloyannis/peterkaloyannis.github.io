@@ -11,8 +11,8 @@ export default function ProjectsPage(): ReactElement {
           <div className="bg-white p-6 rounded-lg shadow-xl sticky top-8">
             <h3 className="text-lg font-bold text-gray-900 mb-4">About this page</h3>
             <p className="text-base text-gray-700 leading-relaxed mb-1">
-              I am sometimes sat doing nothing, when I am hit with a 
-              lightning bolt of an idea that I must execute at that instant.
+              I am sometimes hit with a lightning bolt of an idea that I must execute 
+              at that instant.
               <br/><br/>
               Most of these <b><i>eureka moments</i></b> are actually super benign
               and contribute to an evergrowing pile of unfinished projects. Sometimes 
@@ -42,7 +42,7 @@ export default function ProjectsPage(): ReactElement {
         <ProjectCard 
           icon={Joystick}
           title="Diamond Drive"
-          description= "This was my first ever video game, put together in a week for the Bigmode Game Jam 2025. Diamond Drive placed in the top 5-25% depending on the category."
+          description= "This was my first ever video game, put together in a week for the Bigmode Game Jam 2025. Diamond Drive placed in the top 2-8% of more than 800 entries. (category dependent)"
           href="https://itch.io/jam/bigmode-game-jam-2025/rate/3298422"
           imageUrl="https://img.itch.zone/aW1nLzE5Njk1MzYxLmpwZw==/315x250%23c/BIG1z1.jpg"
         />
@@ -50,7 +50,7 @@ export default function ProjectsPage(): ReactElement {
           icon={Code}
           title="Disruption Statistics"
           description= "Disruption Statistics is a codebase that aims to provide a tokamak agnostic computing framework for computing disruptivity [1/s] values from time series data."
-          href="https://github.com/pkaloyannis-cfs/disruptionStatistics"
+          href="https://github.com/peterkaloyannis/disruptionStatistics"
           imageUrl="/images/projects/cmod_trajectory.jpg"
         />
         <ProjectCard 

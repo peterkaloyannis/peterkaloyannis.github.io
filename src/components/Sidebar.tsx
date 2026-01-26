@@ -56,9 +56,6 @@ export default function Sidebar({ currentPage }: SidebarProps): ReactElement {
               <h2 className="text-2xl font-extrabold text-white">
                 PETER <br/> KALOYANNIS
               </h2>
-              <p className="text-sm text-gray-400">
-                Built with React & TS
-              </p>
             </div>
 
             {/* --- Mobile Hamburger Button --- */}
@@ -132,9 +129,6 @@ export default function Sidebar({ currentPage }: SidebarProps): ReactElement {
                 <a href="https://github.com/peterkaloyannis" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
                   <Github className="w-6 h-6" />
                 </a>
-                <a href="https://github.com/pkaloyannis-cfs" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors"> {/* Placeholder for 2nd Github */}
-                  <Github className="w-6 h-6" />
-                </a>
                 <a href="https://orcid.org/0009-0002-3420-8961" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
                   <OrcidIcon className="w-6 h-6" />
                 </a>
@@ -195,9 +189,6 @@ export default function Sidebar({ currentPage }: SidebarProps): ReactElement {
         {/* 'justify-between' will now push this to the bottom */}
         <div className="hidden lg:flex space-x-4 justify-center">
           <a href="https://github.com/peterkaloyannis" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
-            <Github className="w-6 h-6" />
-          </a>
-          <a href="https://github.com/pkaloyannis-cfs" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors"> {/* Placeholder for 2nd Github */}
             <Github className="w-6 h-6" />
           </a>
           <a href="https://orcid.org/0009-0002-3420-8961" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">

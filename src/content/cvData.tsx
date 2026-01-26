@@ -63,7 +63,7 @@ Fellowship and a final GPA of 5.41/6. Conducted an geometric optimization study 
 Fast Ion Loss Detector (FILD) and did initial scoping of a planned avalanche photodiode upgrade \
 ([now in service](https://pubs.aip.org/aip/rsi/article/96/8/083504/3358340/Design-and-upgrades-of-the-TCV-fast-ion-loss)). \
 Thesis was supervised by Dr. Ambrogio Fasoli of EPFL and Dr. Cristina Rea of MIT on the disruptivity \
-metric. Find the repository [here](https://github.com/pkaloyannis-cfs/disruptionStatistics).',
+metric. Find the repository [here](https://github.com/peterkaloyannis/disruptionStatistics).',
     renderByDefault: true,
   },
   {
@@ -76,7 +76,7 @@ Science and Fusion Center (PSFC) with Dr. Cristina Rea. Explored the disruptivit
 metric as reliable and human interpretable indicator of plasma stability. Thesis \
 analyzed disruption data from the DIII-D and TCV tokamaks Find the thesis here \
 and the github repository here. Work largely involved Bayesian statistics \
-and a Python optomization. Find the repository [here](https://github.com/pkaloyannis-cfs/disruptionStatistics).',
+and a Python optomization. Find the repository [here](https://github.com/peterkaloyannis/disruptionStatistics).',
     renderByDefault: true,
   },
   {
