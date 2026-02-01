@@ -19,7 +19,7 @@ in a software centered role. Notably, Tris describes the creation of self-impose
 ***coping mechanisms***. These videos laid out something about myself I had never put into words; 
 an omnipresent struggle to fight my own attention span just to be functional. 
 
-While that statement may feel familiar to many of my disposition, I think its worth 
+While that statement may feel familiar to many of my disposition, It's worth 
 trying to describe the experience via an imperfect analogy. Imagine yourself as a spider in a 
 long dark tunnel. Your goal is to get out of the tunnel. Easy right? Just walk along 
 the tunnel and eventually it will lead out!
@@ -30,7 +30,7 @@ Simple as can be!
 </div>
 
 Well... not so fast. You see, there sure are a lot of flies in this tunnel and you sure are hungry. 
-You jump to catch one only to realize it has thrown you in a random direction. Another fly comes by...
+You jump to catch one only to realize you jumped in a random direction. Another fly comes by...
 another jump, another random direction.
 
 <div style="text-align: center;">
@@ -38,27 +38,26 @@ another jump, another random direction.
 Oh no! So hard to get out of the tunnel!
 </div>
 
-This won't do! There are just too many flies pulling you in random ways! You decide that you are better 
-off building a web behind you to block off one direction! Congratulations. That is your first coping mechanism.
-As you move through the tunnel you work to build webs behind you, all of which leads you in the 
-direction of a single exit. No matter which direction you jump, you will never travel too far in the
-wrong way!
+This won't do! There are just too many yummy flies pulling you in random ways! You decide that you are better 
+off building a web behind you to block off one direction! As you move through the tunnel you work to build 
+webs behind you, all of which leads you in the direction of a single exit. No matter which direction you 
+jump, you will never travel too far in the wrong way! Congratulations, you just made your first coping mechanism.
 
 <div style="text-align: center;">
 <img src="/images/blogposts/feed_me/coping_with_webs.gif" alt="FeedMe CLI" class="code-screenshot">
 So much easier to get out now!
 </div>
 
-I am trying to illustrate that ADHD is a somewhat uncontrollable random force. Building and enacting 
-resistance in the form of coping mechanisms is hard work. Here is how I typically experience it:
-1. I attempt to do a task and realize by trial and error that I am defficient at it.
-1. I do a retrospection to find some way to make it easier. Usually a simple set of rules.
-1. When I find something that works, I try bake it in to myself as a context triggered habit.
+I am trying to illustrate that ADHD is a random force that is actively tamed. Building and enacting 
+resistance in the form of coping mechanisms is hard work. It often plays out as
+1. You attempt to do a task and realize by trial and error that you are defficient at it.
+1. You do a retrospective to find some way to make it easier. Usually by a simple set of rules.
+1. When you find something that works, you try bake it in to yourself as a context triggered habit. 
 
-Like moving a spider web, there is a small cost every time a coping mechanism is triggered. Picture it 
-like an extra calculations in your mind, adding overhead to all the thoughts you make. These costs tend
-to build up and can lead to exhaustion over long days or in stimulating environments. I find shopping in 
-particular can be quite tiring.
+The work does not end there though! Like moving a spider web, there is a small cost every time a coping 
+mechanism is triggered. Picture it like an extra calculations in your mind, adding overhead to all the 
+thoughts you make. These costs tend to build up and can lead to exhaustion over long days or in stimulating 
+environments. I find shopping in particular can be quite tiring.
 
 ## The Web of Mechanisms
 
@@ -76,13 +75,12 @@ SPIDER ON A GOLF COURSE LOOKING LONGINGLY AT THE HOLE!
 This is the reality of coping mechanisms in the real world. No mechanism is an effective catch all
 for the wide variety of media, goals, and tasks assigned to people. What works well
 on paper won't work well on a computer with internet. What works well to focus you on programming 
-won't help focus you on difficult in person conversations. I had to falter in every context over 
-and over to understand that I was missing a coping mechanism. I had to invent that mechanism. I 
-had add it to the list.
+won't help focus you on difficult in person conversations. Each context and set of challenges
+sees the cycle of creating a mechanism repeat. Each time, a new set of rules is added to the list.
 
-The net result is a huge web of little rules I hold myself accountable for. Imagine this like the spider
+The net result is a huge web of little rules to hold yourself accountable to. Imagine this like the spider
 weaving a thread each time it jumps further away from the hole of the golf course. The web slowly fills in, 
-and eventually it becomes clogged up in any direction other than the hole and the task becomes solvable again.
+and eventually it becomes clogged up in any direction other than the hole. The task becomes solvable again.
 
 <div style="text-align: center;">
 <img src="/images/blogposts/feed_me/ravine.jpg" alt="FeedMe CLI" class="code-screenshot" style="transform: rotate(-90deg)">
@@ -92,13 +90,13 @@ SPIDER IN A RAVINE OF WEBS LEADING TO THE HOLE OF THE GOLF COURSE!
 That is my favorite depiction of the ***web of mechanisms*** I have built myself. As time has gone on, I 
 have added enough safety nets to tackle a lot of tasks as if I don't have ADHD at all. Despite my efforts 
 *a lot* of task is not *all* tasks and things slip through. My web is still composed of threads with 
-holes between them, and I can fall through unexpectedly at times.
+holes between them, and I can fall out of it unexpectedly.
 
 ## Splitting in Two
 
 > Wait.. all this time?
 
-After this random pair youtube videos, I realized for the first time the incredible tax
+After this random pair of youtube videos, I realized for the first time the incredible tax
 that ADHD has had on me over the years. I saw how many times that I blamed myself for personnal 
 failures that I couldn't explain. It was heartbreaking to remember all the times I thought I was a bad 
 person, when I just hadn't built the right coping mechanism yet.
@@ -106,58 +104,59 @@ person, when I just hadn't built the right coping mechanism yet.
 > If I got this far with this burden, how much farther could I go without it?
 
 Next came a feeling of untapped potential and the desire to look for medication. I felt angry
-that I had to work harder things others got for free. I sought professional help but struggled 
-with the process, needing friends to help me navigate it. Finally, I managed to get some medication
-in a sketchy alley in Chinatown. I got my first taste of focus.
+that I had to work harder for things others got for free. I sought professional help but struggled 
+with the process, needing friends to help me navigate it. Finally, I managed to get some medication.
+In a sketchy alley in Boston's Chinatown, I got my first taste of focus.
 
 > Is this really me?
 
 For the first time in my life, it felt like the act of moving my focus was more energy intensive
 than keeping it in place. I realized what I had been missing, but noticed something was lost
 along the way. That intricate web of coping mechanisms that constantly bounced me around my mind had become 
-so rooted into my ego that I could not cleanly separate myself from it. My identity was 
-drawn into question as I wondered if all these silly rules were a tool or a part of me.
+so rooted into my ego that I could not cleanly separate myself from it. I could not tell whether all these 
+silly rules were a tool or a part of my identity.
 
 > I can't book my own doctors appointments.
 
 My internal conflict was drawn to a crescendo when I booked my own doctors appointment while medicated.
 This may seem mundane, but I would sort booking a doctors appointment as an ***unstructured problem***. 
 The tasks to complete it are obscure, the rules are intricate, the process is unenjoyable, the deadline is nebulous 
-and the priority is lower than more immediate tasks. This makes it incredibly difficult to build 
-coping mechanisms around it. It's like the spider casting threads only to find there is no wall for 
-them to cling to. It was difficult to be so far from myself and yet be more capable.
+and the priority is low (if you are healthy). This makes it incredibly difficult to build 
+coping mechanisms around it. It's like the spider casting threads only to find there is no surface for 
+them to cling to. It was difficult to be so far from myself and yet be obviously more capable.
 
 > Which version of myself do I choose?
 
 I can only describe the next feelings as despair. On one side, I was not myself, and on the other I was
-unable to solve a crucially important subset of tasks. I was at an impass, and I reached out to many for
-help. Over time they convinced me choose to stay off medications. Many of them saw my context switching
-to be charming or even a rare skill that helped me succeed. I had newfound resolve in my identity, but 
-the looming unstructured problems remained.
+unable to solve a crucially important subset of tasks. I was at an impasse, and I reached out to many for
+help. Over time they convinced me choose to stay off medications. They were unanimous in seeing my context
+switching as charming or even a rare skill that helped me succeed. I had newfound resolve in my identity, 
+but the looming unstructured problems remained.
 
 ## Conquering the Unstructured
 
 You may have noticed a pattern in the spider analogies so far. All the coping mechanisms amount to
 adding structure to a problem that isn't inherrently there. The spider turned the two way tunnel into a one 
-way tunnel and the golf course into a funnel. The solution to the unstructured problems is always to invent 
-structure where it does not exists. If there is no wall to cast strings to, then build the wall!
+way tunnel and the golf course into a funnel. My solution to unstructured problems is always to invent 
+structure where it does not exist. If there is no surface to cast strings to, then build the surface!
 
 <div style="text-align: center;">
 <img src="/images/blogposts/feed_me/wall.jpg" alt="Spider building a wall!" class="code-screenshot"  style="transform: rotate(-90deg)">
 SPIDER BUILDING A WALL FOR HIS WEBS
 </div>
 
-The go to tool for this is the TODO list. A simple list of tasks that takes a nebulous pile of activities
-and puts them together. It is the bedrock of structure, but it can often not be enough to help downselect
-what I should be doing right now. We can add more with deadlines and priority levels, making it much
-easier to pick out immediate needs or very important things. This is where most TODO lists stop, but our
-unstructured tasks can easily weasel through. Things like calling a plumber for a harmless droopy faucet,
-calling my grandma, and of course booking my yearly checkup can slide right through all three filters.
+The go to tool for this is the TODO list: a simple list of tasks that takes a nebulous pile of activities
+and puts them together. It is the bedrock of structure, but it does little to help filter its contents.
+We can add more with deadlines and priority levels, making it much easier to pick out immediate needs or 
+very important things. My primary coping mechanism with TODO lists is to return to the list any time I catch
+myself drifting off topic. I then try pick the next thing off the list and carry on with that task.
+Unstructured tasks can easily weasel through this system. If we have a task the combination of no-deadline
+and low priority, they will never bubble to the top.
 
-The solution to this is so simple in hindsight, but when it came to me I was struck. If instead of being
-presented a list I was given a single task, I could impose even more structure. If I made sure
-that unstructured problems were as likely to be served as structured ones, I could rely on all my other
-coping mechanisms for accomplishing a TODO list to brute force them!
+The solution to this is so simple in hindsight, but when it came to me I was struck. If I could sort tasks in
+a way that all tasks will eventually bubble up to the top, I could once again rely on my mechanism. If I am 
+only given a single task, I could also cut out the mentally expensive step of figuring out the next most 
+important thing on the list. The goal was then set: make a task list that enforces those two properties.
 
 ```
 > feed_me
@@ -181,11 +180,12 @@ A sample of the <code>feed_me</code> CLI. Notice there is no edit command! Once 
 </div>
 
 `feed_me` is the simple TODO list application I built with my partner Maria to test that hypothesis.
-It serves the user a small subset of tasks from their list in a defined order corresponding individual task scores.
-The task score monotonically increases in time starting from a user assigned start time, with higher priority
+It serves the user a small subset of tasks from their list based on which have the highest ***task scores***.
+The task scores monotonically increase in time starting from a user assigned start time, with higher priority
 tasks rising up faster. When a task is overdue, its score increases exponentially to ensure it bubbles above
-the scores of non-overdue tasks. A user chooses how many tasks they are fed at a time, but the default
-is just a single task! It is built by someone with ADHD as as an effective trap for unstructured problems.
+the scores of non-overdue tasks. All tasks must have a deadline! It is intentionally difficult
+to edit tasks, meaning that the order of execution is determined when tasks are created. A user chooses how 
+many tasks they are fed at a time, but the default is just a single task!
 
 <div style="text-align: center;">
 <img src="/images/blogposts/feed_me/equations.svg" alt="FeedMe Score Equations" class="mx-auto">
@@ -194,10 +194,10 @@ is task specific so these are scaled and translated relative to one another. Not
 depicted here score clamping.
 </div>
 
-It is intentionally difficult to edit tasks, meaning that the order of execution of is determined when tasks
-are created. As much imagined structure is built in and my coping mechanisms latch onto it
-easily. As silly as this tool is, it has legitimately helped me accomplish tasks I was unable to before. 
-Before I wrote the core of it, I had a task list that was dozens of items long. These days, that list is 
+I have built in as much imagined structure as I could and my coping mechanisms latch onto it easily. As silly as 
+this tool is, it has legitimately helped me accomplish tasks I was unable to before. The conflict of self
+vs. productivity has passed in the wind and I am grateful for those who convinced me to stay the path. 
+Before I watched Tris' videos I had a task list that was dozens of items long. These days, that list is 
 always about 3 entries long. I hope to keep it that way!
 
 ```

@@ -146,12 +146,12 @@ export default function RecipesPage(): ReactElement {
               <hr className="my-6 border-gray-200" />
               <h3 className="text-lg font-bold text-gray-900 mb-4">About this page</h3>
               <p className="text-base text-gray-700 leading-relaxed mb-6">
-                Cooking is the primary way I express love for myself and others. 
+                Cooking is the primary way I express love for myself and others.
+                Making this page was probably my number one motivation for building
+                this website! 
                 <br/><br/>
                 In this list, I provide some of my own recipes and the stories 
                 behind them. I also link some of my favorite external recipes! 
-                Making this page was probably my number one motivation for building
-                this website!
               </p>
             </div>
           </div>
