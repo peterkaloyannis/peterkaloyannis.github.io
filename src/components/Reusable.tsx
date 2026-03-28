@@ -1,15 +1,39 @@
 // src/components/Reusable.tsx
 
 import React, {type ReactElement} from 'react';
-import { ChevronDown, BookOpen, ExternalLink, Search, Code} from './Icons'; // Icon for collapsible sections
+import { ChevronDown, BookOpen, ExternalLink, Search, Code, User } from './Icons';
 import { marked } from 'marked';
 import DOMPurify from 'dompurify';
-import {User} from "../components/Icons"
 
 // =================================================================================
 // --- GENERAL COMPONENTS ---
 // =================================================================================
 
+/**
+ * PageWithSidebar Component
+ * Standard two-column page layout: sticky sidebar on the left, scrollable content on the right.
+ */
+interface PageWithSidebarProps {
+  id: string;
+  icon: React.ElementType;
+  title: string;
+  sidebar: React.ReactNode;
+  children: React.ReactNode;
+}
+
+export function PageWithSidebar({ id, icon, title, sidebar, children }: PageWithSidebarProps): ReactElement {
+  return (
+    <section id={id}>
+      <SectionTitle icon={icon} title={title} />
+      <div className="page-layout">
+        <div className="page-sidebar">
+          <div className="sticky top-8">{sidebar}</div>
+        </div>
+        <div className="flex-1">{children}</div>
+      </div>
+    </section>
+  );
+}
 
 /**
  * MarkdownRenderer Component
@@ -21,14 +45,11 @@ interface MarkdownRendererProps {
   content: string;
 }
 
-export function MarkdownRenderer({ content }: MarkdownRendererProps) {
-  // 1. Configure marked to use GitHub Flavored Markdown (GFM)
-  //    and set up basic options.
-  marked.setOptions({
-    gfm: true,
-  });
+// Configure marked once at module load time (not per-render)
+marked.setOptions({ gfm: true });
 
-  // 2. Parse the markdown content to raw HTML string
+export function MarkdownRenderer({ content }: MarkdownRendererProps) {
+  // 1. Parse the markdown content to raw HTML string
   const rawHtml = marked.parse(content) as string;
 
   // 3. Sanitize the raw HTML string for security
@@ -38,27 +59,7 @@ export function MarkdownRenderer({ content }: MarkdownRendererProps) {
   return (
     // 'prose' is a Tailwind utility that automatically formats
     // all HTML elements (h1, p, ul, pre, etc.) within the container.
-    <div className="
-      prose
-      max-w-5xl
-      text-gray-700
-      
-      /* TARGETING LINKS */
-      prose-a:text-blue-700 
-      prose-a:no-underline
-
-      prose-pre:bg-slate-200 
-      prose-pre:shadow-lg 
-      prose-pre:rounded-xl
-      prose-pre:text-gray-700
-      
-      prose-code:bg-slate-200
-      prose-code:px-1.5 
-      prose-code:py-1.5
-      prose-code:rounded-md
-      prose-code:before:content-none 
-      prose-code:after:content-none"
-    >
+    <div className="content-prose">
       <div 
         dangerouslySetInnerHTML={{ __html: safeHtml }} 
       />
@@ -150,23 +151,23 @@ export function ProjectCard({ icon: Icon, title, description, href, imageUrl }: 
   // If href is provided, wrap the card in an <a> tag
   if (href && href.startsWith("#/")) {
      return (
-      <a 
-        href={href} 
-        className="block bg-white p-6 rounded-lg shadow-xl hover:shadow-2xl hover:scale-[1.02] transition-all duration-200"
+      <a
+        href={href}
+        className="card-interactive hover:scale-[1.02]"
       >
         {content}
       </a>
     );
   }
-  
+
   // External link
   if (href && (href.startsWith("http") || href.startsWith("www"))) {
     return (
-      <a 
-        href={href} 
-        target="_blank" 
-        rel="noopener noreferrer" 
-        className="block bg-white p-6 rounded-lg shadow-xl hover:shadow-2xl hover:scale-[1.02] transition-all duration-200"
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="card-interactive hover:scale-[1.02]"
       >
         {content}
       </a>
@@ -175,7 +176,7 @@ export function ProjectCard({ icon: Icon, title, description, href, imageUrl }: 
 
   // No href, just a div
   return (
-    <div className="bg-white p-6 rounded-lg shadow-xl">
+    <div className="card">
       {content}
     </div>
   );
@@ -243,10 +244,10 @@ function formatYearRange(startYear: number | string , endYear: number | string):
 
 export function CVEntry({ title, startYear, endYear, location, description }: CVEntryProps): ReactElement {
 
-  var date = formatYearRange(startYear, endYear)
+  const date = formatYearRange(startYear, endYear);
 
   return (
-    <div className="bg-white p-6 rounded-lg shadow-xl">
+    <div className="card">
       <div className="flex justify-between items-start mb-2">
         <div className="flex items-center space-x-3">
            <User className="w-8 h-8" />
@@ -371,7 +372,7 @@ export function CollapsibleSection({
   children 
 }: CollapsibleSectionProps) {
   return (
-    <div className="bg-white rounded-lg shadow-xl overflow-hidden">
+    <div className="card-flush">
       {/* Header */}
       <button
         onClick={onToggle}
@@ -422,7 +423,7 @@ export function BlogPostCard({ slug, title, date, summary }: BlogPostCardProps) 
   return (
     <a 
       href={`#/blog/${slug}`} 
-      className="block bg-white p-6 rounded-lg shadow-xl hover:shadow-2xl hover:scale-[1.01] transition-all duration-200"
+      className="card-interactive hover:scale-[1.01]"
     >
       <h3 className="text-2xl font-bold text-gray-900 mb-2">{title}</h3>
       <p className="text-sm text-gray-500 mb-4">{date}</p>
@@ -496,7 +497,7 @@ export function RecipeCard({
           <p>{date}</p>
           {serves && (
             <p className="flex items-center space-x-1 font-medium text-gray-700">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+              <User className="w-4 h-4" />
               <span>Serves: {serves}</span>
             </p>
           )}
@@ -518,7 +519,7 @@ export function RecipeCard({
   );
 
   // --- 2. Define Card Wrapper (Conditional Link) ---
-  const commonClasses = "block bg-white rounded-lg shadow-xl overflow-hidden hover:shadow-2xl hover:scale-[1.01] transition-all duration-200 border-t-4 border-indigo-500";
+  const commonClasses = "block card-flush hover:shadow-2xl hover:scale-[1.01] transition-all duration-200 border-t-4 border-indigo-500";
 
   if (isCurated) {
     // If it's curated, render an <a> tag pointing to the external sourceUrl
@@ -570,8 +571,8 @@ export function RecipeMetadataPanel({
     const capitalizedType = type.charAt(0).toUpperCase() + type.slice(1);
 
     return (
-        <div className="bg-white rounded-lg shadow-xl overflow-hidden">
-            
+        <div className="card-flush">
+
             {/* Image Block */}
             {imageUrl ? (
               <img 

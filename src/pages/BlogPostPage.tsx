@@ -28,9 +28,9 @@ export default function BlogPostPage({ slug }: BlogPostPageProps): ReactElement 
         <p className="text-lg text-gray-700 mb-8">
           Sorry, we couldn't find the post you were looking for.
         </p>
-        <a 
-          href="#/blog" 
-          className="font-medium text-indigo-700 hover:underline"
+        <a
+          href="#/blog"
+          className="back-link"
         >
           &larr; Back to all posts
         </a>
@@ -44,7 +44,7 @@ export default function BlogPostPage({ slug }: BlogPostPageProps): ReactElement 
       {/* Back Link */}
       <a 
         href="#/blog" 
-        className="inline-block font-medium text-indigo-700 hover:underline mb-8"
+        className="inline-block back-link mb-8"
       >
         &larr; Back to all posts
       </a>
@@ -56,7 +56,7 @@ export default function BlogPostPage({ slug }: BlogPostPageProps): ReactElement 
       </p>
 
       {/* Post Content */}
-      <div className="bg-white p-8 rounded-lg shadow-xl">
+      <div className="card-lg">
         <MarkdownRenderer content={post.content} />
       </div>
     </section>

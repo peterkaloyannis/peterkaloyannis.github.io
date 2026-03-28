@@ -50,7 +50,7 @@ So much easier to get out now!
 
 I am trying to illustrate that ADHD is a random force that is actively tamed. Building and enacting 
 resistance in the form of coping mechanisms is hard work. It often plays out as
-1. You attempt to do a task and realize by trial and error that you are defficient at it.
+1. You attempt to do a task and realize by trial and error that you are deficient at it.
 1. You do a retrospective to find some way to make it easier. Usually by a simple set of rules.
 1. When you find something that works, you try bake it in to yourself as a context triggered habit. 
 
@@ -64,7 +64,7 @@ environments. I find shopping in particular can be quite tiring.
 The problem of the spider in the tunnel is an example of what I call a ***structured problem***. 
 It has clear rules and even [a completely random walk](https://en.wikipedia.org/wiki/Brownian_motion) 
 is likely to succeed given enough time. Imagine if instead of a spider in a tunnel, you are a spider 
-trying to get to the hole in a golf course. The structure provided by the walls of the tunel has been
+trying to get to the hole in a golf course. The structure provided by the walls of the tunnel has been
 lifted and your old coping mechanism does not even make sense anymore.
 
 <div style="text-align: center;">
@@ -97,7 +97,7 @@ holes between them, and I can fall out of it unexpectedly.
 > Wait.. all this time?
 
 After this random pair of youtube videos, I realized for the first time the incredible tax
-that ADHD has had on me over the years. I saw how many times that I blamed myself for personnal 
+that ADHD has had on me over the years. I saw how many times that I blamed myself for personal 
 failures that I couldn't explain. It was heartbreaking to remember all the times I thought I was a bad 
 person, when I just hadn't built the right coping mechanism yet.
 
@@ -136,7 +136,7 @@ but the looming unstructured problems remained.
 ## Conquering the Unstructured
 
 You may have noticed a pattern in the spider analogies so far. All the coping mechanisms amount to
-adding structure to a problem that isn't inherrently there. The spider turned the two way tunnel into a one 
+adding structure to a problem that isn't inherently there. The spider turned the two way tunnel into a one 
 way tunnel and the golf course into a funnel. My solution to unstructured problems is always to invent 
 structure where it does not exist. If there is no surface to cast strings to, then build the surface!
 
@@ -213,7 +213,7 @@ Task:
     Score: 1.6688055598210905
 ```
 <div style="text-align: center">
-My actual next task. I guess its tooth time. 👨‍⚕️
+My actual next task. I guess it's tooth time. 👨‍⚕️
 </div>
 
 <div style="text-align: center; font-size:25px; padding-top:20px; font-weight:bold">
