@@ -1,4 +1,4 @@
-import { MarkdownRenderer, RecipeMetadataPanel } from '../components/Reusable'; 
+import { MarkdownRenderer, RecipeMetadataPanel, NotFound } from '../components/Reusable';
 import { allRecipes } from '../content/recipeData'; 
 import { type ReactElement } from 'react';
 
@@ -12,13 +12,7 @@ export default function RecipeDetailsPage({ slug }: RecipeDetailsPageProps): Rea
   
   if (!recipe) {
     return (
-      <div className="card-lg my-12 text-center">
-        <h2 className="text-3xl font-bold text-red-600 mb-4">404 Recipe Not Found</h2>
-        <p className="text-lg ">The recipe you are looking for does not exist.</p>
-        <a href="#/recipes" className="back-link mt-4 block">
-          &larr; Back to all recipes
-        </a>
-      </div>
+      <NotFound message="Recipe not found." backHref="#/recipes" backLabel="Back to all recipes" />
     );
   }
 

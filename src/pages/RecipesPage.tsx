@@ -7,8 +7,14 @@ import type { Recipe } from '../types';
 import { useFuseSearch } from '../hooks';
 
 const fuse = new Fuse(allRecipes, {
-  keys: ['title', 'summary', 'tags', 'content'],
+  keys: [
+    { name: 'title',   weight: 3 },
+    { name: 'tags',    weight: 2 },
+    { name: 'summary', weight: 2 },
+    { name: 'content', weight: 1 },
+  ],
   threshold: 0.4,
+  ignoreLocation: true,
   includeScore: true,
 });
 
@@ -56,7 +62,7 @@ export default function RecipesPage(): ReactElement {
         <SearchBar
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          placeholder="Search recipes (e.g., 'vegan', 'steak')..."
+          placeholder="Search recipes..."
         />
       </div>
       <div className="space-y-4">

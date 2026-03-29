@@ -3,7 +3,9 @@
 import { type ReactElement, type ElementType, type ReactNode, type ChangeEvent } from 'react';
 import { ChevronDown, BookOpen, ExternalLink, Search, Code, User } from 'lucide-react';
 import { marked } from 'marked';
+import markedKatex from 'marked-katex-extension';
 import DOMPurify from 'dompurify';
+import 'katex/dist/katex.min.css';
 
 // =================================================================================
 // --- GENERAL COMPONENTS ---
@@ -47,6 +49,7 @@ interface MarkdownRendererProps {
 
 // Configure marked once at module load time (not per-render)
 marked.setOptions({ gfm: true });
+marked.use(markedKatex({ throwOnError: false }));
 
 export function MarkdownRenderer({ content }: MarkdownRendererProps) {
   const rawHtml = marked.parse(content) as string;
@@ -391,19 +394,18 @@ interface BlogPostCardProps {
   title: string;
   date: string;
   summary: string;
+  imageUrl?: string;
 }
 
-export function BlogPostCard({ slug, title, date, summary }: BlogPostCardProps) {
+export function BlogPostCard({ slug, title, date, summary, imageUrl }: BlogPostCardProps) {
   return (
-    <a 
-      href={`#/blog/${slug}`} 
-      className="card-interactive hover:scale-[1.01]"
-    >
-      <h3 className="text-2xl font-bold mb-2">{title}</h3>
-      <p className="text-sm mb-4 text-[var(--color-text-muted)]">{date}</p>
-      <p className="leading-relaxed">
-        {summary}
-      </p>
+    <a href={`#/blog/${slug}`} className="card-interactive-flush hover:scale-[1.01]">
+      <RecipeImageOrPlaceholder imageUrl={imageUrl} title={title} />
+      <div className="p-6">
+        <h3 className="text-xl font-bold mb-1">{title}</h3>
+        <p className="text-sm mb-3" style={{ color: 'var(--color-text-muted)' }}>{date}</p>
+        <p className="leading-relaxed line-clamp-2">{summary}</p>
+      </div>
     </a>
   );
 }
@@ -468,7 +470,7 @@ export function RecipeCard({
         </p>
         {tags && tags.length > 0 && (
           <div className="mt-3 flex flex-wrap gap-1">
-            {tags.map(tag => (
+            {[...tags].sort().map(tag => (
               <span key={tag} className="tag">{tag}</span>
             ))}
           </div>
@@ -491,12 +493,32 @@ export function RecipeCard({
 }
 
 /**
+ * NotFound Component
+ * Standard 404 page shown when a resource or route doesn't exist.
+ */
+interface NotFoundProps {
+  message: string;
+  backHref: string;
+  backLabel: string;
+}
+
+export function NotFound({ message, backHref, backLabel }: NotFoundProps) {
+  return (
+    <section className="text-center py-24">
+      <h1 className="text-6xl font-extrabold mb-4">404</h1>
+      <p className="text-xl mb-8" style={{ color: 'var(--color-text-muted)' }}>{message}</p>
+      <a href={backHref} className="back-link">&larr; {backLabel}</a>
+    </section>
+  );
+}
+
+/**
  * RecipeMetadataPanel Component
  * A reusable panel to display recipe timing and details in a tabular format.
  */
 interface RecipeMetadataPanelProps {
     serves?: string;
-    activeCookTime?: string;
+    activeTime?: string;
     totalTime?: string;
     tags?: string[];
     type: 'original' | 'curated';
@@ -506,7 +528,7 @@ interface RecipeMetadataPanelProps {
 
 export function RecipeMetadataPanel({
   serves,
-  activeCookTime,
+  activeTime,
   totalTime,
   tags,
   type,
@@ -531,10 +553,10 @@ export function RecipeMetadataPanel({
                   <span className="font-medium">{serves}</span>
                 </div>
               )}
-              {activeCookTime && (
+              {activeTime && (
                 <div className="flex justify-between items-center">
                   <span className="font-semibold">Active Time</span>
-                  <span className="font-medium">{activeCookTime}</span>
+                  <span className="font-medium">{activeTime}</span>
                 </div>
               )}
               {totalTime && (
@@ -545,7 +567,7 @@ export function RecipeMetadataPanel({
               )}
               {tags && tags.length > 0 && (
                 <div className="flex flex-wrap gap-2 pt-1">
-                  {tags.map(tag => (
+                  {[...tags].sort().map(tag => (
                     <span key={tag} className="tag">{tag}</span>
                   ))}
                 </div>

@@ -15,7 +15,8 @@ export interface BlogPost {
   title: string;
   date: string;
   summary: string;
-  content: string; 
+  imageUrl?: string;
+  content: string;
 }
 
 // Defines the structure for a single recipe
@@ -28,7 +29,7 @@ export interface Recipe {
   sourceUrl?: string; // Optional URL for curated recipes
   imageUrl?: string;
   serves?: string;
-  activeCookTime?: string;
+  activeTime?: string;
   totalTime?: string;
   tags?: string[];
   content: string; // The markdown content

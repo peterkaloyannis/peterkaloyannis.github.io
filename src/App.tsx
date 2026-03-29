@@ -4,6 +4,7 @@ import type { AppRoute, AppRoutePage } from './types';
 
 // Import Components
 import Sidebar from './components/Sidebar';
+import { NotFound } from './components/Reusable';
 
 // Import Pages
 import HomePage from './pages/HomePage';
@@ -100,11 +101,7 @@ function App(): ReactElement {
             <BlogPostPage slug={route.slug} />
           )}
           {route.page === 'not-found' && (
-            <section className="text-center py-24">
-              <h1 className="text-6xl font-extrabold mb-4">404</h1>
-              <p className="text-xl mb-8" style={{ color: 'var(--color-text-muted)' }}>Page not found.</p>
-              <a href="#/" className="back-link">&larr; Go home</a>
-            </section>
+            <NotFound message="Page not found." backHref="#/" backLabel="Go home" />
           )}
 
         </div>

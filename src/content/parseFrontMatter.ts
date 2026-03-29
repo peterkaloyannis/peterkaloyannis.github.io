@@ -38,8 +38,8 @@ export function parseFrontMatter(rawMarkdown: string): {
     const kvMatch = line.match(/^\s*([^:]+):\s*(.*)/);
     if (!kvMatch) return;
 
-    const key = kvMatch[1].trim().toLowerCase();
-    const value = kvMatch[2].trim().replace(/['"]/g, '');
+    const key = kvMatch[1].trim();
+    const value = kvMatch[2].trim().replace(/^["']|["']$/g, '');
 
     if (value === '') {
       // Empty value after the colon — treat as the start of a list block.

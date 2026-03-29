@@ -3,10 +3,13 @@ import { parseFrontMatter } from './parseFrontMatter';
 
 const parseBlogMarkdown = (rawMarkdown: string): { metadata: Partial<BlogPost>; content: string } => {
   const { fields, content } = parseFrontMatter(rawMarkdown);
-  const metadata: Partial<BlogPost> = {};
-  if (typeof fields['title'] === 'string') metadata.title = fields['title'];
-  if (typeof fields['date'] === 'string') metadata.date = fields['date'];
-  if (typeof fields['summary'] === 'string') metadata.summary = fields['summary'];
+  const str = (key: string) => typeof fields[key] === 'string' ? fields[key] as string : undefined;
+  const metadata: Partial<BlogPost> = {
+    title:    str('title'),
+    date:     str('date'),
+    summary:  str('summary'),
+    imageUrl: str('imageUrl'),
+  };
   return { metadata, content };
 };
 

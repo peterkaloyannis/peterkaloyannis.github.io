@@ -1,6 +1,6 @@
 import {type ReactElement} from 'react';
-import { blogPosts } from '../content/blogData'; // Import mock data
-import { MarkdownRenderer } from '../components/Reusable';
+import { blogPosts } from '../content/blogData';
+import { MarkdownRenderer, NotFound } from '../components/Reusable';
 
 interface BlogPostPageProps {
   slug: string;
@@ -22,20 +22,7 @@ export default function BlogPostPage({ slug }: BlogPostPageProps): ReactElement 
 
   // Show a not found message if the slug is invalid
   if (!post) {
-    return (
-      <section id="blog-post-not-found">
-        <h1 className="text-3xl font-bold  mb-4">Post not found</h1>
-        <p className="text-lg  mb-8">
-          Sorry, we couldn't find the post you were looking for.
-        </p>
-        <a
-          href="#/blog"
-          className="back-link"
-        >
-          &larr; Back to all posts
-        </a>
-      </section>
-    );
+    return <NotFound message="Post not found." backHref="#/blog" backLabel="Back to all posts" />;
   }
 
   // Render the post

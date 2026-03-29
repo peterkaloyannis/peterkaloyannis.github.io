@@ -1,11 +1,11 @@
 ---
-Title: Nut Free Vegan Tiramisu
-Serves: 12
-Active Cook Time: 3 hours
-Total Time: 24 hours
-Date: 11/11/2025
+title: Nut Free Vegan Tiramisu
+serves: 12
+activeTime: 3 hours
+totalTime: 24 hours
+date: 03/29/2026
 imageUrl: /images/recipes/tiramisu.png
-Summary: I developed this recipe for Ian's birthday in 2024. My goals were to find a vegan tiramisu recipe that was nut free and delicious. See sources for sources.
+summary: I developed this recipe for my friend Ian's birthday in 2024. It is different but tasty!
 tags:
   - dessert
   - coffee

@@ -6,8 +6,13 @@ import Fuse from 'fuse.js';
 import { useFuseSearch } from '../hooks';
 
 const fuse = new Fuse(blogPosts, {
-  keys: ['title', 'summary', 'content'],
+  keys: [
+    { name: 'title',   weight: 3 },
+    { name: 'summary', weight: 2 },
+    { name: 'content', weight: 1 },
+  ],
   threshold: 0.4,
+  ignoreLocation: true,
   includeScore: true,
 });
 
@@ -48,9 +53,11 @@ export default function BlogPage(): ReactElement {
   return (
     <PageWithSidebar id="blog" icon={Newspaper} title="Blog" sidebar={sidebar}>
       {filteredBlogs.length > 0 ? (
-        filteredBlogs.map((blogpost) => (
-          <BlogPostCard key={blogpost.slug} {...blogpost} />
-        ))
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {filteredBlogs.map((blogpost) => (
+            <BlogPostCard key={blogpost.slug} {...blogpost} />
+          ))}
+        </div>
       ) : (
         <div className="empty-state">
           <h3 className="text-2xl font-bold mb-4">No Posts Found</h3>

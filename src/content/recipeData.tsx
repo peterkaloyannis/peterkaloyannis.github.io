@@ -5,16 +5,18 @@ import { parseFrontMatter } from './parseFrontMatter';
 // Maps generic front matter fields to the Recipe interface.
 const parseRecipeMarkdown = (rawMarkdown: string): { metadata: Partial<Recipe>; content: string } => {
   const { fields, content } = parseFrontMatter(rawMarkdown);
-  const metadata: Partial<Recipe> = {};
-  if (typeof fields['title'] === 'string') metadata.title = fields['title'];
-  if (typeof fields['date'] === 'string') metadata.date = fields['date'];
-  if (typeof fields['summary'] === 'string') metadata.summary = fields['summary'];
-  if (typeof fields['serves'] === 'string') metadata.serves = fields['serves'];
-  if (typeof fields['active cook time'] === 'string') metadata.activeCookTime = fields['active cook time'];
-  if (typeof fields['total time'] === 'string') metadata.totalTime = fields['total time'];
-  if (typeof fields['imageurl'] === 'string') metadata.imageUrl = fields['imageurl'];
-  if (typeof fields['sourceurl'] === 'string') metadata.sourceUrl = fields['sourceurl'];
-  if (Array.isArray(fields['tags'])) metadata.tags = fields['tags'] as string[];
+  const str = (key: string) => typeof fields[key] === 'string' ? fields[key] as string : undefined;
+  const metadata: Partial<Recipe> = {
+    title:   str('title'),
+    date:    str('date'),
+    summary: str('summary'),
+    serves:  str('serves'),
+    activeTime: str('activeTime'),
+    totalTime:  str('totalTime'),
+    imageUrl:   str('imageUrl'),
+    sourceUrl:  str('sourceUrl'),
+    tags:         Array.isArray(fields['tags']) ? fields['tags'] as string[] : undefined,
+  };
   return { metadata, content };
 };
 
@@ -51,16 +53,27 @@ const originalRecipes: Recipe[] = Object.entries(recipeModules).map(([path, modu
 // These are still defined manually since they don't have local markdown files.
 const curatedRecipes: Recipe[] = [
   {
-    slug: 'curated-steak',
+    slug: 'tiramisu',
     type: 'curated',
-    title: 'Reverse Seared Ribeye',
-    date: '2023-10-01',
-    summary: 'The best method for cooking a thick-cut steak, ensuring a perfect edge-to-edge medium-rare cook and a phenomenal crust.',
-    sourceUrl: 'https://www.seriouseats.com/reverse-seared-steak-recipe',
-    imageUrl: "https://www.seriouseats.com/thmb/9xlGr_x7-SXqYSWWnov68rr1kVM=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__images__2017__02__20170217-reverse-sear-steak-02-d86b7f4676d240c196acf6903523c99f.jpg",
-    content: 'This is my go-to technique for thick-cut steaks. The *Serious Eats* method is foolproof...', // We can keep a short content block here if we want
-    tags: ['steak'],
-  }
+    title: 'Tiramisu',
+    date: '12-18-2024',
+    summary: 'This tiramisu recipe is incredible and beats most restaurants at their game!',
+    sourceUrl: 'https://www.youtube.com/watch?v=o3AMALUTp8o',
+    imageUrl: "https://img.youtube.com/vi/o3AMALUTp8o/mqdefault.jpg",
+    content: "",
+    tags: ['coffee', 'dessert', 'cake'],
+  },
+  {
+    slug: 'tres-leches',
+    type: 'curated',
+    title: 'Tres Leches',
+    date: '08-24-2025',
+    summary: 'God tier tres leches. Everyone will love you more afterwards.',
+    sourceUrl: 'https://www.youtube.com/watch?v=_PH4eN0HG3o',
+    imageUrl: "https://img.youtube.com/vi/_PH4eN0HG3o/mqdefault.jpg",
+    content: "",
+    tags: ['cake', 'dessert'],
+  },
 ];
 
 // --- 5. EXPORT ALL RECIPES ---

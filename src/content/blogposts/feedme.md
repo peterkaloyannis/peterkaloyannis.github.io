@@ -1,7 +1,8 @@
 ---
-Title: Conquering the Unstructured Problem
-Date: 01/21/2026
-Summary: I dive into my experience with ADHD and how I built coping mechanisms to overcome it. This is the origin story of my CLI tool feed_me!
+title: Conquering the Unstructured Problem
+date: 01/21/2026
+summary: I dive into my experience with ADHD and how I built coping mechanisms to overcome it. This is the origin story of my CLI tool feed_me!
+imageUrl: /images/blogposts/feed_me/coping_with_webs.gif
 ---
 
 *Note that this blogpost is about my experience with ADHD, and I recognize that that it may be
@@ -187,8 +188,19 @@ the scores of non-overdue tasks. All tasks must have a deadline! It is intention
 to edit tasks, meaning that the order of execution is determined when tasks are created. A user chooses how 
 many tasks they are fed at a time, but the default is just a single task!
 
+$$
+\text{Priority} \in \{1, 2, 3, 4\},
+$$
+$$
+dt = \frac{\text{Now} - \text{Start}}{\text{Deadline} - \text{Start}},
+$$
+$$
+\text{Task Score} = \text{Priority} \times \begin{cases}
+dt, & \text{if } dt \leq 1 \\
+e^{dt-1},   & \text{if } x > 0
+\end{cases}
+$$
 <div style="text-align: center;">
-<img src="/images/blogposts/feed_me/equations.svg" alt="FeedMe Score Equations" class="mx-auto">
 The <code>feed_me</code> task score functions. Note that the start and deadline 
 is task specific so these are scaled and translated relative to one another. Not
 depicted here score clamping.
