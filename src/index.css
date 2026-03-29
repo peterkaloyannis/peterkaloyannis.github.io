@@ -128,10 +128,6 @@ hr {
   }
 
   /* --- Typography --- */
-  .nowrap {
-    white-space: nowrap;
-  }
-
   /* Section heading inside a filter/sidebar panel */
   .panel-heading {
     @apply text-lg font-bold mb-4;
@@ -178,13 +174,10 @@ hr {
   .recipe-type-badge {
     @apply text-xs font-semibold px-3 py-1 rounded-full;
   }
-  .recipe-type-badge-original {
+  .recipe-type-badge-original,
+  .recipe-type-badge-curated {
     background: var(--color-accent-muted);
     color: var(--color-accent-loud);
-  }
-  .recipe-type-badge-curated {
-    background: var(--color-surface-raised);
-    color: var(--color-text-muted);
   }
 
   /* --- Display-only tag pill (non-interactive) --- */

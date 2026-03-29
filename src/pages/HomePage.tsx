@@ -62,7 +62,7 @@ export default function HomePage(): ReactElement {
             <img
               key={`prev-${prevIndex}`}
               src={PHOTOS[prevIndex]}
-              alt=""
+              alt="The picture carousel is loading!"
               className="absolute inset-0 w-full h-full object-cover"
               style={{ animation: 'slide-out 0.4s ease-out forwards' }}
               onAnimationEnd={() => setPrevIndex(null)}
@@ -72,7 +72,7 @@ export default function HomePage(): ReactElement {
           <img
             key={`curr-${photoIndex}`}
             src={PHOTOS[photoIndex]}
-            alt="Peter Kaloyannis"
+            alt="The picture carousel is loading!"
             className="absolute inset-0 w-full h-full object-cover"
             style={{ animation: prevIndex !== null ? 'slide-in 0.4s ease-out forwards' : 'none' }}
           />
