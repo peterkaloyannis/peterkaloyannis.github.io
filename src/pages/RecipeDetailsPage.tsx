@@ -22,49 +22,33 @@ export default function RecipeDetailsPage({ slug }: RecipeDetailsPageProps): Rea
     );
   }
 
-  const isCurated = recipe.type === 'curated';
-
   return (
     <section>
       <a href="#/recipes" className="inline-block back-link mb-8">
         &larr; Back to all recipes
       </a>
 
-      {/* --- NEW: Two-Column Layout --- */}
+      <h1 className="text-5xl font-extrabold mb-2">{recipe.title}</h1>
+      <p className="text-lg mb-8" style={{ color: 'var(--color-text-muted)' }}>
+        Published on {recipe.date}
+        {recipe.sourceUrl && (
+          <a href={recipe.sourceUrl} target="_blank" rel="noopener noreferrer" className="ml-2 link">
+            (View Source)
+          </a>
+        )}
+      </p>
+
       <div className="page-layout">
 
         {/* --- Column 1: Metadata (Sticky) --- */}
         <div className="page-sidebar">
-          <div className="sticky top-8 space-y-8">
+          <div className="sticky top-8">
             <RecipeMetadataPanel {...recipe} />
           </div>
         </div>
 
         {/* --- Column 2: Content (Scrollable) --- */}
-        <div className="flex-1 space-y-8">
-          {/* Recipe Header Card */}
-          <div className="card-lg">
-            <h1 className="text-4xl font-extrabold  mb-2">{recipe.title}</h1>
-            <div className="flex justify-between items-center text-sm  mb-4">
-              <p>
-                {isCurated ? 'Curated Recipe' : 'Original Creation'} 
-                {recipe.sourceUrl && (
-                  <a 
-                    href={recipe.sourceUrl} 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="ml-2 font-medium text-indigo-600 hover:text-indigo-800"
-                  >
-                    (View Source)
-                  </a>
-                )}
-              </p>
-              <p>Published: {recipe.date}</p>
-            </div>
-            <p className="text-lg italic ">{recipe.summary}</p>
-          </div>
-          
-          {/* Recipe Content Card */}
+        <div className="flex-1">
           <div className="card-lg">
             <MarkdownRenderer content={recipe.content} />
           </div>

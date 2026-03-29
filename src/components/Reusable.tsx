@@ -524,74 +524,64 @@ interface RecipeMetadataPanelProps {
     activeCookTime?: string;
     totalTime?: string;
     tags?: string[];
-    type: 'original' | 'curated'; 
-    imageUrl?: string; 
+    type: 'original' | 'curated';
+    imageUrl?: string;
+    summary: string;
 }
 
-export function RecipeMetadataPanel({ 
-  serves, 
-  activeCookTime, 
-  totalTime, 
-  tags, 
-  type, 
-  imageUrl 
+export function RecipeMetadataPanel({
+  serves,
+  activeCookTime,
+  totalTime,
+  tags,
+  type,
+  imageUrl,
+  summary,
 }: RecipeMetadataPanelProps) {
-    
     return (
         <div className="card-flush">
 
+            {/* Image */}
             <RecipeImageOrPlaceholder imageUrl={imageUrl} className="w-full h-auto object-cover" />
 
-            <div className="p-6">
-              <h3 className="text-xl font-bold mb-5 border-b border-[var(--color-border)] pb-3">
-                  Recipe Information
-              </h3>
-
-              <div className="space-y-4">
-
-                {/* Status Row */}
-                <div className="flex justify-between items-center">
-                    <span className="font-semibold">Status</span>
-                    <RecipeTypeBadge type={type} />
-                </div>
-
-                {/* Serves Row */}
-                {serves && (
-                    <div className="flex justify-between items-center">
-                        <span className="font-semibold">Serves</span>
-                        <span className="font-medium">{serves}</span>
-                    </div>
-                )}
-                
-                {/* Active Time Row */}
-                {activeCookTime && (
-                    <div className="flex justify-between items-center">
-                        <span className="font-semibold">Active Time</span>
-                        <span className="font-medium">{activeCookTime}</span>
-                    </div>
-                )}
-
-                {/* Total Time Row */}
-                {totalTime && (
-                    <div className="flex justify-between items-center">
-                        <span className="font-semibold">Total Time</span>
-                        <span className="font-medium">{totalTime}</span>
-                    </div>
-                )}
-
-                {/* Tags Row */}
-                {tags && tags.length > 0 && (
-                    <div className="flex justify-between items-start pt-2">
-                        <span className="font-semibold shrink-0 mr-4">Tags</span>
-                        <div className="flex flex-wrap gap-2 justify-end">
-                            {tags.map(tag => (
-                                <span key={tag} className="tag">{tag}</span>
-                            ))}
-                        </div>
-                    </div>
-                )}
+            {/* Info rows */}
+            <div className="p-6 space-y-3 border-b border-[var(--color-border)]">
+              <div className="flex justify-between items-center">
+                <span className="font-semibold">Status</span>
+                <RecipeTypeBadge type={type} />
               </div>
+              {serves && (
+                <div className="flex justify-between items-center">
+                  <span className="font-semibold">Serves</span>
+                  <span className="font-medium">{serves}</span>
+                </div>
+              )}
+              {activeCookTime && (
+                <div className="flex justify-between items-center">
+                  <span className="font-semibold">Active Time</span>
+                  <span className="font-medium">{activeCookTime}</span>
+                </div>
+              )}
+              {totalTime && (
+                <div className="flex justify-between items-center">
+                  <span className="font-semibold">Total Time</span>
+                  <span className="font-medium">{totalTime}</span>
+                </div>
+              )}
+              {tags && tags.length > 0 && (
+                <div className="flex flex-wrap gap-2 pt-1">
+                  {tags.map(tag => (
+                    <span key={tag} className="tag">{tag}</span>
+                  ))}
+                </div>
+              )}
             </div>
+
+            {/* Summary */}
+            <div className="p-6">
+              <p className="italic leading-relaxed">{summary}</p>
+            </div>
+
         </div>
     );
 }

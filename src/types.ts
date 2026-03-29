@@ -6,7 +6,8 @@ export type AppRoutePage =
     | 'recipes' // Recipes list page
     | 'recipe-details' // New: Single recipe page
     | 'cv' 
-    | 'blog-post';
+    | 'blog-post'
+    | 'not-found';
 
 // Define the structure for a single blog post
 export interface BlogPost {

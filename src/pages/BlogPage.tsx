@@ -36,9 +36,9 @@ export default function BlogPage(): ReactElement {
         This is the page where I wanna express my voice. I will try to post
         <ul className="list-disc pl-5 space-y-2">
           <li>Companions to articles to projects
-            (inspired by the hilarious <a href="https://eieio.games/blog/" className="text-blue-700">EIEIO</a>)</li>
+            (inspired by the hilarious <a href="https://eieio.games/blog/" className="link">EIEIO</a>)</li>
           <li>Fun infographic articles
-            (inspired by the amazing <a href="https://www.benjames.io/" className="text-blue-700">Ben James</a>)</li>
+            (inspired by the amazing <a href="https://www.benjames.io/" className="link">Ben James</a>)</li>
           <li>Maybe, just maybe, an opinion or two.</li>
         </ul>
       </div>

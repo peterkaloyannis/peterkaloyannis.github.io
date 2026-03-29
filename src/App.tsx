@@ -45,8 +45,11 @@ function getRouteFromHash(): AppRoute {
       page = 'cv';
       break;
     case 'home':
-    default:
+    case '':
       page = 'home';
+      break;
+    default:
+      page = 'not-found';
       break;
   }
   return { page, slug: null };
@@ -64,6 +67,7 @@ function App(): ReactElement {
   useEffect(() => {
     const handleHashChange = () => {
       setRoute(getRouteFromHash());
+      window.scrollTo(0, 0);
     };
 
     window.addEventListener('hashchange', handleHashChange);
@@ -94,6 +98,13 @@ function App(): ReactElement {
           )}
           {route.page === 'blog-post' && route.slug && (
             <BlogPostPage slug={route.slug} />
+          )}
+          {route.page === 'not-found' && (
+            <section className="text-center py-24">
+              <h1 className="text-6xl font-extrabold mb-4">404</h1>
+              <p className="text-xl mb-8" style={{ color: 'var(--color-text-muted)' }}>Page not found.</p>
+              <a href="#/" className="back-link">&larr; Go home</a>
+            </section>
           )}
 
         </div>

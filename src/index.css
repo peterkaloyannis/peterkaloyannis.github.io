@@ -89,6 +89,11 @@ hr {
     @apply font-medium hover:underline;
     color: var(--color-accent-light);
   }
+  /* Inline hyperlink (use anywhere outside of prose/markdown) */
+  .link {
+    @apply hover:underline;
+    color: var(--color-accent-light);
+  }
 
   /* --- States --- */
   /* Empty state card shown when filters return no results */
@@ -107,7 +112,7 @@ hr {
   }
   /* Prose styles for markdown-rendered content */
   .content-prose {
-    @apply prose max-w-5xl
+    @apply prose max-w-5xl [&>div>*:first-child]:mt-0
       prose-a:no-underline
       prose-pre:shadow-lg prose-pre:rounded-xl
       prose-code:px-1.5 prose-code:py-1.5 prose-code:rounded-md
