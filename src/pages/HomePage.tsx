@@ -1,8 +1,16 @@
 import { type ReactElement, useState, useEffect } from 'react';
 
 const PHOTOS = [
-  '/images/recipes/tiramisu.png',
-  '/images/blogposts/feed_me/golf.jpg',
+  '/images/me/gazebo.jpg',
+  '/images/me/dog.jpg',
+  '/images/me/hot_couple.jpg',
+  '/images/me/how_you_doin.jpg',
+  '/images/me/window_chloe.jpg',
+  '/images/me/baby.jpg',
+  '/images/me/jet.jpg',
+  '/images/me/modern_gothic.jpg',
+  '/images/me/puck.jpg',
+  '/images/me/stabbed.jpg',
 ];
 
 export default function HomePage(): ReactElement {
@@ -94,7 +102,6 @@ export default function HomePage(): ReactElement {
         <p className="text-lg leading-relaxed mx-auto shrink-0" style={{ color: 'var(--color-text)', maxWidth: '520px' }}>
           I am a fusion physicist/controls engineer at Commonwealth Fusion Systems.
           I am currently based out of Boston, but I'm a Montrealer at heart!
-          Explore and have fun!
         </p>
 
       </section>
