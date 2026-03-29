@@ -24,7 +24,7 @@ export default function ProjectsPage(): ReactElement {
         <ProjectCard
           icon={Globe}
           title="This website."
-          description="I made the website you are looking at. Wow. Click here to see the (admitedly rough) source code!"
+          description="I made the website you are looking at. Wow. Click here to see the source code!"
           href="https://github.com/peterkaloyannis/peterkaloyannis.github-io"
           imageUrl='/images/projects/monkey.jpg'
         />
