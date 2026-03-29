@@ -107,11 +107,11 @@ export default function CVPage(): ReactElement {
 
       <hr className="my-6 border-gray-200" />
       <h3 className="panel-heading">Buttons</h3>
-      <div className="grid grid-cols-2 gap-4 mb-6">
-        <button onClick={expandAll} className="btn-primary w-full">
+      <div className="grid grid-cols-2 gap-2 mb-6">
+        <button onClick={expandAll} className="btn-primary w-full whitespace-nowrap">
           Expand All
         </button>
-        <button onClick={collapseAll} className="btn-primary w-full">
+        <button onClick={collapseAll} className="btn-primary w-full whitespace-nowrap">
           Collapse All
         </button>
       </div>

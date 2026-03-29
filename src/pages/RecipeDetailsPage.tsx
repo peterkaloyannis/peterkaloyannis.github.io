@@ -28,7 +28,7 @@ export default function RecipeDetailsPage({ slug }: RecipeDetailsPageProps): Rea
         &larr; Back to all recipes
       </a>
 
-      <h1 className="text-5xl font-extrabold mb-2">{recipe.title}</h1>
+      <h1 className="text-3xl md:text-5xl font-extrabold mb-2">{recipe.title}</h1>
       <p className="text-lg mb-8" style={{ color: 'var(--color-text-muted)' }}>
         Published on {recipe.date}
         {recipe.sourceUrl && (

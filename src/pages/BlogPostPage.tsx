@@ -41,7 +41,7 @@ export default function BlogPostPage({ slug }: BlogPostPageProps): ReactElement 
   // Render the post
   return (
     <section id="blog-post" className="max-w-5xl mx-auto">
-      {/* Back Link */}
+      {/* Top Back Link */}
       <a 
         href="#/blog" 
         className="inline-block back-link mb-8"
@@ -50,7 +50,7 @@ export default function BlogPostPage({ slug }: BlogPostPageProps): ReactElement 
       </a>
 
       {/* Post Header */}
-      <h1 className="text-5xl font-extrabold  mb-4">{post.title}</h1>
+      <h1 className="text-3xl md:text-5xl font-extrabold mb-4">{post.title}</h1>
       <p className="text-lg  mb-8">
         Published on {formatDate(post.date)}
       </p>
@@ -59,6 +59,14 @@ export default function BlogPostPage({ slug }: BlogPostPageProps): ReactElement 
       <div className="card-lg">
         <MarkdownRenderer content={post.content} />
       </div>
+
+      {/* Bottom Back Link -- Include some extra top padding. */}
+      <a 
+        href="#/blog" 
+        className="inline-block back-link mb-8 pt-6"
+      >
+        &larr; Back to all posts
+      </a>
     </section>
   );
 }

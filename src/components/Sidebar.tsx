@@ -56,7 +56,7 @@ export default function Sidebar({ currentPage }: SidebarProps): ReactElement {
 
             {/* --- Mobile Hamburger Button --- */}
             <button
-              className="lg:hidden p-2 social-link"
+              className="lg:hidden p-3 social-link"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               aria-label="Toggle navigation"
             >
@@ -74,7 +74,7 @@ export default function Sidebar({ currentPage }: SidebarProps): ReactElement {
             style={{ gridTemplateRows: isMobileMenuOpen ? '1fr' : '0fr' }}
           >
             <div className="overflow-hidden">
-              <nav className="flex flex-col space-y-2 pt-6 px-4">
+              <nav className="flex flex-col pt-4 px-2">
                 {NAV_LINKS.map(({ icon, label, href, page }) => (
                   <SidebarLink
                     key={page}
@@ -88,9 +88,9 @@ export default function Sidebar({ currentPage }: SidebarProps): ReactElement {
               </nav>
 
               {/* --- Mobile Social Links --- */}
-              <div className="flex space-x-4 pt-6 pb-4 px-4 justify-center">
+              <div className="flex pt-4 pb-2 px-2 justify-center">
                 {SOCIAL_LINKS.map(({ href, icon: Icon, label }) => (
-                  <a key={label} href={href} target="_blank" rel="noopener noreferrer" className="social-link">
+                  <a key={label} href={href} target="_blank" rel="noopener noreferrer" className="social-link p-3">
                     <Icon className="w-6 h-6" />
                   </a>
                 ))}
