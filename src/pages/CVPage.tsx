@@ -8,8 +8,14 @@ import {
   TextInput,
   CollapsibleSection,
   type CVEntryProps,
-  getNumericEndYear,
 } from '../components/Reusable';
+
+function getNumericEndYear({startYear, endYear} : CVEntryProps): number {
+  if (typeof endYear === "number") return endYear;
+  if (endYear === "Present") return new Date().getFullYear();
+  if (endYear === "") return startYear;
+  return 0;
+}
 import { FileText } from 'lucide-react';
 
 import {

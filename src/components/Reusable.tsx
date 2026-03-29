@@ -174,31 +174,6 @@ export interface CVEntryProps {
   renderByDefault: boolean;
 }
 
-/**
- * Returns the numeric years for filtering a CVEntry.
- * 
- * @param startYear The start year.
- * @param endYear The end year.
- * @returns 
- */
-export function getNumericEndYear({startYear, endYear} : CVEntryProps): number {
-  // If numerical, return value.
-  if (typeof endYear === "number") {
-    return endYear;
-  }
-  // If persent, return the current year.
-  else if (endYear === "Present") {
-    const currentYear = new Date().getFullYear();
-    return currentYear;
-  }
-  // If blank, this is a 1 time event and end == start.
-  else if (endYear === "") {
-    return startYear
-  }
-  else {
-    return 0
-  }
-}
 
 /**
  * Helper function for rendering the year ranges.
