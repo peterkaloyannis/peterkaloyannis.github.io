@@ -1,5 +1,5 @@
 import { PageWithSidebar, ProjectCard } from '../components/Reusable';
-import { Presentation, Code, CheckSquare, Joystick, Globe } from '../components/Icons';
+import { Presentation, Code, CheckSquare, Joystick, Globe } from 'lucide-react';
 import { type ReactElement } from 'react';
 
 export default function ProjectsPage(): ReactElement {

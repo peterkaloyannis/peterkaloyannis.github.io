@@ -1,16 +1,16 @@
 import { useState, useMemo, type ReactElement } from 'react';
 import Fuse from 'fuse.js';
 import { PageWithSidebar, RecipeCard, SearchBar, ToggleSwitch } from '../components/Reusable';
-import { BookOpen } from '../components/Icons';
+import { BookOpen } from 'lucide-react';
 import { allRecipes } from '../content/recipeData';
 import type { Recipe } from '../types';
+import { useFuseSearch } from '../hooks';
 
-const fuseOptions = {
-  keys: [ 'title', 'summary', 'tags', 'content' ],
+const fuse = new Fuse(allRecipes, {
+  keys: ['title', 'summary', 'tags', 'content'],
   threshold: 0.4,
   includeScore: true,
-};
-const fuse = new Fuse(allRecipes, fuseOptions);
+});
 
 const allTags = [
   ...new Set(allRecipes.flatMap(recipe => recipe.tags || []))
@@ -22,23 +22,20 @@ export default function RecipesPage(): ReactElement {
   const [showCurated, setShowCurated] = useState(true);
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
 
-  const filteredRecipes: Recipe[] = useMemo(() => {
-    const searchResults = !searchQuery.trim()
-      ? allRecipes
-      : fuse.search(searchQuery).map(result => result.item);
+  const searchResults = useFuseSearch(allRecipes, fuse, searchQuery);
 
-    const typeFiltered = searchResults.filter(recipe => {
-      if (recipe.type === 'original') return showOriginal;
-      if (recipe.type === 'curated') return showCurated;
-      return false;
-    });
+  const filteredRecipes: Recipe[] = useMemo(() => {
+    const typeFiltered = searchResults.filter(recipe =>
+      (recipe.type === 'original' && showOriginal) ||
+      (recipe.type === 'curated' && showCurated)
+    );
 
     if (selectedTags.length === 0) return typeFiltered;
 
     return typeFiltered.filter(recipe =>
       selectedTags.every(tag => recipe.tags?.includes(tag))
     );
-  }, [searchQuery, showOriginal, showCurated, selectedTags]);
+  }, [searchResults, showOriginal, showCurated, selectedTags]);
 
   const handleTagClick = (tag: string | null) => {
     if (tag === null) {
@@ -114,18 +111,7 @@ export default function RecipesPage(): ReactElement {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {filteredRecipes.length > 0 ? (
           filteredRecipes.map((recipe) => (
-            <RecipeCard
-              key={recipe.slug}
-              slug={recipe.slug}
-              type={recipe.type}
-              title={recipe.title}
-              date={recipe.date}
-              summary={recipe.summary}
-              serves={recipe.serves}
-              tags={recipe.tags}
-              imageUrl={recipe.imageUrl}
-              sourceUrl={recipe.sourceUrl}
-            />
+            <RecipeCard key={recipe.slug} {...recipe} />
           ))
         ) : (
           <div className="md:col-span-2 lg:col-span-3 empty-state">

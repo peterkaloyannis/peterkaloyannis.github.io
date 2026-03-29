@@ -1,5 +1,4 @@
 import { MarkdownRenderer, RecipeMetadataPanel } from '../components/Reusable'; 
-import { BookOpen } from '../components/Icons';
 import { allRecipes } from '../content/recipeData'; 
 import { type ReactElement } from 'react';
 
@@ -27,12 +26,9 @@ export default function RecipeDetailsPage({ slug }: RecipeDetailsPageProps): Rea
 
   return (
     <section>
-      <div className="flex items-center space-x-4 mb-8">
-        <BookOpen className="w-8 h-8 text-gray-900" />
-        <a href="#/recipes" className="back-link text-sm">
-          &larr; Back to all recipes
-        </a>
-      </div>
+      <a href="#/recipes" className="inline-block back-link mb-8">
+        &larr; Back to all recipes
+      </a>
 
       {/* --- NEW: Two-Column Layout --- */}
       <div className="page-layout">
@@ -40,14 +36,7 @@ export default function RecipeDetailsPage({ slug }: RecipeDetailsPageProps): Rea
         {/* --- Column 1: Metadata (Sticky) --- */}
         <div className="page-sidebar">
           <div className="sticky top-8 space-y-8">
-            <RecipeMetadataPanel 
-                serves={recipe.serves}
-                activeCookTime={recipe.activeCookTime}
-                totalTime={recipe.totalTime}
-                tags={recipe.tags}
-                type={recipe.type}
-                imageUrl={recipe.imageUrl}
-            />
+            <RecipeMetadataPanel {...recipe} />
           </div>
         </div>
 

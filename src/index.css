@@ -69,6 +69,22 @@
   .tag-btn-inactive {
     @apply bg-gray-100 text-gray-700 hover:bg-gray-200;
   }
+
+  /* --- Recipe type badge --- */
+  .recipe-type-badge {
+    @apply text-xs font-semibold px-3 py-1 rounded-full;
+  }
+  .recipe-type-badge-original {
+    @apply bg-indigo-100 text-indigo-600;
+  }
+  .recipe-type-badge-curated {
+    @apply bg-gray-100 text-gray-600;
+  }
+
+  /* --- Display-only tag pill (non-interactive) --- */
+  .tag {
+    @apply text-xs bg-indigo-50 text-indigo-700 px-3 py-1 rounded-full font-medium;
+  }
 }
 
 .code-screenshot {

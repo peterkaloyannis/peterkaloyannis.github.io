@@ -1,32 +1,12 @@
 import type { BlogPost } from '../types';
+import { parseFrontMatter } from './parseFrontMatter';
 
-// Parse the blogbost markdown.
-const parseRecipeMarkdown = (rawMarkdown: string) => {
-  const parts = rawMarkdown.match(/---\n([\s\S]*?)\n---/);
-  let metadata: Partial<BlogPost> = {};
-  let content = rawMarkdown;
-
-  if (parts && parts.length > 1) {
-    const frontMatter = parts[1];
-    frontMatter.split('\n').forEach(line => {
-      // Try to match a new key-value pair
-      const match = line.match(/^\s*([^:]+):\s*(.*)/);
-      if (match) {
-        const key = match[1].trim().toLowerCase();
-        let value = match[2].trim().replace(/['"]/g, ''); // Remove quotes
-
-        // Map all keys to the Recipe interface
-        switch (key) {
-          case 'title': metadata.title = value; break;
-          case 'date': metadata.date = value; break;
-          case 'summary': metadata.summary = value; break;
-        }
-      }
-    });
-    
-    // Remove the Front Matter block from the final content
-    content = rawMarkdown.replace(/---\n([\s\S]*?)\n---/, '').trim();
-  }
+const parseBlogMarkdown = (rawMarkdown: string): { metadata: Partial<BlogPost>; content: string } => {
+  const { fields, content } = parseFrontMatter(rawMarkdown);
+  const metadata: Partial<BlogPost> = {};
+  if (typeof fields['title'] === 'string') metadata.title = fields['title'];
+  if (typeof fields['date'] === 'string') metadata.date = fields['date'];
+  if (typeof fields['summary'] === 'string') metadata.summary = fields['summary'];
   return { metadata, content };
 };
 
@@ -41,7 +21,7 @@ export const blogPosts: BlogPost[] = Object.entries(rawBlogPosts).map(([path, mo
   // The raw string is inside the 'default' property of the imported module
   const rawMarkdown = (module as { default: string }).default;
   
-  const { metadata, content } = parseRecipeMarkdown(rawMarkdown);
+  const { metadata, content } = parseBlogMarkdown(rawMarkdown);
 
   // Construct the final Recipe object
   // Provide defaults in case front matter is missing

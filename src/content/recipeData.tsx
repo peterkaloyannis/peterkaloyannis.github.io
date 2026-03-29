@@ -1,56 +1,20 @@
 import type { Recipe } from '../types';
+import { parseFrontMatter } from './parseFrontMatter';
 
-// --- 1. UPDATED PARSER ---
-// This function now parses *all* fields from the front matter.
-const parseRecipeMarkdown = (rawMarkdown: string) => {
-  const parts = rawMarkdown.match(/---\n([\s\S]*?)\n---/);
-  let metadata: Partial<Recipe> = {};
-  let content = rawMarkdown;
-
-  if (parts && parts.length > 1) {
-    const frontMatter = parts[1];
-    let inTagsBlock = false;
-    let tags: string[] = [];
-
-    frontMatter.split('\n').forEach(line => {
-      // Check for tag list items
-      if (inTagsBlock) {
-        const tagMatch = line.match(/^\s*-\s*(.*)/);
-        if (tagMatch) {
-          tags.push(tagMatch[1].trim());
-          return; // Move to the next line
-        } else {
-          // No match, so the tag block is over
-          inTagsBlock = false;
-        }
-      }
-      
-      // Try to match a new key-value pair
-      const match = line.match(/^\s*([^:]+):\s*(.*)/);
-      if (match) {
-        const key = match[1].trim().toLowerCase();
-        let value = match[2].trim().replace(/['"]/g, ''); // Remove quotes
-
-        // Map all keys to the Recipe interface
-        switch (key) {
-          case 'title': metadata.title = value; break;
-          case 'date': metadata.date = value; break;
-          case 'summary': metadata.summary = value; break;
-          case 'serves': metadata.serves = value; break;
-          case 'active cook time': metadata.activeCookTime = value; break;
-          case 'total time': metadata.totalTime = value; break;
-          case 'imageurl': metadata.imageUrl = value; break;
-          case 'sourceurl': metadata.sourceUrl = value; break;
-          case 'tags': inTagsBlock = true; break;
-          // Add any other keys you want to parse here
-        }
-      }
-    });
-    if (tags.length > 0) metadata.tags = tags;
-    
-    // Remove the Front Matter block from the final content
-    content = rawMarkdown.replace(/---\n([\s\S]*?)\n---/, '').trim();
-  }
+// --- 1. PARSER ---
+// Maps generic front matter fields to the Recipe interface.
+const parseRecipeMarkdown = (rawMarkdown: string): { metadata: Partial<Recipe>; content: string } => {
+  const { fields, content } = parseFrontMatter(rawMarkdown);
+  const metadata: Partial<Recipe> = {};
+  if (typeof fields['title'] === 'string') metadata.title = fields['title'];
+  if (typeof fields['date'] === 'string') metadata.date = fields['date'];
+  if (typeof fields['summary'] === 'string') metadata.summary = fields['summary'];
+  if (typeof fields['serves'] === 'string') metadata.serves = fields['serves'];
+  if (typeof fields['active cook time'] === 'string') metadata.activeCookTime = fields['active cook time'];
+  if (typeof fields['total time'] === 'string') metadata.totalTime = fields['total time'];
+  if (typeof fields['imageurl'] === 'string') metadata.imageUrl = fields['imageurl'];
+  if (typeof fields['sourceurl'] === 'string') metadata.sourceUrl = fields['sourceurl'];
+  if (Array.isArray(fields['tags'])) metadata.tags = fields['tags'] as string[];
   return { metadata, content };
 };
 

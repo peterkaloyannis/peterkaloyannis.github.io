@@ -1,17 +1,7 @@
-import React, { type ReactElement, useState } from 'react';
+import { type ReactElement, useState } from 'react';
 import type { AppRoutePage } from '../types';
-import {
-  Home,
-  Presentation,
-  Newspaper,
-  BookOpen,
-  FileText,
-  Github,
-  OrcidIcon,
-  GraduationCap,
-  Menu,
-  XIcon
-} from './Icons';
+import { Home, Presentation, Newspaper, BookOpen, FileText, GraduationCap, Menu, X } from 'lucide-react';
+import { Github, OrcidIcon } from './CustomIcons';
 
 /**
  * Sidebar Component
@@ -71,7 +61,7 @@ export default function Sidebar({ currentPage }: SidebarProps): ReactElement {
               aria-label="Toggle navigation"
             >
               {isMobileMenuOpen ? (
-                <XIcon className="w-6 h-6" />
+                <X className="w-6 h-6" />
               ) : (
                 <Menu className="w-6 h-6" />
               )}

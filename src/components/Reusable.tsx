@@ -1,7 +1,7 @@
 // src/components/Reusable.tsx
 
-import React, {type ReactElement} from 'react';
-import { ChevronDown, BookOpen, ExternalLink, Search, Code, User } from './Icons';
+import { type ReactElement, type ElementType, type ReactNode, type ChangeEvent } from 'react';
+import { ChevronDown, BookOpen, ExternalLink, Search, Code, User } from 'lucide-react';
 import { marked } from 'marked';
 import DOMPurify from 'dompurify';
 
@@ -15,10 +15,10 @@ import DOMPurify from 'dompurify';
  */
 interface PageWithSidebarProps {
   id: string;
-  icon: React.ElementType;
+  icon: ElementType;
   title: string;
-  sidebar: React.ReactNode;
-  children: React.ReactNode;
+  sidebar: ReactNode;
+  children: ReactNode;
 }
 
 export function PageWithSidebar({ id, icon, title, sidebar, children }: PageWithSidebarProps): ReactElement {
@@ -49,27 +49,18 @@ interface MarkdownRendererProps {
 marked.setOptions({ gfm: true });
 
 export function MarkdownRenderer({ content }: MarkdownRendererProps) {
-  // 1. Parse the markdown content to raw HTML string
   const rawHtml = marked.parse(content) as string;
-
-  // 3. Sanitize the raw HTML string for security
   const safeHtml = DOMPurify.sanitize(rawHtml);
-
-  // 4. Use dangerouslySetInnerHTML to render the clean HTML
   return (
-    // 'prose' is a Tailwind utility that automatically formats
-    // all HTML elements (h1, p, ul, pre, etc.) within the container.
     <div className="content-prose">
-      <div 
-        dangerouslySetInnerHTML={{ __html: safeHtml }} 
-      />
+      <div dangerouslySetInnerHTML={{ __html: safeHtml }} />
     </div>
   );
 }
 
 interface SearchBarProps {
   value: string;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
   placeholder?: string;
 }
 
@@ -97,7 +88,7 @@ export function SearchBar({ value, onChange, placeholder = "Search..." }: Search
  * A reusable title component for main content sections.
  */
 interface SectionTitleProps {
-  icon: React.ElementType;
+  icon: ElementType;
   title: string;
 }
 
@@ -115,10 +106,10 @@ export function SectionTitle({ icon: Icon, title }: SectionTitleProps): ReactEle
  * A reusable card for showcasing projects or skills.
  */
 interface ProjectCardProps {
-  icon: React.ElementType;
+  icon: ElementType;
   title: string;
   description: string;
-  href?: string; 
+  href?: string;
   imageUrl?: string;
 }
 
@@ -148,38 +139,21 @@ export function ProjectCard({ icon: Icon, title, description, href, imageUrl }: 
     </>
   );
 
-  // If href is provided, wrap the card in an <a> tag
-  if (href && href.startsWith("#/")) {
-     return (
-      <a
-        href={href}
-        className="card-interactive hover:scale-[1.02]"
-      >
-        {content}
-      </a>
-    );
-  }
-
-  // External link
-  if (href && (href.startsWith("http") || href.startsWith("www"))) {
+  if (href) {
+    const isExternal = href.startsWith("http") || href.startsWith("www");
     return (
       <a
         href={href}
-        target="_blank"
-        rel="noopener noreferrer"
         className="card-interactive hover:scale-[1.02]"
+        target={isExternal ? "_blank" : undefined}
+        rel={isExternal ? "noopener noreferrer" : undefined}
       >
         {content}
       </a>
     );
   }
 
-  // No href, just a div
-  return (
-    <div className="card">
-      {content}
-    </div>
-  );
+  return <div className="card">{content}</div>;
 }
 
 
@@ -315,7 +289,7 @@ interface TextInputProps {
   id: string;
   label: string;
   value: string;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
   placeholder?: string;
 }
 
@@ -362,7 +336,7 @@ interface CollapsibleSectionProps {
   title: string;
   isOpen: boolean;
   onToggle: () => void;
-  children: React.ReactNode;
+  children: ReactNode;
 }
 
 export function CollapsibleSection({ 
@@ -409,6 +383,39 @@ export function CollapsibleSection({
 // =================================================================================
 
 /**
+ * RecipeImageOrPlaceholder Component
+ * Renders a recipe image if available, otherwise a styled placeholder.
+ */
+function RecipeImageOrPlaceholder({ imageUrl, title, className = "w-full h-48 object-cover" }: { imageUrl?: string; title?: string; className?: string }) {
+  if (imageUrl) {
+    return (
+      <img
+        src={imageUrl}
+        alt={title ? `Image for ${title}` : "Recipe cover image"}
+        className={className}
+      />
+    );
+  }
+  return (
+    <div className="w-full h-48 bg-gray-100 flex items-center justify-center">
+      <BookOpen className="w-12 h-12 text-gray-300" />
+    </div>
+  );
+}
+
+/**
+ * RecipeTypeBadge Component
+ * Displays a pill badge for 'original' or 'curated' recipe type.
+ */
+function RecipeTypeBadge({ type }: { type: 'original' | 'curated' }) {
+  return (
+    <span className={`recipe-type-badge ${type === 'curated' ? 'recipe-type-badge-curated' : 'recipe-type-badge-original'}`}>
+      {type === 'curated' ? 'Curated' : 'Original'}
+    </span>
+  );
+}
+
+/**
  * BlogPostCard Component
  * A reusable card for the blog list page.
  */
@@ -447,39 +454,28 @@ interface RecipeCardProps {
   serves?: string;
   tags?: string[];
   imageUrl?: string;
-  sourceUrl?: string; // We'll read this prop
+  sourceUrl?: string;
 }
 
-export function RecipeCard({ 
-  slug, 
-  type, 
-  title, 
-  date, 
-  summary, 
-  serves, 
-  tags, 
+export function RecipeCard({
+  slug,
+  type,
+  title,
+  date,
+  summary,
+  serves,
+  tags,
   imageUrl,
-  sourceUrl // We now use this
+  sourceUrl
 }: RecipeCardProps) {
-  
+
   const isCurated = type === 'curated' && sourceUrl;
 
   // --- 1. Define the Card's Content ---
   // This is the same for both link types
   const cardContent = (
     <>
-      {/* Image Block */}
-      {imageUrl ? (
-        <img 
-          src={imageUrl} 
-          alt={`Image for ${title}`} 
-          className="w-full h-48 object-cover" 
-        />
-      ) : (
-        <div className="w-full h-48 bg-gray-100 flex items-center justify-center">
-          <BookOpen className="w-12 h-12 text-gray-300" />
-        </div>
-      )}
+      <RecipeImageOrPlaceholder imageUrl={imageUrl} title={title} />
       
       {/* Padding is now applied to a div *inside* the card */}
       <div className="p-6">
@@ -489,9 +485,7 @@ export function RecipeCard({
             {title}
             {isCurated && <ExternalLink className="w-4 h-4 ml-2 text-gray-500" />}
           </h3>
-          <span className={`text-xs font-semibold px-3 py-1 rounded-full ${isCurated ? 'bg-gray-100 text-gray-600' : 'bg-indigo-100 text-indigo-600'}`}>
-            {isCurated ? 'Curated' : 'Original'}
-          </span>
+          <RecipeTypeBadge type={type} />
         </div>
         <div className="flex justify-between items-center text-sm text-gray-500 mb-3">
           <p>{date}</p>
@@ -507,43 +501,26 @@ export function RecipeCard({
         </p>
         {tags && tags.length > 0 && (
           <div className="mt-3 flex flex-wrap gap-1">
-              {tags.map(tag => (
-                  <span key={tag} className="text-xs bg-gray-50 text-gray-600 px-2 py-0.5 rounded-md border border-gray-200">
-                      {tag}
-                  </span>
-              ))}
+            {tags.map(tag => (
+              <span key={tag} className="tag">{tag}</span>
+            ))}
           </div>
         )}
       </div>
     </>
   );
 
-  // --- 2. Define Card Wrapper (Conditional Link) ---
-  const commonClasses = "block card-flush hover:shadow-2xl hover:scale-[1.01] transition-all duration-200 border-t-4 border-indigo-500";
-
-  if (isCurated) {
-    // If it's curated, render an <a> tag pointing to the external sourceUrl
-    return (
-      <a 
-        href={sourceUrl} 
-        target="_blank" 
-        rel="noopener noreferrer"
-        className={commonClasses}
-      >
-        {cardContent}
-      </a>
-    );
-  } else {
-    // If it's original, render an <a> tag pointing to our internal hash route
-    return (
-      <a 
-        href={`#/recipe-details/${slug}`} 
-        className={commonClasses}
-      >
-        {cardContent}
-      </a>
-    );
-  }
+  const href = isCurated ? sourceUrl : `#/recipe-details/${slug}`;
+  return (
+    <a
+      href={href}
+      target={isCurated ? "_blank" : undefined}
+      rel={isCurated ? "noopener noreferrer" : undefined}
+      className="block card-flush hover:shadow-2xl hover:scale-[1.01] transition-all duration-200 border-t-4 border-indigo-500"
+    >
+      {cardContent}
+    </a>
+  );
 }
 
 /**
@@ -568,38 +545,22 @@ export function RecipeMetadataPanel({
   imageUrl 
 }: RecipeMetadataPanelProps) {
     
-    const capitalizedType = type.charAt(0).toUpperCase() + type.slice(1);
-
     return (
         <div className="card-flush">
 
-            {/* Image Block */}
-            {imageUrl ? (
-              <img 
-                src={imageUrl} 
-                alt="Recipe cover image"
-                className="w-full h-auto object-cover" 
-              />
-            ) : (
-              <div className="w-full h-48 bg-gray-100 flex items-center justify-center">
-                <BookOpen className="w-12 h-12 text-gray-300" />
-              </div>
-            )}
-            
-            {/* Padding is now applied to a div *inside* the panel */}
+            <RecipeImageOrPlaceholder imageUrl={imageUrl} className="w-full h-auto object-cover" />
+
             <div className="p-6">
               <h3 className="text-xl font-bold text-gray-900 mb-5 border-b border-gray-200 pb-3">
                   Recipe Information
               </h3>
-              
+
               <div className="space-y-4">
-                
+
                 {/* Status Row */}
                 <div className="flex justify-between items-center">
                     <span className="font-semibold text-gray-700">Status</span>
-                    <span className={`text-sm font-semibold px-3 py-1 rounded-full ${type === 'curated' ? 'bg-gray-100 text-gray-600' : 'bg-indigo-100 text-indigo-600'}`}>
-                        {capitalizedType}
-                    </span>
+                    <RecipeTypeBadge type={type} />
                 </div>
 
                 {/* Serves Row */}
@@ -632,9 +593,7 @@ export function RecipeMetadataPanel({
                         <span className="font-semibold text-gray-700 shrink-0 mr-4">Tags</span>
                         <div className="flex flex-wrap gap-2 justify-end">
                             {tags.map(tag => (
-                                <span key={tag} className="text-xs bg-indigo-50 text-indigo-700 px-3 py-1 rounded-full font-medium">
-                                    {tag}
-                                </span>
+                                <span key={tag} className="tag">{tag}</span>
                             ))}
                         </div>
                     </div>

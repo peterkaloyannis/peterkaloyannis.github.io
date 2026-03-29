@@ -10,7 +10,7 @@ import {
   type CVEntryProps,
   getNumericEndYear,
 } from '../components/Reusable';
-import { FileText } from '../components/Icons';
+import { FileText } from 'lucide-react';
 
 import {
   allExperienceData,
@@ -66,18 +66,12 @@ export default function CVPage(): ReactElement {
   const expandAll  = () => setOpenSections(ALL_OPEN);
   const collapseAll = () => setOpenSections(ALL_CLOSED);
 
-  const filteredExperience = useMemo(
-    () => filterCVEntry(startYear, endYear, showFullCV, allExperienceData),
+  const [filteredExperience, filteredEducation, filteredAwards] = useMemo(
+    () => [allExperienceData, allEducationData, allAwardsData].map(
+      entries => filterCVEntry(startYear, endYear, showFullCV, entries)
+    ),
     [startYear, endYear, showFullCV]
   );
-  const filteredEducation = useMemo(
-    () => filterCVEntry(startYear, endYear, showFullCV, allEducationData),
-    [startYear, endYear, showFullCV]
-  );
-  const filteredAwards = useMemo(
-    ()=> filterCVEntry(startYear, endYear, showFullCV, allAwardsData),
-    [startYear, endYear, showFullCV]
-  )
 
   const sidebar = (
     <div className="card">

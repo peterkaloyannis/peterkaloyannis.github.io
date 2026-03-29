@@ -1,26 +1,20 @@
-import {useState, useMemo, type ReactElement} from 'react';
+import {useState, type ReactElement} from 'react';
 import { PageWithSidebar, BlogPostCard, SearchBar } from '../components/Reusable';
-import { Newspaper } from '../components/Icons';
+import { Newspaper } from 'lucide-react';
 import { blogPosts } from '../content/blogData';
 import Fuse from 'fuse.js';
-import type { BlogPost } from '../types';
+import { useFuseSearch } from '../hooks';
 
-const fuseOptions = {
-  keys: [ 'title', 'summary', 'content' ],
+const fuse = new Fuse(blogPosts, {
+  keys: ['title', 'summary', 'content'],
   threshold: 0.4,
   includeScore: true,
-};
-const fuse = new Fuse(blogPosts, fuseOptions);
+});
 
 export default function BlogPage(): ReactElement {
   const [searchQuery, setSearchQuery] = useState('');
 
-  const filteredBlogs: BlogPost[] = useMemo(() => {
-    const searchResults = !searchQuery.trim()
-      ? blogPosts
-      : fuse.search(searchQuery).map(result => result.item);
-    return searchResults;
-  }, [searchQuery]);
+  const filteredBlogs = useFuseSearch(blogPosts, fuse, searchQuery);
 
   const sidebar = (
     <div className="card">
@@ -55,13 +49,7 @@ export default function BlogPage(): ReactElement {
     <PageWithSidebar id="blog" icon={Newspaper} title="Blog" sidebar={sidebar}>
       {filteredBlogs.length > 0 ? (
         filteredBlogs.map((blogpost) => (
-          <BlogPostCard
-            key={blogpost.slug}
-            slug={blogpost.slug}
-            title={blogpost.title}
-            date={blogpost.date}
-            summary={blogpost.summary}
-          />
+          <BlogPostCard key={blogpost.slug} {...blogpost} />
         ))
       ) : (
         <div className="empty-state">
