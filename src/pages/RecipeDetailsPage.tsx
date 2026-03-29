@@ -14,7 +14,7 @@ export default function RecipeDetailsPage({ slug }: RecipeDetailsPageProps): Rea
     return (
       <div className="card-lg my-12 text-center">
         <h2 className="text-3xl font-bold text-red-600 mb-4">404 Recipe Not Found</h2>
-        <p className="text-lg text-gray-700">The recipe you are looking for does not exist.</p>
+        <p className="text-lg ">The recipe you are looking for does not exist.</p>
         <a href="#/recipes" className="back-link mt-4 block">
           &larr; Back to all recipes
         </a>
@@ -44,8 +44,8 @@ export default function RecipeDetailsPage({ slug }: RecipeDetailsPageProps): Rea
         <div className="flex-1 space-y-8">
           {/* Recipe Header Card */}
           <div className="card-lg">
-            <h1 className="text-4xl font-extrabold text-gray-900 mb-2">{recipe.title}</h1>
-            <div className="flex justify-between items-center text-sm text-gray-500 mb-4">
+            <h1 className="text-4xl font-extrabold  mb-2">{recipe.title}</h1>
+            <div className="flex justify-between items-center text-sm  mb-4">
               <p>
                 {isCurated ? 'Curated Recipe' : 'Original Creation'} 
                 {recipe.sourceUrl && (
@@ -61,7 +61,7 @@ export default function RecipeDetailsPage({ slug }: RecipeDetailsPageProps): Rea
               </p>
               <p>Published: {recipe.date}</p>
             </div>
-            <p className="text-lg italic text-gray-600">{recipe.summary}</p>
+            <p className="text-lg italic ">{recipe.summary}</p>
           </div>
           
           {/* Recipe Content Card */}

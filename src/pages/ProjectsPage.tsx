@@ -6,7 +6,7 @@ export default function ProjectsPage(): ReactElement {
   const sidebar = (
     <div className="card">
       <h3 className="panel-heading">About this page</h3>
-      <p className="text-base text-gray-700 leading-relaxed mb-1">
+      <p className="text-base  leading-relaxed mb-1">
         I am sometimes hit with a lightning bolt of an idea that I must execute
         at that instant.
         <br/><br/>

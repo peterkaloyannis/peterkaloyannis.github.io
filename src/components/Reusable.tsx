@@ -69,7 +69,7 @@ export function SearchBar({ value, onChange, placeholder = "Search..." }: Search
     <div className="relative w-full">
       {/* Icon inside the search bar */}
       <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-        <Search className="h-5 w-5 text-gray-400" />
+        <Search className="h-5 w-5 text-[var(--color-text-subtle)]" />
       </div>
       {/* The input itself, with padding on the left for the icon */}
       <input
@@ -77,7 +77,7 @@ export function SearchBar({ value, onChange, placeholder = "Search..." }: Search
         value={value}
         onChange={onChange}
         placeholder={placeholder}
-        className="block w-full rounded-md border-gray-300 py-3 pl-10 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+        className="input-field w-full py-3 pl-10 sm:text-sm"
       />
     </div>
   );
@@ -95,8 +95,8 @@ interface SectionTitleProps {
 export function SectionTitle({ icon: Icon, title }: SectionTitleProps): ReactElement {
   return (
     <div className="flex items-center space-x-3 mb-8">
-      <Icon className="w-8 h-8 text-gray-900" />
-      <h2 className="text-3xl font-bold text-gray-900">{title}</h2>
+      <Icon className="w-8 h-8 text-[var(--color-text)]" />
+      <h2 className="text-3xl font-bold">{title}</h2>
     </div>
   );
 }
@@ -124,16 +124,16 @@ export function ProjectCard({ icon: Icon, title, description, href, imageUrl }: 
           className="mx-auto h-48 object-cover rounded-lg" 
         />
       ) : (
-        <div className="w-full h-48 bg-gray-100 flex items-center justify-center">
-          <Code className="w-12 h-12 text-gray-300" />
+        <div className="image-placeholder">
+          <Code className="w-12 h-12 text-[var(--color-text-subtle)]" />
         </div>
       )}
       <div className="flex items-center space-x-3 mt-4 mb-4">
-        <Icon className="w-6 h-6 text-indigo-700" />
-        <h3 className="text-xl font-bold text-gray-900">{title}</h3>
-        <ExternalLink className="w-4 h-4 ml-2 text-gray-500" />
+        <Icon className="w-6 h-6 text-[var(--color-accent-light)]" />
+        <h3 className="text-xl font-bold">{title}</h3>
+        <ExternalLink className="w-4 h-4 ml-2 text-[var(--color-text-muted)]" />
       </div>
-      <p className="text-gray-700 leading-relaxed">
+      <p className="leading-relaxed">
         {description}
       </p>
     </>
@@ -226,13 +226,13 @@ export function CVEntry({ title, startYear, endYear, location, description }: CV
         <div className="flex items-center space-x-3">
            <User className="w-8 h-8" />
           <div>
-            <h3 className="text-xl font-bold text-gray-900">{title}</h3>
-            <p className="text-lg font-medium text-indigo-700">{location}</p>
+            <h3 className="text-xl font-bold">{title}</h3>
+            <p className="text-lg font-medium text-accent">{location}</p>
           </div>
         </div>
-        <span className="text-sm font-medium text-gray-500 bg-gray-100 px-3 py-1 rounded-full whitespace-nowrap">{date}</span>
+        <span className="date-badge">{date}</span>
       </div>
-      <div className="text-gray-700 leading-relaxed">
+      <div className="leading-relaxed">
         <MarkdownRenderer content={description} />
       </div>
     </div>
@@ -253,28 +253,20 @@ interface ToggleSwitchProps {
 export function ToggleSwitch({ id, label, isEnabled, onToggle }: ToggleSwitchProps) {
   return (
     <div className="flex items-center justify-between">
-      <label htmlFor={id} className="font-medium text-gray-700">
+      <label htmlFor={id} className="font-medium">
         {label}
       </label>
       <button
         id={id}
         onClick={onToggle}
         type="button"
-        className={`
-          relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent 
-          transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2
-          ${isEnabled ? 'bg-indigo-600' : 'bg-gray-200'}
-        `}
+        className={`toggle-track ${isEnabled ? 'toggle-track-on' : 'toggle-track-off'}`}
         role="switch"
         aria-checked={isEnabled}
       >
         <span
           aria-hidden="true"
-          className={`
-            pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 
-            transition duration-200 ease-in-out
-            ${isEnabled ? 'translate-x-5' : 'translate-x-0'}
-          `}
+          className={`toggle-thumb ${isEnabled ? 'translate-x-5' : 'translate-x-0'}`}
         />
       </button>
     </div>
@@ -296,7 +288,7 @@ interface TextInputProps {
 export function TextInput({ id, label, value, onChange, placeholder }: TextInputProps) {
   return (
     <div>
-      <label htmlFor={id} className="block text-sm font-medium text-gray-700 mb-1">
+      <label htmlFor={id} className="block text-sm font-medium mb-1">
         {label}
       </label>
       <input
@@ -306,7 +298,7 @@ export function TextInput({ id, label, value, onChange, placeholder }: TextInput
         value={value}
         onChange={onChange}
         placeholder={placeholder}
-        className="w-full h-6 px-1 rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+        className="input-field w-full h-6 px-1"
       />
     </div>
   );
@@ -320,7 +312,7 @@ function AnimatedChevron({ isOpen }: { isOpen: boolean }) {
   return (
     <ChevronDown 
       className={`
-        w-5 h-5 text-gray-500 
+        w-5 h-5 text-[var(--color-text-muted)]
         transition-transform duration-300 ease-in-out
         ${isOpen ? 'rotate-180' : 'rotate-0'}
       `} 
@@ -352,7 +344,7 @@ export function CollapsibleSection({
         onClick={onToggle}
         className="flex justify-between items-center w-full p-6"
       >
-        <h3 className="text-2xl font-bold text-gray-900">{title}</h3>
+        <h3 className="text-2xl font-bold">{title}</h3>
         <AnimatedChevron isOpen={isOpen} />
       </button>
       
@@ -397,8 +389,8 @@ function RecipeImageOrPlaceholder({ imageUrl, title, className = "w-full h-48 ob
     );
   }
   return (
-    <div className="w-full h-48 bg-gray-100 flex items-center justify-center">
-      <BookOpen className="w-12 h-12 text-gray-300" />
+    <div className="image-placeholder">
+      <BookOpen className="w-12 h-12 text-[var(--color-text-subtle)]" />
     </div>
   );
 }
@@ -432,9 +424,9 @@ export function BlogPostCard({ slug, title, date, summary }: BlogPostCardProps) 
       href={`#/blog/${slug}`} 
       className="card-interactive hover:scale-[1.01]"
     >
-      <h3 className="text-2xl font-bold text-gray-900 mb-2">{title}</h3>
-      <p className="text-sm text-gray-500 mb-4">{date}</p>
-      <p className="text-gray-700 leading-relaxed">
+      <h3 className="text-2xl font-bold mb-2">{title}</h3>
+      <p className="text-sm mb-4 text-[var(--color-text-muted)]">{date}</p>
+      <p className="leading-relaxed">
         {summary}
       </p>
     </a>
@@ -481,22 +473,22 @@ export function RecipeCard({
       <div className="p-6">
         <div className="flex justify-between items-start mb-2">
           {/* Title now includes an external link icon if curated */}
-          <h3 className="text-xl font-bold text-gray-900 flex items-center">
+          <h3 className="text-xl font-bold flex items-center">
             {title}
-            {isCurated && <ExternalLink className="w-4 h-4 ml-2 text-gray-500" />}
+            {isCurated && <ExternalLink className="w-4 h-4 ml-2 text-[var(--color-text-muted)]" />}
           </h3>
           <RecipeTypeBadge type={type} />
         </div>
-        <div className="flex justify-between items-center text-sm text-gray-500 mb-3">
+        <div className="flex justify-between items-center text-sm mb-3 text-[var(--color-text-muted)]">
           <p>{date}</p>
           {serves && (
-            <p className="flex items-center space-x-1 font-medium text-gray-700">
+            <p className="flex items-center space-x-1 font-medium">
               <User className="w-4 h-4" />
               <span>Serves: {serves}</span>
             </p>
           )}
         </div>
-        <p className="text-gray-700 leading-relaxed line-clamp-2">
+        <p className="leading-relaxed line-clamp-2">
           {summary}
         </p>
         {tags && tags.length > 0 && (
@@ -516,7 +508,7 @@ export function RecipeCard({
       href={href}
       target={isCurated ? "_blank" : undefined}
       rel={isCurated ? "noopener noreferrer" : undefined}
-      className="block card-flush hover:shadow-2xl hover:scale-[1.01] transition-all duration-200 border-t-4 border-indigo-500"
+      className="block card-flush hover:shadow-2xl hover:scale-[1.01] transition-all duration-200 border-t-4 border-[var(--color-accent)]"
     >
       {cardContent}
     </a>
@@ -551,7 +543,7 @@ export function RecipeMetadataPanel({
             <RecipeImageOrPlaceholder imageUrl={imageUrl} className="w-full h-auto object-cover" />
 
             <div className="p-6">
-              <h3 className="text-xl font-bold text-gray-900 mb-5 border-b border-gray-200 pb-3">
+              <h3 className="text-xl font-bold mb-5 border-b border-[var(--color-border)] pb-3">
                   Recipe Information
               </h3>
 
@@ -559,38 +551,38 @@ export function RecipeMetadataPanel({
 
                 {/* Status Row */}
                 <div className="flex justify-between items-center">
-                    <span className="font-semibold text-gray-700">Status</span>
+                    <span className="font-semibold">Status</span>
                     <RecipeTypeBadge type={type} />
                 </div>
 
                 {/* Serves Row */}
                 {serves && (
                     <div className="flex justify-between items-center">
-                        <span className="font-semibold text-gray-700">Serves</span>
-                        <span className="text-gray-900 font-medium">{serves}</span>
+                        <span className="font-semibold">Serves</span>
+                        <span className="font-medium">{serves}</span>
                     </div>
                 )}
                 
                 {/* Active Time Row */}
                 {activeCookTime && (
                     <div className="flex justify-between items-center">
-                        <span className="font-semibold text-gray-700">Active Time</span>
-                        <span className="text-gray-900 font-medium">{activeCookTime}</span>
+                        <span className="font-semibold">Active Time</span>
+                        <span className="font-medium">{activeCookTime}</span>
                     </div>
                 )}
 
                 {/* Total Time Row */}
                 {totalTime && (
                     <div className="flex justify-between items-center">
-                        <span className="font-semibold text-gray-700">Total Time</span>
-                        <span className="text-gray-900 font-medium">{totalTime}</span>
+                        <span className="font-semibold">Total Time</span>
+                        <span className="font-medium">{totalTime}</span>
                     </div>
                 )}
 
                 {/* Tags Row */}
                 {tags && tags.length > 0 && (
                     <div className="flex justify-between items-start pt-2">
-                        <span className="font-semibold text-gray-700 shrink-0 mr-4">Tags</span>
+                        <span className="font-semibold shrink-0 mr-4">Tags</span>
                         <div className="flex flex-wrap gap-2 justify-end">
                             {tags.map(tag => (
                                 <span key={tag} className="tag">{tag}</span>

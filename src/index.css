@@ -1,23 +1,67 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
+:root {
+  --color-bg:             #1c1714;
+  --color-surface:        #272120;
+  --color-surface-raised: #302a27;
+  --color-sidebar:        #110e0d;
+  --color-accent:         #c2692a;
+  --color-accent-hover:   #d4772e;
+  --color-accent-light:   #e8943f;
+  --color-accent-subtle:  rgba(194,105,42,0.15);
+  --gradient-accent:      linear-gradient(135deg, #c2692a, #e8943f);
+  --color-text:           #f0e6ec;
+  --color-text-muted:     #9e8e82;
+  --color-text-subtle:    #6b5c53;
+  --color-text-on-accent: #ffffff;
+  --color-border:         #3a2e28;
+  --shadow-card:          0 4px 24px rgba(0,0,0,0.4);
+  --shadow-card-hover:    0 8px 32px rgba(0,0,0,0.55);
+}
+
+/* Global base */
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+hr {
+  border-color: var(--color-border);
+}
+
 @layer components {
   /* --- Card variants --- */
-  /* Standard card: padded white box with shadow */
+  /* Standard card: padded box with shadow */
   .card {
-    @apply bg-white p-6 rounded-lg shadow-xl;
+    @apply p-6 rounded-lg;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-card);
   }
   /* Larger card: for full content pages (blog posts, recipe details) */
   .card-lg {
-    @apply bg-white p-8 rounded-lg shadow-xl;
+    @apply p-8 rounded-lg;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-card);
   }
   /* Flush card: no padding, for cards with edge-to-edge images */
   .card-flush {
-    @apply bg-white rounded-lg shadow-xl overflow-hidden;
+    @apply rounded-lg overflow-hidden;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-card);
   }
   /* Interactive card: a linked card with hover lift effect */
   .card-interactive {
-    @apply block bg-white p-6 rounded-lg shadow-xl hover:shadow-2xl transition-all duration-200;
+    @apply block p-6 rounded-lg transition-all duration-200;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-card);
+    &:hover {
+      box-shadow: var(--shadow-card-hover);
+      border-color: var(--color-accent);
+    }
   }
 
   /* --- Page layout --- */
@@ -29,45 +73,73 @@
   .page-sidebar {
     @apply md:w-[350px] flex-shrink-0;
   }
+
   /* --- Interactive elements --- */
-  /* Primary action button (indigo) */
+  /* Primary action button (copper) */
   .btn-primary {
-    @apply inline-block text-center bg-indigo-600 text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:bg-indigo-700 transition-colors duration-200;
+    @apply inline-block text-center font-bold py-3 px-6 rounded-lg shadow-lg transition-colors duration-200;
+    background: var(--gradient-accent);
+    color: var(--color-text-on-accent);
+    &:hover {
+      filter: brightness(1.1);
+    }
   }
   /* Navigation back link */
   .back-link {
-    @apply font-medium text-indigo-700 hover:underline;
+    @apply font-medium hover:underline;
+    color: var(--color-accent-light);
   }
 
   /* --- States --- */
   /* Empty state card shown when filters return no results */
   .empty-state {
-    @apply bg-white p-8 rounded-lg shadow-xl text-center;
+    @apply p-8 rounded-lg text-center;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-card);
   }
 
   /* --- Typography --- */
   /* Section heading inside a filter/sidebar panel */
   .panel-heading {
-    @apply text-lg font-bold text-gray-900 mb-4;
+    @apply text-lg font-bold mb-4;
+    color: var(--color-text);
   }
   /* Prose styles for markdown-rendered content */
   .content-prose {
-    @apply prose max-w-5xl text-gray-700
-      prose-a:text-blue-700 prose-a:no-underline
-      prose-pre:bg-slate-200 prose-pre:shadow-lg prose-pre:rounded-xl prose-pre:text-gray-700
-      prose-code:bg-slate-200 prose-code:px-1.5 prose-code:py-1.5 prose-code:rounded-md
+    @apply prose max-w-5xl
+      prose-a:no-underline
+      prose-pre:shadow-lg prose-pre:rounded-xl
+      prose-code:px-1.5 prose-code:py-1.5 prose-code:rounded-md
       prose-code:before:content-none prose-code:after:content-none;
+    color: var(--color-text);
+    --tw-prose-body: var(--color-text);
+    --tw-prose-headings: var(--color-text);
+    --tw-prose-links: var(--color-accent-light);
+    --tw-prose-bold: var(--color-text);
+    --tw-prose-bullets: var(--color-text-muted);
+    --tw-prose-counters: var(--color-text-muted);
+    --tw-prose-hr: var(--color-border);
+    --tw-prose-quotes: var(--color-text-muted);
+    --tw-prose-code: var(--color-text);
+    --tw-prose-pre-bg: var(--color-surface-raised);
+    --tw-prose-pre-code: var(--color-text);
+    --tw-prose-th-borders: var(--color-border);
+    --tw-prose-td-borders: var(--color-border);
   }
 
   /* --- Tag filter buttons --- */
   .tag-btn {
     @apply text-xs font-medium px-3 py-1 rounded-full cursor-pointer transition-colors;
+    background: var(--color-surface-raised);
+    color: var(--color-text-muted);
+    &:hover {
+      color: var(--color-text);
+    }
   }
   .tag-btn-active {
-    @apply bg-indigo-600 text-white;
-  }
-  .tag-btn-inactive {
-    @apply bg-gray-100 text-gray-700 hover:bg-gray-200;
+    background: var(--color-accent);
+    color: var(--color-text-on-accent);
   }
 
   /* --- Recipe type badge --- */
@@ -75,15 +147,112 @@
     @apply text-xs font-semibold px-3 py-1 rounded-full;
   }
   .recipe-type-badge-original {
-    @apply bg-indigo-100 text-indigo-600;
+    background: var(--color-accent-subtle);
+    color: var(--color-accent-light);
   }
   .recipe-type-badge-curated {
-    @apply bg-gray-100 text-gray-600;
+    background: var(--color-surface-raised);
+    color: var(--color-text-muted);
   }
 
   /* --- Display-only tag pill (non-interactive) --- */
   .tag {
-    @apply text-xs bg-indigo-50 text-indigo-700 px-3 py-1 rounded-full font-medium;
+    @apply text-xs px-3 py-1 rounded-full font-medium;
+    background: var(--color-accent-subtle);
+    color: var(--color-accent-light);
+  }
+
+  /* --- Sidebar --- */
+  .sidebar {
+    background: var(--color-sidebar);
+    color: var(--color-text);
+  }
+
+  /* --- Navigation links --- */
+  .nav-link {
+    @apply flex items-center space-x-3 text-lg font-medium rounded-lg p-2 -ml-2 transition-colors duration-200 w-full text-left;
+    color: var(--color-text-muted);
+    &:hover {
+      background: var(--color-surface-raised);
+      color: var(--color-text);
+    }
+  }
+  .nav-link-active {
+    background: var(--color-surface-raised);
+    color: var(--color-accent-light);
+  }
+
+  /* --- Social links --- */
+  .social-link {
+    color: var(--color-text-subtle);
+    transition: color 0.2s;
+    &:hover {
+      color: var(--color-accent-light);
+    }
+  }
+
+  /* --- Image placeholder --- */
+  .image-placeholder {
+    @apply w-full h-48 flex items-center justify-center;
+    background: var(--color-surface-raised);
+  }
+  .image-placeholder-icon {
+    color: var(--color-text-subtle);
+  }
+
+  /* --- Toggle switch --- */
+  .toggle-track {
+    @apply relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out;
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 0 2px var(--color-bg), 0 0 0 4px var(--color-accent);
+    }
+  }
+  .toggle-track-on {
+    background: var(--color-accent);
+  }
+  .toggle-track-off {
+    background: var(--color-surface-raised);
+  }
+  .toggle-thumb {
+    @apply pointer-events-none inline-block h-5 w-5 transform rounded-full shadow ring-0 transition duration-200 ease-in-out;
+    background: var(--color-text);
+  }
+
+  /* --- Input field --- */
+  .input-field {
+    @apply rounded-md;
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    color: var(--color-text);
+    &:focus {
+      outline: none;
+      border-color: var(--color-accent);
+      box-shadow: 0 0 0 2px rgba(194,105,42,0.2);
+    }
+    &::placeholder {
+      color: var(--color-text-subtle);
+    }
+  }
+
+  /* --- Utility color classes --- */
+  .text-accent {
+    color: var(--color-accent-light);
+  }
+  .text-muted {
+    color: var(--color-text-muted);
+  }
+
+  /* --- Date badge --- */
+  .date-badge {
+    @apply text-sm font-medium px-3 py-1 rounded-full whitespace-nowrap;
+    background: var(--color-surface-raised);
+    color: var(--color-text-muted);
+  }
+
+  /* --- Divider --- */
+  .divider {
+    border-color: var(--color-border);
   }
 }
 

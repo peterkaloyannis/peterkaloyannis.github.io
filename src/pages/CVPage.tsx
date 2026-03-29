@@ -114,7 +114,7 @@ export default function CVPage(): ReactElement {
       </a>
       <hr className="my-6 border-gray-200" />
       <h3 className="panel-heading">About this page</h3>
-      <p className="text-base text-gray-700 leading-relaxed mb-6">
+      <p className="text-base  leading-relaxed mb-6">
         I made this page because it always made me sad to pick and
         choose what was on my CV. While some entries lost relevance, I was no
         less proud of myself then as I am now. I decided that I really
@@ -138,7 +138,7 @@ export default function CVPage(): ReactElement {
           {filteredExperience.length > 0 ? (
             filteredExperience.map((item) => <CVEntry key={item.title} {...item} />)
           ) : (
-            <p className="text-gray-500 italic">No experience found for the selected date range.</p>
+            <p className="italic">No experience found for the selected date range.</p>
           )}
         </CollapsibleSection>
 
@@ -150,7 +150,7 @@ export default function CVPage(): ReactElement {
           {filteredEducation.length > 0 ? (
             filteredEducation.map((item) => <CVEntry key={item.title} {...item} />)
           ) : (
-            <p className="text-gray-500 italic">No education found for the selected date range.</p>
+            <p className="italic">No education found for the selected date range.</p>
           )}
         </CollapsibleSection>
 
@@ -162,7 +162,7 @@ export default function CVPage(): ReactElement {
           {filteredAwards.length > 0 ? (
             filteredAwards.map((item) => <CVEntry key={item.title} {...item} />)
           ) : (
-            <p className="text-gray-500 italic">No distinctions found for the selected date range.</p>
+            <p className="italic">No distinctions found for the selected date range.</p>
           )}
         </CollapsibleSection>
 
@@ -172,7 +172,7 @@ export default function CVPage(): ReactElement {
           isOpen={openSections.service}
           onToggle={() => toggleSection('service')}
         >
-          <p className="text-gray-500 italic">No entries yet.</p>
+          <p className="italic">No entries yet.</p>
         </CollapsibleSection>
       </div>
     </PageWithSidebar>

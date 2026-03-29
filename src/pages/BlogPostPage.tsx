@@ -24,8 +24,8 @@ export default function BlogPostPage({ slug }: BlogPostPageProps): ReactElement 
   if (!post) {
     return (
       <section id="blog-post-not-found">
-        <h1 className="text-3xl font-bold text-gray-900 mb-4">Post not found</h1>
-        <p className="text-lg text-gray-700 mb-8">
+        <h1 className="text-3xl font-bold  mb-4">Post not found</h1>
+        <p className="text-lg  mb-8">
           Sorry, we couldn't find the post you were looking for.
         </p>
         <a
@@ -50,8 +50,8 @@ export default function BlogPostPage({ slug }: BlogPostPageProps): ReactElement 
       </a>
 
       {/* Post Header */}
-      <h1 className="text-5xl font-extrabold text-gray-900 mb-4">{post.title}</h1>
-      <p className="text-lg text-gray-500 mb-8">
+      <h1 className="text-5xl font-extrabold  mb-4">{post.title}</h1>
+      <p className="text-lg  mb-8">
         Published on {formatDate(post.date)}
       </p>
 

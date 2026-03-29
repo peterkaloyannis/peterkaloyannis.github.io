@@ -1,4 +1,4 @@
-import { type ReactElement, useState } from 'react';
+import { type ReactElement, type ElementType, useState } from 'react';
 import type { AppRoutePage } from '../types';
 import { Home, Presentation, Newspaper, BookOpen, FileText, GraduationCap, Menu, X } from 'lucide-react';
 import { Github, OrcidIcon } from './CustomIcons';
@@ -41,7 +41,7 @@ export default function Sidebar({ currentPage }: SidebarProps): ReactElement {
   return (
     // Mobile: 'sticky top-0' to keep it visible, 'z-50' to stay on top.
     // Desktop: 'lg:fixed' to lock it to the left, 'lg:h-screen', etc.
-    <aside className="sticky top-0 lg:fixed lg:left-0 lg:top-0 lg:h-screen lg:w-72 bg-gray-900 text-gray-200 lg:p-8 p-4 shadow-xl z-50">
+    <aside className="sidebar sticky top-0 lg:fixed lg:left-0 lg:top-0 lg:h-screen lg:w-72 lg:p-8 p-4 shadow-xl z-50">
       <div className="flex flex-col justify-between h-full">
 
         {/* --- 1. TOP GROUP (Header + Navs) --- */}
@@ -49,14 +49,14 @@ export default function Sidebar({ currentPage }: SidebarProps): ReactElement {
           {/* --- Top Header (Visible on Mobile & Desktop) --- */}
           <div className="flex justify-between items-center">
             <div>
-              <h2 className="text-2xl font-extrabold text-white">
+              <h2 className="text-2xl font-extrabold">
                 PETER <br/> KALOYANNIS
               </h2>
             </div>
 
             {/* --- Mobile Hamburger Button --- */}
             <button
-              className="lg:hidden p-2 text-gray-300 hover:text-white"
+              className="lg:hidden p-2 social-link"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               aria-label="Toggle navigation"
             >
@@ -90,7 +90,7 @@ export default function Sidebar({ currentPage }: SidebarProps): ReactElement {
               {/* --- Mobile Social Links --- */}
               <div className="flex space-x-4 pt-6 pb-4 px-4 justify-center">
                 {SOCIAL_LINKS.map(({ href, icon: Icon, label }) => (
-                  <a key={label} href={href} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
+                  <a key={label} href={href} target="_blank" rel="noopener noreferrer" className="social-link">
                     <Icon className="w-6 h-6" />
                   </a>
                 ))}
@@ -118,7 +118,7 @@ export default function Sidebar({ currentPage }: SidebarProps): ReactElement {
         {/* --- 2. BOTTOM GROUP (Desktop Social Links) --- */}
         <div className="hidden lg:flex space-x-4 justify-center">
           {SOCIAL_LINKS.map(({ href, icon: Icon, label }) => (
-            <a key={label} href={href} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
+            <a key={label} href={href} target="_blank" rel="noopener noreferrer" className="social-link">
               <Icon className="w-6 h-6" />
             </a>
           ))}
@@ -134,7 +134,7 @@ export default function Sidebar({ currentPage }: SidebarProps): ReactElement {
  * A reusable component for navigation links in the sidebar.
  */
 interface SidebarLinkProps {
-  icon: React.ElementType;
+  icon: ElementType;
   label: string;
   isActive: boolean;
   href: string;
@@ -142,15 +142,11 @@ interface SidebarLinkProps {
 }
 
 function SidebarLink({ icon: Icon, label, isActive, href, onClick }: SidebarLinkProps): ReactElement {
-  const baseClasses = "flex items-center space-x-3 text-lg font-medium rounded-lg p-2 -ml-2 transition-colors duration-200 w-full text-left";
-  const activeClasses = "bg-gray-800 text-white";
-  const inactiveClasses = "text-gray-300 hover:bg-gray-800 hover:text-white";
-
   return (
     <a
       href={href}
       onClick={onClick}
-      className={`${baseClasses} ${isActive ? activeClasses : inactiveClasses}`}
+      className={`nav-link ${isActive ? 'nav-link-active' : ''}`}
     >
       <Icon className="w-5 h-5" />
       <span>{label}</span>

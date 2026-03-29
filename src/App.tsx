@@ -81,7 +81,7 @@ function App(): ReactElement {
       <Sidebar currentPage={route.page} />
 
       {/* --- 2. Main Content Area --- */}
-      <main className="flex-1 bg-amber-50 lg:pl-72">
+      <main className="flex-1 lg:pl-72">
         <div className="px-6 pt-8 pb-16 md:px-12">          
           {route.page === 'home' && <HomePage />}
           {route.page === 'projects' && <ProjectsPage />}

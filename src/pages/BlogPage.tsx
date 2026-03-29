@@ -28,7 +28,7 @@ export default function BlogPage(): ReactElement {
       </div>
       <hr className="my-6 border-gray-200" />
       <h3 className="panel-heading">About this page</h3>
-      <div className="text-base text-gray-700 leading-relaxed mb-6">
+      <div className="text-base  leading-relaxed mb-6">
         I think most people who know me know that I have no shortage of
         things to say. I grew up in a household of loud and proud voices,
         always fighting for our airtime amongst one another.
@@ -53,8 +53,8 @@ export default function BlogPage(): ReactElement {
         ))
       ) : (
         <div className="empty-state">
-          <h3 className="text-2xl font-bold text-gray-900 mb-4">No Posts Found</h3>
-          <p className="text-lg text-gray-700">No posts match the current search.</p>
+          <h3 className="text-2xl font-bold mb-4">No Posts Found</h3>
+          <p className="text-lg ">No posts match the current search.</p>
         </div>
       )}
     </PageWithSidebar>

@@ -74,7 +74,7 @@ export default function RecipesPage(): ReactElement {
         />
       </div>
       <div>
-        <h4 className="font-medium text-gray-700 mb-3 mt-3">Tags</h4>
+        <h4 className="font-medium  mb-3 mt-3">Tags</h4>
         <div className="flex flex-wrap gap-2">
           <button
             onClick={() => handleTagClick(null)}
@@ -95,7 +95,7 @@ export default function RecipesPage(): ReactElement {
       </div>
       <hr className="my-6 border-gray-200" />
       <h3 className="panel-heading">About this page</h3>
-      <p className="text-base text-gray-700 leading-relaxed mb-6">
+      <p className="text-base  leading-relaxed mb-6">
         Cooking is the primary way I express love for myself and others.
         Making this page was probably my number one motivation for building
         this website!
@@ -115,8 +115,8 @@ export default function RecipesPage(): ReactElement {
           ))
         ) : (
           <div className="md:col-span-2 lg:col-span-3 empty-state">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">No Recipes Found</h3>
-            <p className="text-lg text-gray-700">No recipes match the current filters.</p>
+            <h3 className="text-2xl font-bold  mb-4">No Recipes Found</h3>
+            <p className="text-lg ">No recipes match the current filters.</p>
           </div>
         )}
       </div>
