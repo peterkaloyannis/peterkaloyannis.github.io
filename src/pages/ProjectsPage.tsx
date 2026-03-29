@@ -1,20 +1,23 @@
-import { PageWithSidebar, ProjectCard } from '../components/Reusable';
+import { PageWithSidebar, ProjectCard, CollapsibleText } from '../components/Reusable';
 import { Presentation, Code, CheckSquare, Joystick, Globe } from 'lucide-react';
-import { type ReactElement } from 'react';
+import { type ReactElement, useState } from 'react';
 
 export default function ProjectsPage(): ReactElement {
+  const [aboutOpen, setAboutOpen] = useState(true);
+
   const sidebar = (
     <div className="card">
-      <h3 className="panel-heading">About this page</h3>
-      <p className="text-base  leading-relaxed mb-1">
-        I am sometimes hit with a lightning bolt of an idea that I must execute
-        at that instant.
-        <br/><br/>
-        Most of these <b><i>eureka moments</i></b> are actually super benign
-        and contribute to an evergrowing pile of unfinished projects. Sometimes
-        though... well... judge for yourself. You may very well find a needle
-        in this haystack!
-      </p>
+      <CollapsibleText title="About this page" isOpen={aboutOpen} onToggle={() => setAboutOpen(o => !o)} className="">
+        <p className="text-base leading-relaxed">
+          I am sometimes hit with a lightning bolt of an idea that I must execute
+          at that instant.
+          <br/><br/>
+          Most of these <b><i>eureka moments</i></b> are actually super benign
+          and contribute to an evergrowing pile of unfinished projects. Sometimes
+          though... well... judge for yourself. You may very well find a needle
+          in this haystack!
+        </p>
+      </CollapsibleText>
     </div>
   );
 

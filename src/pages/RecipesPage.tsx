@@ -1,6 +1,6 @@
 import { useState, useMemo, type ReactElement } from 'react';
 import Fuse from 'fuse.js';
-import { PageWithSidebar, RecipeCard, SearchBar, ToggleSwitch } from '../components/Reusable';
+import { PageWithSidebar, RecipeCard, SearchBar, ToggleSwitch, CollapsibleText } from '../components/Reusable';
 import { BookOpen } from 'lucide-react';
 import { allRecipes } from '../content/recipeData';
 import type { Recipe } from '../types';
@@ -27,6 +27,7 @@ export default function RecipesPage(): ReactElement {
   const [showOriginal, setShowOriginal] = useState(true);
   const [showCurated, setShowCurated] = useState(true);
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
+  const [aboutOpen, setAboutOpen] = useState(true);
 
   const searchResults = useFuseSearch(allRecipes, fuse, searchQuery);
 
@@ -99,16 +100,16 @@ export default function RecipesPage(): ReactElement {
           ))}
         </div>
       </div>
-      <hr className="my-6 border-gray-200" />
-      <h3 className="panel-heading">About this page</h3>
-      <p className="text-base  leading-relaxed mb-6">
-        Cooking is the primary way I express love for myself and others.
-        Making this page was probably my number one motivation for building
-        this website!
-        <br/><br/>
-        In this list, I provide some of my own recipes and the stories
-        behind them. I also link some of my favorite external recipes!
-      </p>
+      <CollapsibleText title="About this page" isOpen={aboutOpen} onToggle={() => setAboutOpen(o => !o)}>
+        <p className="text-base leading-relaxed">
+          Cooking is the primary way I express love for myself and others.
+          Making this page was probably my number one motivation for building
+          this website!
+          <br/><br/>
+          In this list, I provide some of my own recipes and the stories
+          behind them. I also link some of my favorite external recipes!
+        </p>
+      </CollapsibleText>
     </div>
   );
 

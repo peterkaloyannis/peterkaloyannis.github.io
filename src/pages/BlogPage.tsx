@@ -1,5 +1,5 @@
 import {useState, type ReactElement} from 'react';
-import { PageWithSidebar, BlogPostCard, SearchBar } from '../components/Reusable';
+import { PageWithSidebar, BlogPostCard, SearchBar, CollapsibleText } from '../components/Reusable';
 import { Newspaper } from 'lucide-react';
 import { blogPosts } from '../content/blogData';
 import Fuse from 'fuse.js';
@@ -18,6 +18,7 @@ const fuse = new Fuse(blogPosts, {
 
 export default function BlogPage(): ReactElement {
   const [searchQuery, setSearchQuery] = useState('');
+  const [aboutOpen, setAboutOpen] = useState(true);
 
   const filteredBlogs = useFuseSearch(blogPosts, fuse, searchQuery);
 
@@ -31,22 +32,22 @@ export default function BlogPage(): ReactElement {
           placeholder="Search the blog..."
         />
       </div>
-      <hr className="my-6 border-gray-200" />
-      <h3 className="panel-heading">About this page</h3>
-      <div className="text-base  leading-relaxed mb-6">
-        I think most people who know me know that I have no shortage of
-        things to say. I grew up in a household of loud and proud voices,
-        always fighting for our airtime amongst one another.
-        <br/><br/>
-        This is the page where I wanna express my voice. I will try to post
-        <ul className="list-disc pl-5 space-y-2">
-          <li>Companions to articles to projects
-            (inspired by the hilarious <a href="https://eieio.games/blog/" className="link">EIEIO</a>)</li>
-          <li>Fun infographic articles
-            (inspired by the amazing <a href="https://www.benjames.io/" className="link">Ben James</a>)</li>
-          <li>Maybe, just maybe, an opinion or two.</li>
-        </ul>
-      </div>
+      <CollapsibleText title="About this page" isOpen={aboutOpen} onToggle={() => setAboutOpen(o => !o)}>
+        <div className="text-base leading-relaxed">
+          I think most people who know me know that I have no shortage of
+          things to say. I grew up in a household of loud and proud voices,
+          always fighting for our airtime amongst one another.
+          <br/><br/>
+          This is the page where I wanna express my voice. I will try to post
+          <ul className="list-disc pl-5 space-y-2">
+            <li>Companions to articles to projects
+              (inspired by the hilarious <a href="https://eieio.games/blog/" className="link">EIEIO</a>)</li>
+            <li>Fun infographic articles
+              (inspired by the amazing <a href="https://www.benjames.io/" className="link">Ben James</a>)</li>
+            <li>Maybe, just maybe, an opinion or two.</li>
+          </ul>
+        </div>
+      </CollapsibleText>
     </div>
   );
 

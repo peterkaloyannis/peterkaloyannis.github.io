@@ -80,7 +80,7 @@ export function SearchBar({ value, onChange, placeholder = "Search..." }: Search
         value={value}
         onChange={onChange}
         placeholder={placeholder}
-        className="input-field w-full py-3 pl-10 sm:text-sm"
+        className="input-field w-full py-1.5 pl-10 sm:text-sm"
       />
     </div>
   );
@@ -276,7 +276,7 @@ export function TextInput({ id, label, value, onChange, placeholder }: TextInput
         value={value}
         onChange={onChange}
         placeholder={placeholder}
-        className="input-field w-full h-6 px-1"
+        className="input-field w-full py-1.5 px-3 sm:text-sm"
       />
     </div>
   );
@@ -295,6 +295,38 @@ function AnimatedChevron({ isOpen }: { isOpen: boolean }) {
         ${isOpen ? 'rotate-180' : 'rotate-0'}
       `} 
     />
+  );
+}
+
+/**
+ * CollapsibleText Component
+ * Inline collapsible — panel-heading style with chevron, no card chrome.
+ */
+interface CollapsibleTextProps {
+  title: string;
+  isOpen: boolean;
+  onToggle: () => void;
+  children: ReactNode;
+  className?: string;
+}
+
+export function CollapsibleText({ title, isOpen, onToggle, children, className = 'mt-6' }: CollapsibleTextProps) {
+  return (
+    <div className={className}>
+      <button onClick={onToggle} className="flex items-center w-full gap-2">
+        <div className="flex-1 h-px" style={{ backgroundColor: 'var(--color-border)' }} />
+        <span className="text-xs font-medium whitespace-nowrap" style={{ color: 'var(--color-text-muted)' }}>{title}</span>
+        <AnimatedChevron isOpen={!isOpen} />
+      </button>
+      <div
+        className="grid transition-all duration-300 ease-in-out"
+        style={{ gridTemplateRows: isOpen ? '1fr' : '0fr' }}
+      >
+        <div className="overflow-hidden pt-4">
+          {children}
+        </div>
+      </div>
+    </div>
   );
 }
 

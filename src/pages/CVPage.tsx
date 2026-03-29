@@ -7,6 +7,7 @@ import {
   ToggleSwitch,
   TextInput,
   CollapsibleSection,
+  CollapsibleText,
   type CVEntryProps,
 } from '../components/Reusable';
 
@@ -57,6 +58,8 @@ function filterCVEntry(
 
 export default function CVPage(): ReactElement {
   const [showFullCV, setShowFullCV] = useState(false);
+  const [aboutOpen, setAboutOpen] = useState(true);
+  const [buttonsOpen, setButtonsOpen] = useState(true);
   const [startYear, setStartYear] = useState('');
   const [endYear, setEndYear] = useState('');
 
@@ -98,38 +101,40 @@ export default function CVPage(): ReactElement {
           onChange={(e) => setEndYear(e.target.value)}
         />
       </div>
-      <ToggleSwitch
-        id="gag-toggle"
-        label="Show Full CV"
-        isEnabled={showFullCV}
-        onToggle={() => setShowFullCV(!showFullCV)}
-      />
 
-      <hr className="my-6 border-gray-200" />
-      <h3 className="panel-heading">Buttons</h3>
-      <div className="grid grid-cols-2 gap-2 mb-6">
-        <button onClick={expandAll} className="btn-primary w-full whitespace-nowrap">
-          Expand All
-        </button>
-        <button onClick={collapseAll} className="btn-primary w-full whitespace-nowrap">
-          Collapse All
-        </button>
-      </div>
-      <a href="/placeholder-cv.pdf" download className="btn-primary w-full">
-        Download PDF
-      </a>
-      <hr className="my-6 border-gray-200" />
-      <h3 className="panel-heading">About this page</h3>
-      <p className="text-base  leading-relaxed mb-6">
-        I made this page because it always made me sad to pick and
-        choose what was on my CV. While some entries lost relevance, I was no
-        less proud of myself then as I am now. I decided that I really
-        wanted a complete list of everything I have done, going all the
-        way back to elementary school. <br/> <br/>
-
-        Hit the toggle if you wanna see it going waaaaay back.
-        Download the PDF if you want to consume it professionally.
-      </p>
+      <CollapsibleText title="Buttons" isOpen={buttonsOpen} onToggle={() => setButtonsOpen(o => !o)}>
+        <div className="grid grid-cols-2 gap-2 mb-3">
+          <button onClick={expandAll} className="btn-primary w-full whitespace-nowrap">
+            Expand All
+          </button>
+          <button onClick={collapseAll} className="btn-primary w-full whitespace-nowrap">
+            Collapse All
+          </button>
+        </div>
+        <a href="/placeholder-cv.pdf" download className="btn-primary w-full">
+          Download PDF
+        </a>
+        <div className="mt-3">
+          <ToggleSwitch
+            id="gag-toggle"
+            label="Show Full CV"
+            isEnabled={showFullCV}
+            onToggle={() => setShowFullCV(!showFullCV)}
+          />
+        </div>
+      </CollapsibleText>
+      <CollapsibleText title="About this page" isOpen={aboutOpen} onToggle={() => setAboutOpen(o => !o)}>
+        <p className="text-base leading-relaxed">
+          I made this page because it always made me sad to pick and
+          choose what was on my CV. While some entries lost relevance, I was no
+          less proud of myself then as I am now. I decided that I really
+          wanted a complete list of everything I have done, going all the
+          way back to elementary school.
+          <br/><br/>
+          Hit the toggle if you wanna see it going waaaaay back.
+          Download the PDF if you want to consume it professionally.
+        </p>
+      </CollapsibleText>
     </div>
   );
 

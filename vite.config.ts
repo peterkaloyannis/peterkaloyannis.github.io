@@ -8,5 +8,17 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
-  base:"/",
+  base: "/",
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'vendor-react':    ['react', 'react-dom'],
+          'vendor-katex':    ['katex'],
+          'vendor-markdown': ['marked', 'marked-katex-extension', 'dompurify'],
+          'vendor-search':   ['fuse.js'],
+        },
+      },
+    },
+  },
 })

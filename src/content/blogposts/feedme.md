@@ -8,6 +8,8 @@ imageUrl: /images/blogposts/feed_me/coping_with_webs.gif
 *Note that this blogpost is about my experience with ADHD, and I recognize that that it may be
 different from yours.*
 
+*Note this blogpost is work in progress and is missing the final artwork.*
+
 ---
 
 ## ADHD for the non ADHD
@@ -203,7 +205,7 @@ $$
 <div style="text-align: center;">
 The <code>feed_me</code> task score functions. Note that the start and deadline 
 is task specific so these are scaled and translated relative to one another. Not
-depicted here score clamping.
+depicted here is score clamping.
 </div>
 
 I have built in as much imagined structure as I could and my coping mechanisms latch onto it easily. As silly as 
@@ -240,7 +242,6 @@ Notes & Special Thanks!</br>
 
 
 1. Thanks to Maria, Kevin, and Julieanna for proofreading this post for me.
-1. Thanks to Ariana for providing the artwork for the spider analogy. Find her [here](https://www.instagram.com/ariablart/?hl=en).
 1. Thanks to Kevin, Andrew, Leina, Franco, Maria, Jimmy, Carli and Panayota for helping me understand this better.
 1. Thanks to Chris for inspiring the name of this tool. Find him [here](https://cwoodall.com/).
 1. Thanks to my grandma for waiting patiently for me to call.
