@@ -49,6 +49,7 @@ hr {
     background: var(--color-surface);
     border: 1px solid var(--color-border);
     box-shadow: var(--shadow-card);
+    text-wrap: pretty;
   }
   /* Larger card: for full content pages (blog posts, recipe details) */
   .card-lg {
@@ -94,7 +95,7 @@ hr {
   }
   /* Fixed-width sidebar column */
   .page-sidebar {
-    @apply md:w-[300px] flex-shrink-0;
+    @apply md:w-[360px] flex-shrink-0;
   }
 
   /* --- Interactive elements --- */
