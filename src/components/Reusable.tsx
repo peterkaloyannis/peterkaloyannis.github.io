@@ -129,7 +129,7 @@ export function ProjectCard({ icon: Icon, title, description, href, imageUrl }: 
         </div>
       )}
       <div className="flex items-center space-x-3 mt-4 mb-4">
-        <Icon className="w-6 h-6 text-[var(--color-accent-light)]" />
+        <Icon className="w-6 h-6 text-[var(--color-accent-loud)]" />
         <h3 className="text-xl font-bold">{title}</h3>
         <ExternalLink className="w-4 h-4 ml-2 text-[var(--color-text-muted)]" />
       </div>
@@ -483,7 +483,7 @@ export function RecipeCard({
       href={href}
       target={isCurated ? "_blank" : undefined}
       rel={isCurated ? "noopener noreferrer" : undefined}
-      className="block card-flush hover:shadow-2xl hover:scale-[1.01] transition-all duration-200 border-t-4 border-[var(--color-accent)]"
+      className="card-interactive-flush hover:scale-[1.01]"
     >
       {cardContent}
     </a>
