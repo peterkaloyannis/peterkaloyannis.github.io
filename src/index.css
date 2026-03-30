@@ -32,20 +32,17 @@ hr {
   border-color: var(--color-border);
 }
 
-@keyframes slide-in {
-  from { transform: translateX(100%); }
-  to   { transform: translateX(0); }
+@keyframes progress-ring {
+  from { stroke-dashoffset: 37.7; }
+  to   { stroke-dashoffset: 0; }
 }
-@keyframes slide-out {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-100%); }
-}
+
 
 @layer components {
   /* --- Card variants --- */
   /* Standard card: padded box with shadow */
   .card {
-    @apply p-6 rounded-lg;
+    @apply p-4 md:p-6 rounded-lg;
     background: var(--color-surface);
     border: 1px solid var(--color-border);
     box-shadow: var(--shadow-card);
@@ -91,7 +88,7 @@ hr {
   /* --- Page layout --- */
   /* Standard two-column layout used across all filter pages */
   .page-layout {
-    @apply flex flex-col md:flex-row gap-6 md:gap-12;
+    @apply flex flex-col md:flex-row gap-4 md:gap-12;
   }
   /* Fixed-width sidebar column */
   .page-sidebar {
@@ -192,13 +189,19 @@ hr {
   .sidebar {
     background: var(--color-surface);
     color: var(--color-text);
-    border-right: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+  }
+  @media (min-width: 1024px) {
+    .sidebar {
+      border-bottom: none;
+      border-right: 1px solid var(--color-border);
+    }
   }
 
   /* --- Navigation links --- */
   .nav-link {
     @apply flex items-center space-x-3 text-lg font-medium rounded-lg p-3 transition-all duration-200 w-full text-left;
-    color: var(--color-text-muted);
+    color: var(--color-text);
     border: 1px solid transparent;
     &:hover {
       background: var(--color-surface-raised);
@@ -234,7 +237,7 @@ hr {
   /* --- Portrait photo --- */
   .portrait {
     border: 3px solid var(--color-accent);
-    box-shadow: 0 0 32px rgba(194, 105, 42, 0.4);
+    box-shadow: 0 0 16px rgba(194, 105, 42, 0.4);
   }
 
   /* --- Image placeholder --- */

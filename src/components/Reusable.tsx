@@ -200,15 +200,15 @@ export function CVEntry({ title, startYear, endYear, location, description }: CV
 
   return (
     <div className="card">
-      <div className="flex justify-between items-start mb-2">
+      <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-2 gap-1">
         <div className="flex items-center space-x-3">
-           <User className="w-8 h-8" />
+           <User className="w-6 h-6 md:w-8 md:h-8 flex-shrink-0" />
           <div>
-            <h3 className="text-xl font-bold">{title}</h3>
-            <p className="text-lg font-medium text-accent">{location}</p>
+            <h3 className="text-lg md:text-xl font-bold">{title}</h3>
+            <p className="text-base md:text-lg font-medium text-accent">{location}</p>
           </div>
         </div>
-        <span className="date-badge">{date}</span>
+        <span className="date-badge md:flex-shrink-0">{date}</span>
       </div>
       <div className="leading-relaxed">
         <MarkdownRenderer content={description} />
@@ -352,7 +352,7 @@ export function CollapsibleSection({
       {/* Header */}
       <button
         onClick={onToggle}
-        className="flex justify-between items-center w-full p-6"
+        className="flex justify-between items-center w-full p-4 md:p-6"
       >
         <h3 className="text-2xl font-bold">{title}</h3>
         <AnimatedChevron isOpen={isOpen} />
@@ -370,7 +370,7 @@ export function CollapsibleSection({
       >
         <div className="overflow-hidden">
           {/* We add padding-bottom here so it's part of the animated content */}
-          <div className="space-y-4 px-6 pb-6">
+          <div className="space-y-3 px-4 pb-4 md:px-6 md:pb-6">
             {children}
           </div>
         </div>
