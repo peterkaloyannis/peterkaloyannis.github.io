@@ -28,6 +28,7 @@ export default function RecipesPage(): ReactElement {
   const [showCurated, setShowCurated] = useState(true);
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
   const [aboutOpen, setAboutOpen] = useState(true);
+  const [filtersOpen, setFiltersOpen] = useState(true);
 
   const searchResults = useFuseSearch(allRecipes, fuse, searchQuery);
 
@@ -58,48 +59,49 @@ export default function RecipesPage(): ReactElement {
 
   const sidebar = (
     <div className="card">
-      <h3 className="panel-heading">Filters</h3>
-      <div className="mb-6">
-        <SearchBar
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-          placeholder="Search recipes..."
-        />
-      </div>
-      <div className="space-y-4">
-        <ToggleSwitch
-          id="show-original"
-          label="Show Original"
-          isEnabled={showOriginal}
-          onToggle={() => setShowOriginal(!showOriginal)}
-        />
-        <ToggleSwitch
-          id="show-curated"
-          label="Show Curated"
-          isEnabled={showCurated}
-          onToggle={() => setShowCurated(!showCurated)}
-        />
-      </div>
-      <div>
-        <h4 className="font-medium  mb-3 mt-3">Tags</h4>
-        <div className="flex flex-wrap gap-2">
-          <button
-            onClick={() => handleTagClick(null)}
-            className={`tag-btn ${selectedTags.length === 0 ? 'tag-btn-active' : 'tag-btn-inactive'}`}
-          >
-            All Tags
-          </button>
-          {allTags.map(tag => (
-            <button
-              key={tag}
-              onClick={() => handleTagClick(tag)}
-              className={`tag-btn ${selectedTags.includes(tag) ? 'tag-btn-active' : 'tag-btn-inactive'}`}
-            >
-              {tag}
-            </button>
-          ))}
+      <CollapsibleText title="Filters" isOpen={filtersOpen} onToggle={() => setFiltersOpen(o => !o)} className="">
+        <div className="mb-4">
+          <SearchBar
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            placeholder="Search recipes..."
+          />
         </div>
-      </div>
+        <div className="space-y-4 mb-4">
+          <ToggleSwitch
+            id="show-original"
+            label="Show Original"
+            isEnabled={showOriginal}
+            onToggle={() => setShowOriginal(!showOriginal)}
+          />
+          <ToggleSwitch
+            id="show-curated"
+            label="Show Curated"
+            isEnabled={showCurated}
+            onToggle={() => setShowCurated(!showCurated)}
+          />
+        </div>
+        <div>
+          <h4 className="font-medium mb-3">Tags</h4>
+          <div className="flex flex-wrap gap-2">
+            <button
+              onClick={() => handleTagClick(null)}
+              className={`tag-btn ${selectedTags.length === 0 ? 'tag-btn-active' : 'tag-btn-inactive'}`}
+            >
+              All Tags
+            </button>
+            {allTags.map(tag => (
+              <button
+                key={tag}
+                onClick={() => handleTagClick(tag)}
+                className={`tag-btn ${selectedTags.includes(tag) ? 'tag-btn-active' : 'tag-btn-inactive'}`}
+              >
+                {tag}
+              </button>
+            ))}
+          </div>
+        </div>
+      </CollapsibleText>
       <CollapsibleText title="About this page" isOpen={aboutOpen} onToggle={() => setAboutOpen(o => !o)}>
         <p className="text-base leading-relaxed">
           Cooking is the primary way I express love for myself and others.

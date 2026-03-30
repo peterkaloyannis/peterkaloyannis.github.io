@@ -60,6 +60,7 @@ export default function CVPage(): ReactElement {
   const [showFullCV, setShowFullCV] = useState(false);
   const [aboutOpen, setAboutOpen] = useState(true);
   const [buttonsOpen, setButtonsOpen] = useState(true);
+  const [filtersOpen, setFiltersOpen] = useState(true);
   const [startYear, setStartYear] = useState('');
   const [endYear, setEndYear] = useState('');
 
@@ -84,23 +85,24 @@ export default function CVPage(): ReactElement {
 
   const sidebar = (
     <div className="card">
-      <h3 className="panel-heading">Filters</h3>
-      <div className="grid grid-cols-2 gap-4 mb-5">
-        <TextInput
-          label="From Year"
-          id="start-year"
-          placeholder="e.g. 2019"
-          value={startYear}
-          onChange={(e) => setStartYear(e.target.value)}
-        />
-        <TextInput
-          label="To Year"
-          id="end-year"
-          placeholder="e.g. 2023"
-          value={endYear}
-          onChange={(e) => setEndYear(e.target.value)}
-        />
-      </div>
+      <CollapsibleText title="Filters" isOpen={filtersOpen} onToggle={() => setFiltersOpen(o => !o)} className="">
+        <div className="grid grid-cols-2 gap-4">
+          <TextInput
+            label="From Year"
+            id="start-year"
+            placeholder="e.g. 2019"
+            value={startYear}
+            onChange={(e) => setStartYear(e.target.value)}
+          />
+          <TextInput
+            label="To Year"
+            id="end-year"
+            placeholder="e.g. 2023"
+            value={endYear}
+            onChange={(e) => setEndYear(e.target.value)}
+          />
+        </div>
+      </CollapsibleText>
 
       <CollapsibleText title="Buttons" isOpen={buttonsOpen} onToggle={() => setButtonsOpen(o => !o)}>
         <div className="grid grid-cols-2 gap-2 mb-3">

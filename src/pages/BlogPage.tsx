@@ -19,19 +19,19 @@ const fuse = new Fuse(blogPosts, {
 export default function BlogPage(): ReactElement {
   const [searchQuery, setSearchQuery] = useState('');
   const [aboutOpen, setAboutOpen] = useState(true);
+  const [filtersOpen, setFiltersOpen] = useState(true);
 
   const filteredBlogs = useFuseSearch(blogPosts, fuse, searchQuery);
 
   const sidebar = (
     <div className="card">
-      <h3 className="panel-heading">Filters</h3>
-      <div className="mb-6">
+      <CollapsibleText title="Filters" isOpen={filtersOpen} onToggle={() => setFiltersOpen(o => !o)} className="">
         <SearchBar
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           placeholder="Search the blog..."
         />
-      </div>
+      </CollapsibleText>
       <CollapsibleText title="About this page" isOpen={aboutOpen} onToggle={() => setAboutOpen(o => !o)}>
         <div className="text-base leading-relaxed">
           I think most people who know me know that I have no shortage of

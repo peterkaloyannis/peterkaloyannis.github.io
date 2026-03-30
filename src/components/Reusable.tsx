@@ -314,8 +314,8 @@ export function CollapsibleText({ title, isOpen, onToggle, children, className =
   return (
     <div className={className}>
       <button onClick={onToggle} className="flex items-center w-full gap-2">
-        <div className="flex-1 h-px" style={{ backgroundColor: 'var(--color-border)' }} />
         <span className="text-xs font-medium whitespace-nowrap" style={{ color: 'var(--color-text-muted)' }}>{title}</span>
+        <div className="flex-1 h-px" style={{ backgroundColor: 'var(--color-border)' }} />
         <AnimatedChevron isOpen={!isOpen} />
       </button>
       <div
