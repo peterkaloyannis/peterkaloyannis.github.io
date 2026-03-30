@@ -65,7 +65,7 @@ environments. I find shopping in particular can be quite tiring.
 ## The Web of Mechanisms
 
 The problem of the spider in the tunnel is an example of what I call a ***structured problem***. 
-It has clear rules and even [a completely random walk](https://en.wikipedia.org/wiki/Brownian_motion) 
+It has clear rules and even a completely random walk
 is likely to succeed given enough time. Imagine if instead of a spider in a tunnel, you are a spider 
 trying to get to the hole in a golf course. The structure provided by the walls of the tunnel has been
 lifted and your old coping mechanism does not even make sense anymore.

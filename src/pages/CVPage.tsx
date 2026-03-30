@@ -5,8 +5,6 @@ import {
   PageWithSidebar,
   CVEntry,
   ToggleSwitch,
-  TextInput,
-  CollapsibleSection,
   CollapsibleText,
   type CVEntryProps,
 } from '../components/Reusable';
@@ -24,6 +22,11 @@ import {
   allEducationData,
   allAwardsData,
  } from '../content/cvData';
+
+const allCVEntries = [...allExperienceData, ...allEducationData, ...allAwardsData];
+const MIN_YEAR = Math.min(...allCVEntries.map(e => e.startYear));
+const MAX_YEAR = new Date().getFullYear();
+const YEAR_OPTIONS = Array.from({ length: MAX_YEAR - MIN_YEAR + 1 }, (_, i) => MIN_YEAR + i);
 
 type SectionState = {
   experience: boolean;
@@ -87,21 +90,24 @@ export default function CVPage(): ReactElement {
     <div className="card">
       <CollapsibleText title="Filters" isOpen={filtersOpen} onToggle={() => setFiltersOpen(o => !o)} className="">
         <div className="grid grid-cols-2 gap-4">
-          <TextInput
-            label="From Year"
-            id="start-year"
-            placeholder="e.g. 2019"
-            value={startYear}
-            onChange={(e) => setStartYear(e.target.value)}
-          />
-          <TextInput
-            label="To Year"
-            id="end-year"
-            placeholder="e.g. 2023"
-            value={endYear}
-            onChange={(e) => setEndYear(e.target.value)}
-          />
+          <div>
+            <label htmlFor="start-year" className="block text-sm font-medium mb-1">From Year</label>
+            <select id="start-year" value={startYear} onChange={(e) => setStartYear(e.target.value)} className="input-field w-full py-1.5 px-3 sm:text-sm">
+              <option value="">Any</option>
+              {YEAR_OPTIONS.map(y => <option key={y} value={y}>{y}</option>)}
+            </select>
+          </div>
+          <div>
+            <label htmlFor="end-year" className="block text-sm font-medium mb-1">To Year</label>
+            <select id="end-year" value={endYear} onChange={(e) => setEndYear(e.target.value)} className="input-field w-full py-1.5 px-3 sm:text-sm">
+              <option value="">Any</option>
+              {YEAR_OPTIONS.map(y => <option key={y} value={y}>{y}</option>)}
+            </select>
+          </div>
         </div>
+        {startYear && endYear && parseInt(startYear) > parseInt(endYear) && (
+          <p className="text-xs mt-2 text-center" style={{ color: 'var(--color-accent-loud)' }}>Hey sorry to bug you but your start year is after end year.</p>
+        )}
       </CollapsibleText>
 
       <CollapsibleText title="Buttons" isOpen={buttonsOpen} onToggle={() => setButtonsOpen(o => !o)}>
@@ -142,51 +148,41 @@ export default function CVPage(): ReactElement {
 
   return (
     <PageWithSidebar id="cv" icon={FileText} title="Curriculum Vitae" sidebar={sidebar}>
-      <div className="space-y-8">
-        <CollapsibleSection
-          title="Experience"
-          isOpen={openSections.experience}
-          onToggle={() => toggleSection('experience')}
-        >
-          {filteredExperience.length > 0 ? (
-            filteredExperience.map((item) => <CVEntry key={item.title} {...item} />)
-          ) : (
-            <p className="italic">No experience found for the selected date range.</p>
-          )}
-        </CollapsibleSection>
+      <div>
+        <CollapsibleText title="Experience" isOpen={openSections.experience} onToggle={() => toggleSection('experience')} className="" variant="heading">
+          <div className="space-y-4">
+            {filteredExperience.length > 0 ? (
+              filteredExperience.map((item) => <CVEntry key={item.title} {...item} />)
+            ) : (
+              <p className="italic">No experience found for the selected date range.</p>
+            )}
+          </div>
+        </CollapsibleText>
 
-        <CollapsibleSection
-          title="Education"
-          isOpen={openSections.education}
-          onToggle={() => toggleSection('education')}
-        >
-          {filteredEducation.length > 0 ? (
-            filteredEducation.map((item) => <CVEntry key={item.title} {...item} />)
-          ) : (
-            <p className="italic">No education found for the selected date range.</p>
-          )}
-        </CollapsibleSection>
+        <CollapsibleText title="Education" isOpen={openSections.education} onToggle={() => toggleSection('education')} variant="heading">
+          <div className="space-y-4">
+            {filteredEducation.length > 0 ? (
+              filteredEducation.map((item) => <CVEntry key={item.title} {...item} />)
+            ) : (
+              <p className="italic">No education found for the selected date range.</p>
+            )}
+          </div>
+        </CollapsibleText>
 
-        <CollapsibleSection
-          title="Distinctions"
-          isOpen={openSections.awards}
-          onToggle={() => toggleSection('awards')}
-        >
-          {filteredAwards.length > 0 ? (
-            filteredAwards.map((item) => <CVEntry key={item.title} {...item} />)
-          ) : (
-            <p className="italic">No distinctions found for the selected date range.</p>
-          )}
-        </CollapsibleSection>
+        <CollapsibleText title="Distinctions" isOpen={openSections.awards} onToggle={() => toggleSection('awards')} variant="heading">
+          <div className="space-y-4">
+            {filteredAwards.length > 0 ? (
+              filteredAwards.map((item) => <CVEntry key={item.title} {...item} />)
+            ) : (
+              <p className="italic">No distinctions found for the selected date range.</p>
+            )}
+          </div>
+        </CollapsibleText>
 
         {/* TODO: wire up allServiceData in cvData.tsx to populate this section */}
-        <CollapsibleSection
-          title="Community Service"
-          isOpen={openSections.service}
-          onToggle={() => toggleSection('service')}
-        >
+        <CollapsibleText title="Community Service" isOpen={openSections.service} onToggle={() => toggleSection('service')} variant="heading">
           <p className="italic">No entries yet.</p>
-        </CollapsibleSection>
+        </CollapsibleText>
       </div>
     </PageWithSidebar>
   );

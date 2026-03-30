@@ -1,7 +1,7 @@
 // src/components/Reusable.tsx
 
 import { type ReactElement, type ElementType, type ReactNode, type ChangeEvent } from 'react';
-import { ChevronDown, BookOpen, ExternalLink, Search, Code, User } from 'lucide-react';
+import { ChevronDown, BookOpen, ExternalLink, Search, Code, User, X } from 'lucide-react';
 import { marked } from 'marked';
 import markedKatex from 'marked-katex-extension';
 import DOMPurify from 'dompurify';
@@ -64,24 +64,28 @@ export function MarkdownRenderer({ content }: MarkdownRendererProps) {
 interface SearchBarProps {
   value: string;
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  onClear: () => void;
   placeholder?: string;
 }
 
-export function SearchBar({ value, onChange, placeholder = "Search..." }: SearchBarProps) {
+export function SearchBar({ value, onChange, onClear, placeholder = "Search..." }: SearchBarProps) {
   return (
     <div className="relative w-full">
-      {/* Icon inside the search bar */}
       <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
         <Search className="h-5 w-5 text-[var(--color-text-subtle)]" />
       </div>
-      {/* The input itself, with padding on the left for the icon */}
       <input
         type="text"
         value={value}
         onChange={onChange}
         placeholder={placeholder}
-        className="input-field w-full py-1.5 pl-10 sm:text-sm"
+        className="input-field w-full py-1.5 pl-10 pr-8 sm:text-sm"
       />
+      {value && (
+        <button onClick={onClear} className="absolute inset-y-0 right-0 flex items-center pr-3 text-[var(--color-text-muted)] hover:text-[var(--color-text)]">
+          <X className="h-3.5 w-3.5" />
+        </button>
+      )}
     </div>
   );
 }
@@ -175,6 +179,7 @@ export interface CVEntryProps {
   location: string;
   description: string;
   renderByDefault: boolean;
+  iconUrl?: string;
 }
 
 
@@ -194,21 +199,25 @@ function formatYearRange(startYear: number | string , endYear: number | string):
   return `${startYear}-${endYear}`;
 }
 
-export function CVEntry({ title, startYear, endYear, location, description }: CVEntryProps): ReactElement {
+export function CVEntry({ title, startYear, endYear, location, description, iconUrl }: CVEntryProps): ReactElement {
 
   const date = formatYearRange(startYear, endYear);
 
   return (
     <div className="card">
-      <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-2 gap-1">
+      <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-2 gap-2">
         <div className="flex items-center space-x-3">
-           <User className="w-6 h-6 md:w-8 md:h-8 flex-shrink-0" />
+          {iconUrl
+            ? <img src={iconUrl} alt={location} className="w-10 h-10 md:w-14 md:h-14 object-contain rounded-md flex-shrink-0" />
+            : <User className="w-10 h-10 md:w-8 md:h-8 flex-shrink-0" />
+          }
           <div>
             <h3 className="text-lg md:text-xl font-bold">{title}</h3>
             <p className="text-base md:text-lg font-medium text-accent">{location}</p>
+            <span className="text-sm text-muted md:hidden">{date}</span>
           </div>
         </div>
-        <span className="date-badge md:flex-shrink-0">{date}</span>
+        <span className="text-sm text-muted flex-shrink-0 hidden md:inline-block">{date}</span>
       </div>
       <div className="leading-relaxed">
         <MarkdownRenderer content={description} />
@@ -260,24 +269,32 @@ interface TextInputProps {
   label: string;
   value: string;
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  onClear: () => void;
   placeholder?: string;
 }
 
-export function TextInput({ id, label, value, onChange, placeholder }: TextInputProps) {
+export function TextInput({ id, label, value, onChange, onClear, placeholder }: TextInputProps) {
   return (
     <div>
       <label htmlFor={id} className="block text-sm font-medium mb-1">
         {label}
       </label>
-      <input
-        type="text"
-        id={id}
-        name={id}
-        value={value}
-        onChange={onChange}
-        placeholder={placeholder}
-        className="input-field w-full py-1.5 px-3 sm:text-sm"
-      />
+      <div className="relative">
+        <input
+          type="text"
+          id={id}
+          name={id}
+          value={value}
+          onChange={onChange}
+          placeholder={placeholder}
+          className="input-field w-full py-1.5 px-3 pr-8 sm:text-sm"
+        />
+        {value && (
+          <button onClick={onClear} className="absolute inset-y-0 right-0 flex items-center pr-2 text-[var(--color-text-muted)] hover:text-[var(--color-text)]">
+            <X className="h-3.5 w-3.5" />
+          </button>
+        )}
+      </div>
     </div>
   );
 }
@@ -308,22 +325,28 @@ interface CollapsibleTextProps {
   onToggle: () => void;
   children: ReactNode;
   className?: string;
+  variant?: 'default' | 'heading';
 }
 
-export function CollapsibleText({ title, isOpen, onToggle, children, className = 'mt-6' }: CollapsibleTextProps) {
+export function CollapsibleText({ title, isOpen, onToggle, children, className = 'mt-6', variant = 'default' }: CollapsibleTextProps) {
   return (
     <div className={className}>
       <button onClick={onToggle} className="flex items-center w-full gap-2">
-        <span className="text-xs font-medium whitespace-nowrap" style={{ color: 'var(--color-text-muted)' }}>{title}</span>
-        <div className="flex-1 h-px" style={{ backgroundColor: 'var(--color-border)' }} />
-        <AnimatedChevron isOpen={!isOpen} />
+        <span
+          className={variant === 'heading' ? 'text-xl font-bold whitespace-nowrap' : 'text-xs font-medium whitespace-nowrap'}
+          style={{ color: variant === 'heading' ? 'var(--color-text)' : 'var(--color-text-muted)' }}
+        >{title}</span>
+        <div className="flex-1" style={{ height: variant === 'heading' ? '2px' : '1px', backgroundColor: variant === 'heading' ? 'var(--color-accent)' : 'var(--color-border)' }} />
+        <span style={variant === 'heading' ? { color: 'var(--color-accent)' } : undefined}>
+          <AnimatedChevron isOpen={!isOpen} />
+        </span>
       </button>
       <div
         className="grid transition-all duration-300 ease-in-out"
         style={{ gridTemplateRows: isOpen ? '1fr' : '0fr' }}
       >
-        <div className="overflow-hidden pt-4">
-          {children}
+        <div className="overflow-hidden">
+          <div className="pt-4 px-1 pb-1">{children}</div>
         </div>
       </div>
     </div>

@@ -64,6 +64,7 @@ export default function RecipesPage(): ReactElement {
           <SearchBar
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
+            onClear={() => setSearchQuery('')}
             placeholder="Search recipes..."
           />
         </div>

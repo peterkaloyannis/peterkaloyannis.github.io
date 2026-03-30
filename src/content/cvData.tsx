@@ -10,13 +10,14 @@ export const allExperienceData: CVEntryProps[] = [
     location: 'Commonwealth Fusion Systems (CFS)',
     description: 'Currently developing the SPARC control software and operational procedures. \
       Control work involves designing, implementing, and testing novel real-time capable \
-      plasma control algorithms with thousands of measurements and hundreds of actuators. \
+      plasma control and simulation algorithms with thousands of measurements and hundreds of actuators. \
       Procedural work encompases the design of the CONOPS for the SPARC control room and plasma \
       experiment proposals. Also significantly contributed to deployment, data aquisition \
       and visualization, machine learning, alarm systems, and facility wide system coordination. \
       This work spans a wide array of tools including Python, C++, Go, CUDA, React+Vite, Matlab, \
       Epsilon3, Rust, Ignition, Bash, Github, Jira and many more.',
     renderByDefault: true,
+    iconUrl:'/images/cv/cfs.svg',
   },
     {
     startYear: 2021,
@@ -27,6 +28,7 @@ export const allExperienceData: CVEntryProps[] = [
       adaptive resolution. Techniques involved both analyticical and deep learning methods. \
       Implementation done in Python, OpenGl and CUDA.',
     renderByDefault: true,
+    iconUrl:'/images/cv/laforge.png',
   },
   {
     startYear: 2020,
@@ -39,6 +41,7 @@ under an NSERC USRA and an IPP CERN Summer Student Fellowship (see Awards and Di
 Also supported Dr. Oscar Hernández and developed [CMBStraightStrings](https://gitlab.com/oscarhdz/cmbstraightstrings). \
 Work was done in C++, ROOT, and Python.',
     renderByDefault: false,
+    iconUrl:'/images/cv/mcgill.svg',
   },
   {
     startYear: 2013,
@@ -47,6 +50,7 @@ Work was done in C++, ROOT, and Python.',
     location: 'Kinda whenever anyone would pay me lol.',
     description: 'Mentored High School and CEGEP students in Math, Physics and English.',
     renderByDefault: false,
+    iconUrl:'/chloe.jpg',
   },
 ];
 
@@ -65,6 +69,7 @@ Fast Ion Loss Detector (FILD) and did initial scoping of a planned avalanche pho
 Thesis was supervised by Dr. Ambrogio Fasoli of EPFL and Dr. Cristina Rea of MIT on the disruptivity \
 metric. Find the repository [here](https://github.com/peterkaloyannis/disruptionStatistics).',
     renderByDefault: true,
+    iconUrl:'/images/cv/epfl.svg',
   },
   {
     startYear: 2022,
@@ -78,6 +83,7 @@ analyzed disruption data from the DIII-D and TCV tokamaks Find the thesis here \
 and the github repository here. Work largely involved Bayesian statistics \
 and a Python optomization. Find the repository [here](https://github.com/peterkaloyannis/disruptionStatistics).',
     renderByDefault: true,
+    iconUrl:'/images/cv/mit.svg',
   },
   {
     startYear: 2018,
@@ -88,7 +94,8 @@ and a Python optomization. Find the repository [here](https://github.com/peterka
 Physics degree at McGill University with Dean’s Honour \
 List distinction. Final GPA of 3.96/4 and collaborated with \
 professors in cosmology and particle physics research.',
-  renderByDefault: true,
+    renderByDefault: true,
+    iconUrl:'/images/cv/mcgill.svg',
   },
   {
     startYear: 2016,
@@ -97,6 +104,7 @@ professors in cosmology and particle physics research.',
     location: 'Marianopolis College',
     description: `TODO`,
     renderByDefault: false,
+    iconUrl:'/images/cv/marianopolis.webp',
   },
   {
     startYear: 2016,
@@ -105,6 +113,7 @@ professors in cosmology and particle physics research.',
     location: 'Selwyn House School',
     description: `TODO`,
     renderByDefault: false,
+    iconUrl:'/images/cv/selwyn.jpg',
   },
 ];
 
@@ -120,6 +129,7 @@ export const allAwardsData: CVEntryProps[] = [
 grant for outstanding applicants to the faculty of Basic \
 Sciences. This scholarship was renewed for a second year.',
     renderByDefault: true,
+    iconUrl:'/images/cv/epfl.svg',
   },
   {
     startYear: 2021,
@@ -128,6 +138,7 @@ Sciences. This scholarship was renewed for a second year.',
     location: "McGill University",
     description: "TODO",
     renderByDefault: true,
+    iconUrl:'/images/cv/mcgill.svg',
   },
   {
     startYear: 2020,
@@ -137,6 +148,7 @@ Sciences. This scholarship was renewed for a second year.',
     description: 'Granted an Undergraduate Student Research Award by \
 NSERC for 2020 with Professor Brigitte Vachon.',
   renderByDefault: true,
+    iconUrl:'/images/cv/NSERC_RGB.svg',
   },
   {
     startYear: 2020,
@@ -147,5 +159,6 @@ NSERC for 2020 with Professor Brigitte Vachon.',
 at the European Organization for Nuclear Research that \
 was unfortunately cancelled for COVID-19. ',
   renderByDefault: true,
+  iconUrl:'/images/cv/ipp_can.png',
   },
 ];

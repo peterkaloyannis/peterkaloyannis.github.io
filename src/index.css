@@ -107,12 +107,12 @@ hr {
   }
   /* Navigation back link */
   .back-link {
-    @apply font-medium hover:underline;
+    @apply font-medium underline hover:brightness-110;
     color: var(--color-accent-loud);
   }
   /* Inline hyperlink (use anywhere outside of prose/markdown) */
   .link {
-    @apply hover:underline;
+    @apply underline hover:brightness-110;
     color: var(--color-accent-loud);
   }
 
@@ -133,8 +133,8 @@ hr {
   }
   /* Prose styles for markdown-rendered content */
   .content-prose {
-    @apply prose max-w-5xl [&>div>*:first-child]:mt-0
-      prose-a:no-underline
+    @apply prose max-w-none [&>div>*:first-child]:mt-0
+      prose-a:underline prose-a:hover:brightness-110
       prose-pre:shadow-lg prose-pre:rounded-xl
       prose-code:px-1.5 prose-code:py-1.5 prose-code:rounded-md
       prose-code:before:content-none prose-code:after:content-none;
