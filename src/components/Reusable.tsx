@@ -180,6 +180,7 @@ export interface CVEntryProps {
   description: string;
   renderByDefault: boolean;
   iconUrl?: string;
+  icon?: ElementType;
 }
 
 
@@ -199,17 +200,17 @@ function formatYearRange(startYear: number | string , endYear: number | string):
   return `${startYear}-${endYear}`;
 }
 
-export function CVEntry({ title, startYear, endYear, location, description, iconUrl }: CVEntryProps): ReactElement {
+export function CVEntry({ title, startYear, endYear, location, description, iconUrl, icon: Icon = User }: CVEntryProps): ReactElement {
 
   const date = formatYearRange(startYear, endYear);
 
   return (
-    <div className="card">
+    <div className="card !pb-2 md:!pb-3">
       <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-2 gap-2">
         <div className="flex items-center space-x-3">
           {iconUrl
             ? <img src={iconUrl} alt={location} className="w-10 h-10 md:w-14 md:h-14 object-contain rounded-md flex-shrink-0" />
-            : <User className="w-10 h-10 md:w-8 md:h-8 flex-shrink-0" />
+            : <Icon className="w-10 h-10 md:w-8 md:h-8 flex-shrink-0" />
           }
           <div>
             <h3 className="text-lg md:text-xl font-bold">{title}</h3>

@@ -21,6 +21,9 @@ import {
   allExperienceData,
   allEducationData,
   allAwardsData,
+  allTalksAndPublicationsData,
+  allExtracurricularsData,
+  allServiceData,
  } from '../content/cvData';
 
 const allCVEntries = [...allExperienceData, ...allEducationData, ...allAwardsData];
@@ -33,10 +36,12 @@ type SectionState = {
   education: boolean;
   awards: boolean;
   service: boolean;
+  talksAndPublications: boolean;
+  extracurriculars: boolean;
 }
 
-const ALL_OPEN: SectionState  = { experience: true,  education: true,  awards: true,  service: true  };
-const ALL_CLOSED: SectionState = { experience: false, education: false, awards: false, service: false };
+const ALL_OPEN: SectionState  = { experience: true,  education: true,  awards: true,  service: true,  talksAndPublications: true,  extracurriculars: true  };
+const ALL_CLOSED: SectionState = { experience: false, education: false, awards: false, service: false, talksAndPublications: false, extracurriculars: false };
 
 function filterCVEntry(
   startYear:string ,
@@ -47,16 +52,14 @@ function filterCVEntry(
   const start = parseInt(startYear) || 0;
   const end = parseInt(endYear) || 9999;
 
-  return entries.filter((item) => {
-    if (!item.renderByDefault && !showFullCV) {
-      return false;
-    }
-
-    const itemStart = item.startYear;
-    const itemEnd = getNumericEndYear(item);
-
-    return Math.max(start, itemStart) <= Math.min(end, itemEnd);
-  });
+  return entries
+    .filter((item) => {
+      if (!item.renderByDefault && !showFullCV) return false;
+      const itemStart = item.startYear;
+      const itemEnd = getNumericEndYear(item);
+      return Math.max(start, itemStart) <= Math.min(end, itemEnd);
+    })
+    .sort((a, b) => getNumericEndYear(b) - getNumericEndYear(a));
 }
 
 export default function CVPage(): ReactElement {
@@ -79,8 +82,8 @@ export default function CVPage(): ReactElement {
   const expandAll  = () => setOpenSections(ALL_OPEN);
   const collapseAll = () => setOpenSections(ALL_CLOSED);
 
-  const [filteredExperience, filteredEducation, filteredAwards] = useMemo(
-    () => [allExperienceData, allEducationData, allAwardsData].map(
+  const [filteredExperience, filteredEducation, filteredAwards, filteredTalksAndPublications, filteredExtracurriculars, filteredService] = useMemo(
+    () => [allExperienceData, allEducationData, allAwardsData, allTalksAndPublicationsData, allExtracurricularsData, allServiceData].map(
       entries => filterCVEntry(startYear, endYear, showFullCV, entries)
     ),
     [startYear, endYear, showFullCV]
@@ -159,6 +162,16 @@ export default function CVPage(): ReactElement {
           </div>
         </CollapsibleText>
 
+        <CollapsibleText title="Talks & Publications" isOpen={openSections.talksAndPublications} onToggle={() => toggleSection('talksAndPublications')} variant="heading">
+          <div className="space-y-4">
+            {filteredTalksAndPublications.length > 0 ? (
+              filteredTalksAndPublications.map((item) => <CVEntry key={item.title} {...item} />)
+            ) : (
+              <p className="italic">No talks or publications found for the selected date range.</p>
+            )}
+          </div>
+        </CollapsibleText>
+
         <CollapsibleText title="Education" isOpen={openSections.education} onToggle={() => toggleSection('education')} variant="heading">
           <div className="space-y-4">
             {filteredEducation.length > 0 ? (
@@ -179,9 +192,24 @@ export default function CVPage(): ReactElement {
           </div>
         </CollapsibleText>
 
-        {/* TODO: wire up allServiceData in cvData.tsx to populate this section */}
+        <CollapsibleText title="Extracurriculars" isOpen={openSections.extracurriculars} onToggle={() => toggleSection('extracurriculars')} variant="heading">
+          <div className="space-y-4">
+            {filteredExtracurriculars.length > 0 ? (
+              filteredExtracurriculars.map((item) => <CVEntry key={item.title} {...item} />)
+            ) : (
+              <p className="italic">No extracurriculars found for the selected date range.</p>
+            )}
+          </div>
+        </CollapsibleText>
+
         <CollapsibleText title="Community Service" isOpen={openSections.service} onToggle={() => toggleSection('service')} variant="heading">
-          <p className="italic">No entries yet.</p>
+          <div className="space-y-4">
+            {filteredService.length > 0 ? (
+              filteredService.map((item) => <CVEntry key={item.title} {...item} />)
+            ) : (
+              <p className="italic">No community service found for the selected date range.</p>
+            )}
+          </div>
         </CollapsibleText>
       </div>
     </PageWithSidebar>

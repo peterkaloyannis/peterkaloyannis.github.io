@@ -75,7 +75,7 @@ export default function HomePage(): ReactElement {
 
       {/* Controls row: prev chevron, dot indicators, next chevron */}
       <div className="flex items-center justify-center gap-2 mb-4 shrink-0">
-        <button onClick={() => emblaApi?.scrollPrev()} className="text-[var(--color-text-muted)] hover:text-[var(--color-accent)] hover:scale-125 transition-all duration-150">
+        <button onClick={() => { emblaApi?.scrollPrev(); resetRingAndTimer(); }} className="text-[var(--color-text-muted)] hover:text-[var(--color-accent)] hover:scale-125 transition-all duration-150">
           <ChevronLeft className="w-4 h-4" />
         </button>
 
@@ -111,7 +111,7 @@ export default function HomePage(): ReactElement {
           </button>
         ))}
 
-        <button onClick={() => emblaApi?.scrollNext()} className="text-[var(--color-text-muted)] hover:text-[var(--color-accent)] hover:scale-125 transition-all duration-150">
+        <button onClick={() => { emblaApi?.scrollNext(); resetRingAndTimer(); }} className="text-[var(--color-text-muted)] hover:text-[var(--color-accent)] hover:scale-125 transition-all duration-150">
           <ChevronRight className="w-4 h-4" />
         </button>
       </div>
