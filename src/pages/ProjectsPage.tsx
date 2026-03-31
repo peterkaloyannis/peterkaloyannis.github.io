@@ -54,6 +54,13 @@ export default function ProjectsPage(): ReactElement {
         />
         <ProjectCard
           icon={Code}
+          title="TODO: CERN THING"
+          description="Disruption Statistics is a codebase that aims to provide a tokamak agnostic computing framework for computing disruptivity [1/s] values from time series data."
+          href="https://github.com/peterkaloyannis/disruptionStatistics"
+          imageUrl="/images/projects/cmod_trajectory.jpg"
+        />
+        <ProjectCard
+          icon={Code}
           title="CMBStraightStrings"
           description="A Python 3 CMB anisotropy simulator with cosmic strings based on a scale invariant analytic model of long straight strings. This Python 3 program is the evolution of the C program CMBEdge but without any of the edge detection based on the Canny algorithm."
           href="https://gitlab.com/oscarhdz/cmbstraightstrings"
