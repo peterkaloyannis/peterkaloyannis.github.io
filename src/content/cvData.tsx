@@ -60,7 +60,7 @@ students was hit or miss because I actually made them work.`,
     endYear: "",
     title: 'Teaching Assistant',
     location: 'Marianopolis College',
-    description: `I was a TA for an Waves and Electrostatics class at 
+    description: `I was a TA for a Waves and Electrostatics class at 
 my CEGEP that was being taught by Dr. Oscar Hernández to build up
 funds for my Master's Degree. I helped with correcting mostly and
 did not host any tutorial sessions.`,
@@ -72,7 +72,7 @@ did not host any tutorial sessions.`,
     endYear: 2018,
     title: 'Hospital Researcher',
     location: 'MUHC Research Institute',
-    description: `This was my first foire into academia at the MUCH
+    description: `This was my first foray into academia at the MUHC
 Research Institute's drug development lab. Here I worked with Dr. 
 Sanjoy Kumar Das as he guided me through reading my first white 
 papers and assembling a review article on MALDI and HR MAS machines.
@@ -126,11 +126,13 @@ export const allEducationData: CVEntryProps[] = [
     title: 'MSc. In Applied Physics',
     location: 'École polytechnique fédérale de Lausanne (EPFL)',
     description: `Graduated as a student in Applied Physics with a Masters
-Fellowship and a final GPA of 5.41/6. Conducted a geometric optimization study on the
-Fast Ion Loss Detector (FILD) and did initial scoping of a planned avalanche photodiode upgrade
+Fellowship and a final GPA of 5.41/6. Conducted a collimator geometric optimization study, 
+upgraded the high-speed camera, and did initial scoping of a planned avalanche photodiode 
+upgrade on the Fast Ion Loss Detector (FILD) of the Tokamak à configuration variable (TCV)
 ([now in service](https://pubs.aip.org/aip/rsi/article/96/8/083504/3358340/Design-and-upgrades-of-the-TCV-fast-ion-loss)).
-Thesis was supervised by Dr. Ambrogio Fasoli of EPFL and Dr. Cristina Rea of MIT on the disruptivity
-metric. Find the repository [here](https://github.com/peterkaloyannis/disruptionStatistics).`,
+Completed a 12 month internship at Commonwealth Fusion Systems (CFS) as part of the
+program. Master's thesis was supervised by Dr. Ambrogio Fasoli of EPFL and Dr. Cristina 
+Rea of MIT on the disruptivity metric (see below).`,
     renderByDefault: true,
     iconUrl: '/images/cv/epfl.svg',
   },
@@ -157,7 +159,7 @@ Find the repository [here](https://github.com/peterkaloyannis/disruptionStatisti
 Physics degree at McGill University with Dean's Honour
 List & Distinction. Final GPA of 3.96/4 and collaborated with
 professors in cosmology and particle physics research.
-Did extra curricular work in machining and passed machine shop certification.
+Did extracurricular work in machining and passed machine shop certification.
 Given the ***Couldn't Live Without You*** award at the graduation ceremony!`,
     renderByDefault: true,
     iconUrl: '/images/cv/mcgill.svg',
@@ -266,7 +268,7 @@ door is not quite closed yet!`,
     endYear: 'Present',
     title: 'Sports',
     location: 'Various Leagues (RSEQ, GMAA, Lac St. Louis, etc.)',
-    description: `Over the year I have played many sports competitively, examples are
+    description: `Over the years I have played many sports competitively, examples are
 football, rugby, baseball, hockey, soccer, and ultimate frisbee. I was the captain
 of many of those teams and had a couple of MVP awards under my belt! While I am not the
 athlete I used to be, I actually still regularly play most in that list casually!
@@ -281,7 +283,7 @@ sports stats about me and a HUDL profile.`,
     title: 'Hackathons & Game Jams',
     location: 'Various Organizations (McGill, CERN, itch.io, etc.)',
     description: `I always love a good time boxed window to turn a vague prompt into a
-realized idea! I have completed in many hackathons over the years where I built things from
+realized idea! I have competed in many hackathons over the years where I built things from
 [galactic orbit simulators](https://github.com/peterkaloyannis/McGillHackathon2019) 
 to [snowflake generators](https://github.com/Beau-Coup/phys-hackathon-2020) 
 (the latter won second place)! I am now dipping my toes into 
@@ -300,7 +302,7 @@ export const allAwardsData: CVEntryProps[] = [
     endYear: 2022,
     title: 'Masters Fellowship',
     location: 'École polytechnique fédérale de Lausanne (EPFL)',
-    description: `Recieved an EPFL Masters Fellowship, for a total
+    description: `Received an EPFL Masters Fellowship, for a total
 of 40 000 CHF over two years. This grant is given to
 outstanding applicants to the Faculty of Basic Sciences (FSB) and
 was renewed upon demonstrated excellence.`,

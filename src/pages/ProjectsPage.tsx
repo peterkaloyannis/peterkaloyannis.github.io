@@ -54,10 +54,10 @@ export default function ProjectsPage(): ReactElement {
         />
         <ProjectCard
           icon={Code}
-          title="TODO: CERN THING"
-          description="Disruption Statistics is a codebase that aims to provide a tokamak agnostic computing framework for computing disruptivity [1/s] values from time series data."
-          href="https://github.com/peterkaloyannis/disruptionStatistics"
-          imageUrl="/images/projects/cmod_trajectory.jpg"
+          title="LHC Muon Detector Misalignments"
+          description="Worked on characterizing misalignments in the small Thin Gap Detectors (sTGCs) for the New Small Wheel (NSW) of the High Luminosity upgrade for the Large Hadron Collider (LHC)."
+          href="https://particlephysics.ca/wp/wp-content/uploads/CERN_summer_student_report_2020_Panagiotis_Kaloyannis.pdf"
+          imageUrl="/images/projects/nsw.png"
         />
         <ProjectCard
           icon={Code}
