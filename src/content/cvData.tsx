@@ -26,14 +26,14 @@ Epsilon3, Rust, Ignition, Bash, Github, Jira and many more.`,
     title: 'Physics Research Intern',
     location: 'Ubisoft Laforge',
     description: `Worked to develop fluid physics simulations with hardware independent
-adaptive resolution. Techniques involved both analytical and deep learning methods.
-Implementation done in Python, OpenGl and CUDA.`,
+adaptive resolution for the next generation of video games. Techniques involved both 
+analytical and deep learning methods. Implementation done in Python, OpenGl and CUDA.`,
     renderByDefault: true,
     iconUrl: '/images/cv/laforge.png',
   },
   {
-    startYear: 2020,
-    endYear: 2022,
+    startYear: 2019,
+    endYear: 2021,
     title: 'Research Assistant',
     location: 'McGill University',
     description: `Research assistant at the McGill sTGC lab with Dr. Brigitte Vachon
@@ -45,20 +45,25 @@ Work was done in C++, ROOT, and Python.`,
     iconUrl: '/images/cv/mcgill.svg',
   },
   {
-    startYear: 2020,
-    endYear: 2022,
-    title: 'Substitue Teacher',
+    startYear: 2019,
+    endYear: "",
+    title: 'Substitute Teacher',
     location: 'Selwyn House School',
-    description: `TODO`,
+    description: `I was a substitute teacher at my high school for 
+a year to build funds for my Master's Degree! My popularity among 
+students was hit or miss because I actually made them work.`,
     renderByDefault: false,
     iconUrl: '/images/cv/selwyn.jpg',
   },
   {
-    startYear: 2020,
-    endYear: 2022,
+    startYear: 2019,
+    endYear: "",
     title: 'Teaching Assistant',
     location: 'Marianopolis College',
-    description: `TODO`,
+    description: `I was a TA for an Waves and Electrostatics class at 
+my CEGEP that was being taught by Dr. Oscar Hernández to build up
+funds for my Master's Degree. I helped with correcting mostly and
+did not host any tutorial sessions.`,
     renderByDefault: false,
     iconUrl: '/images/cv/marianopolis.webp',
   },
@@ -204,7 +209,7 @@ protection. [Link to Abstract](https://meetings.aps.org/Meeting/DPP24/Session/TO
     endYear: "",
     title: 'A Deep Dive Into Disruptivity: Learning to Predict and Avoid Disruptions',
     location: 'APS Division of Plasma Physics (DPP23)',
-    description: `Poster presented at the High Field Session of the APS DPP meeting.
+    description: `Poster presented at the High Field poster session of the APS DPP meeting.
 Explores disruptivity metrics for tokamak operations, presenting data-driven methods
 for boundary mapping and real-time disruption avoidance.
 [Link to Abstract](https://meetings.aps.org/Meeting/DPP24/Session/TO06.14)`,
@@ -233,16 +238,6 @@ on the special weekend!`,
     startYear: 2019,
     endYear: 2019,
     title: 'Note Taker',
-    location: 'McGill University',
-    description: `I did some note taking while at McGill to support classmates who
-had fallen ill or had disabilities!`,
-    renderByDefault: false,
-    iconUrl: '/images/cv/mcgill.svg',
-  },
-  {
-    startYear: 2019,
-    endYear: 2019,
-    title: 'YPI',
     location: 'McGill University',
     description: `I did some note taking while at McGill to support classmates who
 had fallen ill or had disabilities!`,
@@ -308,19 +303,21 @@ export const allAwardsData: CVEntryProps[] = [
     description: `Recieved an EPFL Masters Fellowship, for a total
 of 40 000 CHF over two years. This grant is given to
 outstanding applicants to the Faculty of Basic Sciences (FSB) and
-renewed upon demonstrated excellence.`,
+was renewed upon demonstrated excellence.`,
     renderByDefault: true,
     iconUrl: '/images/cv/epfl.svg',
   },
   {
-    startYear: 2020,
-    endYear: 2021,
+    startYear: 2021,
+    endYear: "",
     title: 'Undergraduate Student Research Award (USRA)',
     location: 'Natural Sciences and Engineering Research Council (NSERC)',
     description: `Granted an Undergraduate Student Research Award (USRA) by
 NSERC for work characterizing the LHC at CERN with Professor
-Brigitte Vachon. The grant paid CA$4500 for the 16 week project. Find the
-grant linked [here](https://nserc-crsng.canada.ca/en/awards-database/703541).`,
+Brigitte Vachon. The grant paid CA$4500 from NSERC and CA$1500 
+from the Fonds de Recherche de Québec (FRQNT) for the 16 week project. Find the
+grants linked [here](https://nserc-crsng.canada.ca/en/awards-database/703541)
+and [here](https://doi.org/10.69777/297074).`,
     renderByDefault: true,
     iconUrl: '/images/cv/NSERC_RGB.svg',
   },
@@ -334,5 +331,16 @@ at CERN. The scoped project originally included working directly on the
 ATLAS detector installation, but had to be scoped down due to COVID-19.`,
     renderByDefault: true,
     iconUrl: '/images/cv/ipp_can.png',
+  },
+  {
+    startYear: 2020,
+    endYear: "",
+    title: `Member of the Cum Laude Society`,
+    location: 'Cum Laude Society',
+    description: `Inducted member of the Cum Laude Society which 
+recognizes students of high academic caliber all around the 
+world. Elected by members of Selwyn House faculty.`,
+    renderByDefault: false,
+    iconUrl: '/images/cv/laude.jpg',
   },
 ];
