@@ -5,6 +5,7 @@ activeTime: 30 minutes
 totalTime: 30 minutes
 date: 03/29/2026
 summary: The classic Montreal style hot dog. Paulo and Suzanne's... my heart goes out to you.
+imageUrl: /images/recipes/hotdog.jpg
 tags:
   - main
   - street food

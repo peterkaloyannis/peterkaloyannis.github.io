@@ -4,7 +4,7 @@ serves: 12
 activeTime: 3 hours
 totalTime: 24 hours
 date: 03/29/2026
-imageUrl: /images/recipes/tiramisu.png
+imageUrl: /images/recipes/tiramisu.jpg
 summary: I developed this recipe for my friend Ian's birthday in 2024. It is different but tasty!
 tags:
   - dessert

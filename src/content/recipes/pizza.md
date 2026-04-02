@@ -5,6 +5,7 @@ activeTime: 2 hours
 totalTime: 4 hours
 date: 03/29/2026
 summary: This is my favorite over pizza recipe. My date night at home food! High effort!
+imageUrl: /images/recipes/nyc_pizza.jpg
 tags:
   - main
   - bread
