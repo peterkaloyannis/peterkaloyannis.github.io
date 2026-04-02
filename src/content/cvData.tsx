@@ -155,8 +155,8 @@ Find the repository [here](https://github.com/peterkaloyannis/disruptionStatisti
     endYear: 2021,
     title: 'BSc. In Honors Math and Physics',
     location: 'McGill University',
-    description: `Graduated as a student in an Honors Mathematics and
-Physics degree at McGill University with Dean's Honour
+    description: `Graduated as a student in Honors Mathematics and
+Physics at McGill University with Dean's Honour
 List & Distinction. Final GPA of 3.96/4 and collaborated with
 professors in cosmology and particle physics research.
 Did extracurricular work in machining and passed machine shop certification.
@@ -264,7 +264,7 @@ door is not quite closed yet!`,
     icon: Bot,
   },
   {
-    startYear: 2008,
+    startYear: 2003,
     endYear: 'Present',
     title: 'Sports',
     location: 'Various Leagues (RSEQ, GMAA, Lac St. Louis, etc.)',
@@ -282,8 +282,7 @@ sports stats about me and a HUDL profile.`,
     endYear: "Present",
     title: 'Hackathons & Game Jams',
     location: 'Various Organizations (McGill, CERN, itch.io, etc.)',
-    description: `I always love a good time boxed window to turn a vague prompt into a
-realized idea! I have competed in many hackathons over the years where I built things from
+    description: `I have competed in many hackathons over the years where I built things from
 [galactic orbit simulators](https://github.com/peterkaloyannis/McGillHackathon2019) 
 to [snowflake generators](https://github.com/Beau-Coup/phys-hackathon-2020) 
 (the latter won second place)! I am now dipping my toes into 
@@ -310,11 +309,11 @@ was renewed upon demonstrated excellence.`,
     iconUrl: '/images/cv/epfl.svg',
   },
   {
-    startYear: 2021,
+    startYear: 2020,
     endYear: "",
     title: 'Undergraduate Student Research Award (USRA)',
     location: 'Natural Sciences and Engineering Research Council (NSERC)',
-    description: `Granted an Undergraduate Student Research Award (USRA) by
+    description: `Granted a Undergraduate Student Research Award (USRA) by
 NSERC for work characterizing the LHC at CERN with Professor
 Brigitte Vachon. The grant paid CA$4500 from NSERC and CA$1500 
 from the Fonds de Recherche de Québec (FRQNT) for the 16 week project. Find the
@@ -335,7 +334,7 @@ ATLAS detector installation, but had to be scoped down due to COVID-19.`,
     iconUrl: '/images/cv/ipp_can.png',
   },
   {
-    startYear: 2020,
+    startYear: 2016,
     endYear: "",
     title: `Member of the Cum Laude Society`,
     location: 'Cum Laude Society',

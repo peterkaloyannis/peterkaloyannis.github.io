@@ -122,7 +122,7 @@ export default function CVPage(): ReactElement {
             Collapse All
           </button>
         </div>
-        <a href="/placeholder-cv.pdf" download className="btn-primary w-full">
+        <a href="/CV_PKaloyannis_2026.pdf" download className="btn-primary w-full">
           Download PDF
         </a>
         <div className="mt-3">
