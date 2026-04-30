@@ -1,13 +1,24 @@
 <!-- index.html -->
 <!doctype html>
-<html lang="en">
+<html lang="en" style="background:#1c1714">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/jpeg" href="/chloe.jpg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <!-- GitHub Pages SPA redirect restore -->
+    <script>
+      (function() {
+        var redirect = sessionStorage.getItem('spa_redirect');
+        if (redirect) {
+          sessionStorage.removeItem('spa_redirect');
+          history.replaceState(null, null, redirect);
+        }
+      })();
+    </script>
+
     <!-- Google Search Console -->
-    <meta name="google-site-verification" content="67UUi8AvTqRAz2fjTNGMkbQl6vl72O7uMVk8HTtOkfI" />
+    <meta name="google-site-verification" content="84fiqEGTX5i1djh9F7g0nrtFYasj7WUkn0fPmXxsrjo" />
 
     <!-- SEO -->
     <meta name="description" content="Peter (Panagiotis) Kaloyannis' website. Come here for projects, opinions, recipes, and a good time!" />
@@ -36,12 +47,27 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <title>The Peter Zone</title>
-    <script type="module" crossorigin src="/assets/index-PP1flTVd.js"></script>
+
+    <!-- JSON-LD Person Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Panagiotis Kaloyannis",
+      "alternateName": "Peter Kaloyannis",
+      "url": "https://peterkaloyannis.github.io/",
+      "sameAs": [
+        "https://github.com/peterkaloyannis",
+        "https://scholar.google.com/citations?user=_zY2gt4AAAAJ"
+      ]
+    }
+    </script>
+    <script type="module" crossorigin src="/assets/index-Bfm00sWc.js"></script>
     <link rel="modulepreload" crossorigin href="/assets/vendor-react-Dh3zDKDA.js">
     <link rel="modulepreload" crossorigin href="/assets/vendor-katex-C1nWmnyx.js">
     <link rel="modulepreload" crossorigin href="/assets/vendor-markdown-CakUIdZB.js">
     <link rel="modulepreload" crossorigin href="/assets/vendor-search-Dw8P0qyA.js">
-    <link rel="stylesheet" crossorigin href="/assets/index-JU-bgLao.css">
+    <link rel="stylesheet" crossorigin href="/assets/index-Bg5TGgxn.css">
   </head>
   <body>
     <div id="root"></div>
