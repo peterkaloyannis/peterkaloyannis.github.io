@@ -1,5 +1,5 @@
 import { type ReactElement, type ElementType, useState } from 'react';
-import type { AppRoutePage } from '../types';
+import { useLocation, Link } from 'react-router-dom';
 import { Home, Presentation, Newspaper, BookOpen, FileText, GraduationCap, Menu, X } from 'lucide-react';
 import { Github, OrcidIcon } from './CustomIcons';
 
@@ -8,17 +8,13 @@ import { Github, OrcidIcon } from './CustomIcons';
  * Renders the fixed navigation bar on the left (desktop)
  * or a sticky, collapsible header (mobile).
  */
-interface SidebarProps {
-  currentPage: AppRoutePage;
-}
-
 // Nav link definitions — single source of truth for both mobile and desktop.
 const NAV_LINKS = [
-  { icon: Home,         label: 'Home',     href: '#/home',     page: 'home' as AppRoutePage },
-  { icon: Presentation, label: 'Projects', href: '#/projects', page: 'projects' as AppRoutePage },
-  { icon: Newspaper,    label: 'Blog',     href: '#/blog',     page: 'blog' as AppRoutePage },
-  { icon: BookOpen,     label: 'Recipes',  href: '#/recipes',  page: 'recipes' as AppRoutePage },
-  { icon: FileText,     label: 'CV',       href: '#/cv',       page: 'cv' as AppRoutePage },
+  { icon: Home,         label: 'Home',     href: '/'         },
+  { icon: Presentation, label: 'Projects', href: '/projects' },
+  { icon: Newspaper,    label: 'Blog',     href: '/blog'     },
+  { icon: BookOpen,     label: 'Recipes',  href: '/recipes'  },
+  { icon: FileText,     label: 'CV',       href: '/cv'       },
 ];
 
 const SOCIAL_LINKS = [
@@ -27,16 +23,15 @@ const SOCIAL_LINKS = [
   { href: 'https://scholar.google.com/citations?user=_zY2gt4AAAAJ&hl=en',           icon: GraduationCap, label: 'Google Scholar' },
 ];
 
-export default function Sidebar({ currentPage }: SidebarProps): ReactElement {
+export default function Sidebar(): ReactElement {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { pathname } = useLocation();
 
   const handleLinkClick = () => setIsMobileMenuOpen(false);
 
-  // Blog sub-pages should keep the Blog nav link highlighted.
-  const isLinkActive = (page: AppRoutePage) =>
-    page === 'blog'
-      ? currentPage === 'blog' || currentPage === 'blog-post'
-      : currentPage === page;
+  // Match active link by pathname prefix
+  const isLinkActive = (href: string) =>
+    href === '/' ? pathname === '/' : pathname.startsWith(href);
 
   return (
     // Mobile: 'sticky top-0' to keep it visible, 'z-50' to stay on top.
@@ -75,13 +70,13 @@ export default function Sidebar({ currentPage }: SidebarProps): ReactElement {
           >
             <div className="overflow-hidden">
               <nav className="flex flex-col pt-4 px-2">
-                {NAV_LINKS.map(({ icon, label, href, page }) => (
+                {NAV_LINKS.map(({ icon, label, href }) => (
                   <SidebarLink
-                    key={page}
+                    key={href}
                     icon={icon}
                     label={label}
                     href={href}
-                    isActive={isLinkActive(page)}
+                    isActive={isLinkActive(href)}
                     onClick={handleLinkClick}
                   />
                 ))}
@@ -101,13 +96,13 @@ export default function Sidebar({ currentPage }: SidebarProps): ReactElement {
           {/* --- Desktop Navigation --- */}
           <div className="hidden lg:block">
             <nav className="flex flex-col space-y-4 pt-12">
-              {NAV_LINKS.map(({ icon, label, href, page }) => (
+              {NAV_LINKS.map(({ icon, label, href }) => (
                 <SidebarLink
-                  key={page}
+                  key={href}
                   icon={icon}
                   label={label}
                   href={href}
-                  isActive={isLinkActive(page)}
+                  isActive={isLinkActive(href)}
                   onClick={() => {}}
                 />
               ))}
@@ -143,13 +138,13 @@ interface SidebarLinkProps {
 
 function SidebarLink({ icon: Icon, label, isActive, href, onClick }: SidebarLinkProps): ReactElement {
   return (
-    <a
-      href={href}
+    <Link
+      to={href}
       onClick={onClick}
       className={`nav-link ${isActive ? 'nav-link-active' : ''}`}
     >
       <Icon className="w-5 h-5" />
       <span>{label}</span>
-    </a>
+    </Link>
   );
 }

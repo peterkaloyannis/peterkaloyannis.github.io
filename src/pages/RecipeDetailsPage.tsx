@@ -1,26 +1,23 @@
 import { MarkdownRenderer, RecipeMetadataPanel, NotFound } from '../components/Reusable';
-import { allRecipes } from '../content/recipeData'; 
+import { allRecipes } from '../content/recipeData';
 import { type ReactElement } from 'react';
+import { useParams, Link } from 'react-router-dom';
 
-interface RecipeDetailsPageProps {
-  slug: string;
-}
-
-export default function RecipeDetailsPage({ slug }: RecipeDetailsPageProps): ReactElement {
-  // Find the specific recipe based on the URL slug
+export default function RecipeDetailsPage(): ReactElement {
+  const { slug } = useParams<{ slug: string }>();
   const recipe = allRecipes.find(r => r.slug === slug);
   
   if (!recipe) {
     return (
-      <NotFound message="Recipe not found." backHref="#/recipes" backLabel="Back to all recipes" />
+      <NotFound message="Recipe not found." backHref="/recipes" backLabel="Back to all recipes" />
     );
   }
 
   return (
     <section>
-      <a href="#/recipes" className="inline-block back-link mb-8">
+      <Link to="/recipes" className="inline-block back-link mb-8">
         &larr; Back to all recipes
-      </a>
+      </Link>
 
       <h1 className="text-3xl md:text-5xl font-extrabold mb-2">{recipe.title}</h1>
       <p className="text-lg mb-8" style={{ color: 'var(--color-text-muted)' }}>

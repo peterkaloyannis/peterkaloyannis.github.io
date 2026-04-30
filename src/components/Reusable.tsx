@@ -1,6 +1,7 @@
 // src/components/Reusable.tsx
 
 import { type ReactElement, type ElementType, type ReactNode, type ChangeEvent } from 'react';
+import { Link } from 'react-router-dom';
 import { ChevronDown, BookOpen, ExternalLink, Search, Code, User, X } from 'lucide-react';
 import { marked } from 'marked';
 import markedKatex from 'marked-katex-extension';
@@ -455,14 +456,14 @@ interface BlogPostCardProps {
 
 export function BlogPostCard({ slug, title, date, summary, imageUrl }: BlogPostCardProps) {
   return (
-    <a href={`#/blog/${slug}`} className="card-interactive-flush hover:scale-[1.01]">
+    <Link to={`/blog/${slug}`} className="card-interactive-flush hover:scale-[1.01]">
       <RecipeImageOrPlaceholder imageUrl={imageUrl} title={title} />
       <div className="p-6">
         <h3 className="text-xl font-bold mb-1">{title}</h3>
         <p className="text-sm mb-3" style={{ color: 'var(--color-text-muted)' }}>{date}</p>
         <p className="leading-relaxed line-clamp-2">{summary}</p>
       </div>
-    </a>
+    </Link>
   );
 }
 
@@ -535,16 +536,17 @@ export function RecipeCard({
     </>
   );
 
-  const href = isCurated ? sourceUrl : `#/recipe-details/${slug}`;
+  if (isCurated) {
+    return (
+      <a href={sourceUrl} target="_blank" rel="noopener noreferrer" className="card-interactive-flush hover:scale-[1.01]">
+        {cardContent}
+      </a>
+    );
+  }
   return (
-    <a
-      href={href}
-      target={isCurated ? "_blank" : undefined}
-      rel={isCurated ? "noopener noreferrer" : undefined}
-      className="card-interactive-flush hover:scale-[1.01]"
-    >
+    <Link to={`/recipe-details/${slug}`} className="card-interactive-flush hover:scale-[1.01]">
       {cardContent}
-    </a>
+    </Link>
   );
 }
 

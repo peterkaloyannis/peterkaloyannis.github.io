@@ -84,7 +84,7 @@ This never got published, but working here is a fond memory of mine.`,
     startYear: 2013,
     endYear: 2021,
     title: 'Tutor',
-    location: 'Various Institutions (Selwyn, House',
+    location: 'Various Institutions or Privately',
     description: `Mentored and tutored High School, CEGEP, and Undergraduate
 students in Math, Physics and English. This was done privately, but also
 through college (Marianopolis) and university (McGill) programs.`,

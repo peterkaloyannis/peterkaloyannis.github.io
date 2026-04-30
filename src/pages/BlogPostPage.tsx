@@ -1,10 +1,7 @@
 import {type ReactElement} from 'react';
+import { useParams, Link } from 'react-router-dom';
 import { blogPosts } from '../content/blogData';
 import { MarkdownRenderer, NotFound } from '../components/Reusable';
-
-interface BlogPostPageProps {
-  slug: string;
-}
 
 // Helper to format date nicely
 function formatDate(dateString: string): string {
@@ -16,25 +13,22 @@ function formatDate(dateString: string): string {
   });
 }
 
-export default function BlogPostPage({ slug }: BlogPostPageProps): ReactElement {
-  // Find the correct post from the mock data using the slug
+export default function BlogPostPage(): ReactElement {
+  const { slug } = useParams<{ slug: string }>();
   const post = blogPosts.find((p) => p.slug === slug);
 
   // Show a not found message if the slug is invalid
   if (!post) {
-    return <NotFound message="Post not found." backHref="#/blog" backLabel="Back to all posts" />;
+    return <NotFound message="Post not found." backHref="/blog" backLabel="Back to all posts" />;
   }
 
   // Render the post
   return (
     <section id="blog-post" className="max-w-5xl mx-auto">
       {/* Top Back Link */}
-      <a 
-        href="#/blog" 
-        className="inline-block back-link mb-8"
-      >
+      <Link to="/blog" className="inline-block back-link mb-8">
         &larr; Back to all posts
-      </a>
+      </Link>
 
       {/* Post Header */}
       <h1 className="text-3xl md:text-5xl font-extrabold mb-4">{post.title}</h1>
@@ -48,12 +42,9 @@ export default function BlogPostPage({ slug }: BlogPostPageProps): ReactElement 
       </div>
 
       {/* Bottom Back Link -- Include some extra top padding. */}
-      <a 
-        href="#/blog" 
-        className="inline-block back-link mb-8 pt-6"
-      >
+      <Link to="/blog" className="inline-block back-link mb-8 pt-6">
         &larr; Back to all posts
-      </a>
+      </Link>
     </section>
   );
 }

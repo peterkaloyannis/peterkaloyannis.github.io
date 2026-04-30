@@ -1,6 +1,6 @@
 // src/App.tsx
-import { useState, useEffect, type ReactElement } from 'react'
-import type { AppRoute, AppRoutePage } from './types'; 
+import { type ReactElement, useEffect } from 'react'
+import { Routes, Route, useLocation } from 'react-router-dom';
 
 // Import Components
 import Sidebar from './components/Sidebar';
@@ -12,98 +12,44 @@ import ProjectsPage from './pages/ProjectsPage';
 import BlogPage from './pages/BlogPage';
 import RecipesPage from './pages/RecipesPage';
 import CVPage from './pages/CVPage';
-import BlogPostPage from './pages/BlogPostPage'; 
+import BlogPostPage from './pages/BlogPostPage';
 import RecipeDetailsPage from './pages/RecipeDetailsPage';
-
-// Helper function to get the route (page + slug) from the URL hash
-function getRouteFromHash(): AppRoute {
-  const hash = window.location.hash.replace(/^#\/?/, ''); // e.g., "blog/my-post"
-  const parts = hash.split('/');
-
-  // Check for recipe details route: #/recipe-details/[slug]
-  if (parts[0] === 'recipe-details' && parts.length > 1) {
-    return { page: 'recipe-details', slug: parts[1] };
-  }
-  
-  // Check for blog post route: #/blog/[slug]
-  if (parts[0] === 'blog' && parts.length > 1) {
-    return { page: 'blog-post', slug: parts[1] };
-  }
-
-  // Check for standard page routes
-  let page: AppRoutePage = 'home';
-  switch (parts[0]) {
-    case 'projects':
-      page = 'projects';
-      break;
-    case 'blog':
-      page = 'blog';
-      break;
-    case 'recipes':
-      page = 'recipes';
-      break;
-    case 'cv':
-      page = 'cv';
-      break;
-    case 'home':
-    case '':
-      page = 'home';
-      break;
-    default:
-      page = 'not-found';
-      break;
-  }
-  return { page, slug: null };
-}
 
 /**
  * Main Application Component
- * This is the root of your personal website.
  */
 function App(): ReactElement {
-  // State now holds the entire AppRoute object
-  const [route, setRoute] = useState<AppRoute>(getRouteFromHash());
+  const location = useLocation();
 
-  // Effect to listen for URL hash changes
+  // Scroll to top and update page title on route change
   useEffect(() => {
-    const handleHashChange = () => {
-      setRoute(getRouteFromHash());
-      window.scrollTo(0, 0);
+    window.scrollTo(0, 0);
+    const titles: Record<string, string> = {
+      '/':         "Peter Kaloyannis",
+      '/projects': "Peter's Projects",
+      '/blog':     "Peter's Blog",
+      '/recipes':  "Peter's Recipes",
+      '/cv':       "Peter's CV",
     };
-
-    window.addEventListener('hashchange', handleHashChange);
-    
-    return () => {
-      window.removeEventListener('hashchange', handleHashChange);
-    };
-  }, []);
+    const base = '/' + location.pathname.split('/')[1];
+    document.title = titles[base] ?? "The Peter Zone";
+  }, [location.pathname]);
 
   return (
-    // Mobile: 'flex-col'. Desktop: 'flex-row'
     <div className="flex flex-col lg:flex-row min-h-screen font-sans">
-      
-      {/* Sidebar is responsive (sticky mobile, fixed desktop) */}
-      <Sidebar currentPage={route.page} />
-
-      {/* --- 2. Main Content Area --- */}
+      <Sidebar />
       <main className="flex-1 lg:pl-72">
-        <div className="px-6 pt-8 pb-16 md:px-12">          
-          {route.page === 'home' && <HomePage />}
-          {route.page === 'projects' && <ProjectsPage />}
-          {route.page === 'blog' && <BlogPage />}
-          {route.page === 'recipes' && <RecipesPage />}
-          {route.page === 'cv' && <CVPage />}
-          
-          {route.page === 'recipe-details' && route.slug && (
-            <RecipeDetailsPage slug={route.slug} />
-          )}
-          {route.page === 'blog-post' && route.slug && (
-            <BlogPostPage slug={route.slug} />
-          )}
-          {route.page === 'not-found' && (
-            <NotFound message="Page not found." backHref="#/" backLabel="Go home" />
-          )}
-
+        <div className="px-6 pt-8 pb-16 md:px-12">
+          <Routes>
+            <Route path="/"                   element={<HomePage />} />
+            <Route path="/projects"           element={<ProjectsPage />} />
+            <Route path="/blog"               element={<BlogPage />} />
+            <Route path="/blog/:slug"         element={<BlogPostPage />} />
+            <Route path="/recipes"            element={<RecipesPage />} />
+            <Route path="/recipe-details/:slug" element={<RecipeDetailsPage />} />
+            <Route path="/cv"                 element={<CVPage />} />
+            <Route path="*"                   element={<NotFound message="Page not found." backHref="/" backLabel="Go home" />} />
+          </Routes>
         </div>
       </main>
     </div>
